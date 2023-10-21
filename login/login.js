@@ -23,66 +23,72 @@ window.onclick = function (event) {
   }
 };
 
-var checkValidate = function () {
-  var valid = true;
+// var checkValidate = function () {
+//   var valid = true;
 
-  valid =
-    checkEmpty("username", "error", "error1") &
-    checkEmpty("password", "error", "error1");
+//   valid =
+//     checkEmpty("username", "error", "errorNameModal") &
+//     checkEmpty("password", "error", "errorPassModal");
 
-  valid &=
-    checkValidateName("username", "error1") &
-    checkValidatePassword("password", "error1");
+//   valid &=
+//     checkValidateName("username", "errorNameModal") &
+//     checkValidatePassword("password", "errorPassModal");
 
-  if (!valid) {
-    return false;
-  }
-  return valid;
-};
+//   if (!valid) {
+//     return false;
+//   }
+//   return valid;
+// };
 
-// Hàm kiểm tra có ô nhập nào bỏ trống không
-var checkEmpty = function (selectorQuery, selectorEmpty, selectorError) {
-  var input = document.getElementById(selectorQuery).value;
-  var empty = document.getElementById(selectorEmpty);
-  var error = document.getElementById(selectorError);
-  if (input === "") {
-    modalClick();
-    empty.innerHTML =
-      "Vui lòng nhập tên tài khoản và mật khẩu. Không được bỏ trống";
-      error.style.display = "none";
-    return false;
-  } else {
-    empty.style.display = "none";
-  }
-  return true;
-};
+// // Hàm kiểm tra có ô nhập nào bỏ trống không
+// var checkEmpty = function (selectorQuery, selectorEmpty, selectorError) {
+//   var input = document.getElementById(selectorQuery).value;
+//   var empty = document.getElementById(selectorEmpty);
+//   var error = document.getElementById(selectorError);
+//   if (input === "") {
+//     modalClick();
+//     empty.innerHTML =
+//       "Vui lòng nhập tên tài khoản và mật khẩu. Không được bỏ trống";
+//       error.style.display = "none";
+//     return false;
+//   }  else {
+//     modalClick();
+//     error.style.display = "block";
+//     return true;
+//   }
+
+// };
 
 // Hàm kiểm tra tính hợp lệ của username
-var checkValidateName = function (selectorQuery, selectorError) {
+var checkValidateName = function (selectorQuery,  selectorError) {
   var regexName = /^[\p{L}\s]+$/u;
   var input = document.getElementById(selectorQuery).value.trim();
+  var empty = document.getElementById(selectorEmpty);
   var error = document.getElementById(selectorError);
   if (regexName.test(input)) {
     return true;
   } else {
-    modalClick();
+    empty.style.display = "none";
+    error.style.display = "block";
     error.innerHTML =
-      "Đăng nhập không thành công. Vui lòng kiểm tra tên đăng nhập và mật khẩu.";
+      "Vui lòng nhập đúng tên đăng nhập. Không có số và kí tự đặc biệt.";
     return false;
   }
 };
 
 // Hàm kiểm tra tính hợp lệ của password
-var checkValidatePassword = function (selectorQuery, selectorError) {
+var checkValidatePassword = function (selectorQuery,  selectorError) {
   var regexPass = /^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})$/u;
   var input = document.getElementById(selectorQuery).value.trim();
+  var empty = document.getElementById(selectorEmpty);
   var error = document.getElementById(selectorError);
-  if (regexPass.test(input)) {
+ if (regexPass.test(input)) {
     return true;
   } else {
-    modalClick();
+    empty.style.display = "none";
+    error.style.display = "block";
     error.innerHTML =
-      "Đăng nhập không thành công. Vui lòng kiểm tra tên đăng nhập và mật khẩu.";
+    "Mật khẩu phải chứa kí tự đặc biệt, viết hoa, có số và có đội dài từ 6-20.";
     return false;
   }
 };
@@ -188,5 +194,5 @@ var checkEmptySignIn = function (selectorQuery, selectorEmpty,selectorError,sele
   
 };
 
-document.getElementById("submit").onclick = checkValidate;
+// document.getElementById("submit").onclick = checkValidate;
 document.getElementById("submitRegister").onclick = checkSignIn;
