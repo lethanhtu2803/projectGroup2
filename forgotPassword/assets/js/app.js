@@ -31,10 +31,16 @@ var checkValidatePassword = function () {
     return true;
   } else {
     document.getElementById("errorNewPass").innerHTML =
-      "Mật khẩu phải chứa kí tự đặc biệt, viết hoa, có số và có đội dài từ 6-20";
+      "Mật khẩu phải chứa kí tự đặc biệt, viết hoa,viết thường, có số và có đội dài từ 6-20";
     return false;
   }
 };
+form.addEventListener("submit", function(e) {
+  e.preventDefault()
+
+  checkValidatePassword
+
+})
 
 function showPassword() {
   var passwordInput = document.getElementById("newPassword");
@@ -49,7 +55,24 @@ function showPassword() {
     toggleIcon.classList.remove("far", "fa-eye-slash");
     toggleIcon.classList.add("far", "fa-eye");
   }
+
+
+}
+
+function showPassword1() {
+  var confirmPasswordInput = document.getElementById("confirmPassword");
+  var toggleIcon = document.querySelector(".toggle-confirm-password i");
+
+  if (confirmPasswordInput.type === "password") {
+    confirmPasswordInput.type = "text";
+    toggleIcon.classList.remove("far", "fa-eye");
+    toggleIcon.classList.add("far", "fa-eye-slash");
+  } else {
+    confirmPasswordInput.type = "password";
+    toggleIcon.classList.remove("far", "fa-eye-slash");
+    toggleIcon.classList.add("far", "fa-eye");
+  }
 }
 
 document.getElementById("submitRegister").onclick = checkValidateEmail;
-document.getElementById("submitChangePassword").onclick = checkValidatePassword;
+// document.getElementById("submitChangePassword").onclick = checkValidatePassword;
