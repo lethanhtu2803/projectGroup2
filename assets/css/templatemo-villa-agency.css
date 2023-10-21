@@ -1213,6 +1213,16 @@ Properties Style
 .properties .item .main-button {
   text-align: center;
 }
+/*
+  CSS cho mục miêu tả chi tiết ở trang properties details
+*/
+.accordion-body .row {
+  padding: 5px 5px 0;
+}
+
+.accordion-body .row ul li {
+  margin-bottom: 10px;
+}
 
 
 /* 
@@ -1513,7 +1523,7 @@ Single Page Style
 
 .single-property .accordion {
   margin-top: 60px;
-  margin-left: 0px;
+  margin-left: -25px;
   margin-right: 0px;
   --bs-accordion-border-radius: 10px;
   --bs-accordion-inner-border-radius: 10px;

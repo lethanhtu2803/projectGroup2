@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
-    <title>Villa Agency - Property Detail Page</title>
+  <title>Villa Agency - Property Detail Page</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <!--
 
 TemplateMo 591 villa agency
 
 https://templatemo.com/tm-591-villa-agency
 
 -->
-  </head>
+</head>
 
 <body>
 
@@ -67,29 +70,29 @@ https://templatemo.com/tm-591-villa-agency
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <h1>Villa</h1>
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="properties.html">Properties</a></li>
-                      <li><a href="property-details.html" class="active">Property Details</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
-                      <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h1>Villa</h1>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="property-details.html">Property Details</a></li>
+              <li><a href="contact.html" class="active">Contact Us</a></li>
+              <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
@@ -98,7 +101,7 @@ https://templatemo.com/tm-591-villa-agency
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Home</a>  /  Single Property</span>
+          <span class="breadcrumb"><a href="#">Home</a> / Single Property</span>
           <h3>Single Property</h3>
         </div>
       </div>
@@ -110,49 +113,229 @@ https://templatemo.com/tm-591-villa-agency
       <div class="row">
         <div class="col-lg-8">
           <div class="main-image">
-            <img src="assets/images/single-property.jpg" alt="">
+            <img class="img_proMain" src="assets/images/banner-01.jpg" alt="">
+            <br>
+            <br>
+            <div style="display: flex;">
+              <img class="img_pro" src="assets/images/banner-01.jpg" alt=""> &nbsp;
+              <img class="img_pro" src="assets/images/banner-02.jpg" alt=""> &nbsp;
+              <img class="img_pro" src="assets/images/banner-03.jpg" alt="">
+              <style>
+                .img_pro {
+                  cursor: pointer;
+                }
+              </style>
+              <script>
+                $(document).ready(function () {
+                  $('.img_pro').click(function () {
+                    var src = $(this).attr('src');
+                    $('.img_proMain').attr('src', src);
+                  });
+                });
+              </script>
+            </div>
           </div>
           <div class="main-content">
-            <span class="category">Apparment</span>
-            <h4>24 New Street Miami, OR 24560</h4>
-            <p>Get <strong>the best villa agency</strong> HTML CSS Bootstrap Template for your company website. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it. Thank you. Cloud bread kogi bitters pitchfork shoreditch tumblr yr succulents single-origin coffee schlitz enamel pin you probably haven't heard of them ugh hella.
-            
-            <br><br>When you look for free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine neutra cardigan hoodie pop-up.</p>
-          </div> 
+            <span class="category">Căn hộ cao cấp</span>
+            <h4>Căn hộ chung cư cao cấp</h4>
+            <h5>Tổng quan</h5>
+            <p>BÁN CĂN HỘ CAO CẤP</p>
+            <p>Diện tích: 69.5m2</p>
+            <p>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng</p>
+            <p>Thiết kế tiện nghi, nội thất cao cấp sang trọng</p>
+            <p>Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7</p>
+            <p>Ở từ 2-4 người, cho nuôi thú cưng</p>
+            <p>Nằm trong trung tâm thành phố dễ dàng di chuyển sang các quận trọng điểm trong thành phố</p>
+          </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Best useful links ?
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  <h6>Chi tiết căn hộ</h6>
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <div class="row">
+                    <div class="col">
+                      <ul>
+                        <li>
+                         <strong>Khu vực</strong>
+                          <span>Quận 5</span>
+                        </li>
+                        <li>
+                          <strong>
+                            <i class="fa-solid fa-bed" style="color: #e57010;"></i>
+                          </strong>
+                          <span>2 Phòng ngủ</span>
+                        </li>
+                        <li>
+                          <strong>
+                            <i class="fa-solid fa-person" style="color: #e57010;"></i>
+                          </strong>
+                          <span>3-4 Người</span>
+                        </li>
+                        <li>
+                          <strong>Đặt cọc</strong>
+                          <span>1 tỷ</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul>
+                        <li>
+                         <strong>Đường</strong>
+                          <span>Nguyễn Trãi</span>
+                        </li>
+                        <li>
+                          <strong>
+                            <i class="fa-solid fa-bath" style="color: #e57010;"></i>
+                          </strong>
+                          <span>2 Phòng tắm</span>
+                        </li>
+                        <li>
+                          <strong>
+                            <i class="fa-solid fa-arrows-up-down-left-right" style="color: #e57010;"></i>
+                          </strong>
+                          <span>65 m2</span>
+                        </li>
+                        <li>
+                          <i class="fa-solid fa-square-parking" style="color: #e57010;"></i>
+                          <span>Rộng rãi cho xe máy và cả xe hơi</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  How does this work ?
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <h6>Tiện nghi và Tiện ích</h6>
                 </button>
               </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <div class="row">
+                    <div class="col">
+                      <ul>
+                        <li>
+                         <strong>
+                          <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                         </strong>
+                          <span>Thang máy</span>
+                        </li>
+                        <li>
+                          <strong>
+                           <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                          </strong>
+                           <span>Chỗ đậu xe</span>
+                         </li>
+                         <li>
+                          <strong>
+                           <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                          </strong>
+                           <span>Hồ bơi</span>
+                         </li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul>
+                        <li>
+                         <strong>
+                          <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                         </strong>
+                          <span>Camera An Ninh</span>
+                        </li>
+                        <li>
+                          <strong>
+                           <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                          </strong>
+                           <span>PCCC đạt tiêu chuẩn</span>
+                         </li>
+                         <li>
+                          <strong>
+                           <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                          </strong>
+                           <span>Phòng gym</span>
+                         </li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul>
+                        <li>
+                         <strong>
+                          <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                         </strong>
+                          <span>Mặt tiền đường</span>
+                        </li>
+                        <li>
+                          <strong>
+                           <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                          </strong>
+                           <span>Bảo vệ 24/7</span>
+                         </li>
+                         <li>
+                          <strong>
+                           <i class="fa-solid fa-circle-check" style="color: #e57010;"></i>
+                          </strong>
+                           <span>Siêu thị tiện lợi</span>
+                         </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Why is Villa the best ?
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <h6>Ưu điểm căn hộ</h6>
                 </button>
               </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <div class="row">
+                    <div class="col">
+                      <ul>
+                        <li>
+                          <p style="font-size: 15px;color: #000;font-weight: bold;margin-bottom: 100px;">Đặc điểm nổi bật</p>
+                        </li>
+                        <li>
+                          <p style="font-size: 15px;color: #000;font-weight: bold;">Mô tả vị trí</p>
+                         </li>
+                         <li>
+                          <p style="font-size: 15px;color: #000;font-weight: bold;">Cộng đồng dân cư</p>
+                         </li>
+                         <li>
+                          <p style="font-size: 15px;color: #000;font-weight: bold;">Tiện ích và giáo dục</p>
+                         </li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul>
+                        <li>
+                          <p>Dự án căn hộ T-Apartment gồm các căn hộ cao cấp đáp ứng cho mọi nhu cầu của khách hàng. Đảm bảo đầy đủ tiện ích và tiện nghi cho khách hàng.</p>
+                        </li>
+                        <li>
+                          <p>Vị trí dự án nằm trong các khu vực trọng điểm của Thành phố Hồ Chí Minh.</p>
+                         </li>
+                         <li>
+                          <p>Cộng đồng dân cư văn minh, hiện đại.</p>
+                         </li>
+                         <li>
+                          <p>Gần trường học và các siêu thị tiện lợi lớn.</p>
+                         </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -162,20 +345,20 @@ https://templatemo.com/tm-591-villa-agency
           <div class="info-table">
             <ul>
               <li>
-                <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
-                <h4>450 m2<br><span>Total Flat Space</span></h4>
-              </li>
-              <li>
-                <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
-                <h4>Contract<br><span>Contract Ready</span></h4>
-              </li>
-              <li>
                 <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
-                <h4>Payment<br><span>Payment Process</span></h4>
+                <h4>Giá nhà đúng với thị trường</h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                <h4>Trên khắp TPHCM</h4>
               </li>
               <li>
                 <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
-                <h4>Safety<br><span>24/7 Under Control</span></h4>
+                <h4>An toàn Và uy tín</h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                <h4>Hợp đồng Nhanh chóng</h4>
               </li>
             </ul>
           </div>
@@ -199,18 +382,29 @@ https://templatemo.com/tm-591-villa-agency
               <div class="nav-wrapper ">
                 <ul class="nav nav-tabs" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Appartment</button>
+                    <button class="nav-link active" id="quan1-tab" data-bs-toggle="tab" data-bs-target="#quan1"
+                      type="button" role="tab" aria-controls="quan1" aria-selected="true">Quận 1</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Villa House</button>
+                    <button class="nav-link" id="quan2-tab" data-bs-toggle="tab" data-bs-target="#quan2" type="button"
+                      role="tab" aria-controls="quan2" aria-selected="false">Quận 2</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Penthouse</button>
+                    <button class="nav-link" id="quan3-tab" data-bs-toggle="tab" data-bs-target="#quan3" type="button"
+                      role="tab" aria-controls="quan3" aria-selected="false">Quận 3</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="quan4-tab" data-bs-toggle="tab" data-bs-target="#quan4" type="button"
+                      role="tab" aria-controls="quan4" aria-selected="false">Quận 4</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="quan5-tab" data-bs-toggle="tab" data-bs-target="#quan5" type="button"
+                      role="tab" aria-controls="quan5" aria-selected="false">Quận 5</button>
                   </li>
                 </ul>
-              </div>              
+              </div>
               <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
+                <div class="tab-pane fade show active" id="quan1" role="tabpanel" aria-labelledby="quan1-tab">
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="info-table">
@@ -227,15 +421,18 @@ https://templatemo.com/tm-591-villa-agency
                       <img src="assets/images/deal-01.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>All Info About Apartment</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <h4>Quan 1</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut
+                        labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee.
+                        JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo
+                        after messenger poutine next level humblebrag swag franzen.</p>
                       <div class="icon-button">
                         <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
+                <div class="tab-pane fade" id="quan2" role="tabpanel" aria-labelledby="quan2-tab">
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="info-table">
@@ -252,15 +449,18 @@ https://templatemo.com/tm-591-villa-agency
                       <img src="assets/images/deal-02.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>Detail Info About New Villa</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <h4>Quan 2</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut
+                        labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee.
+                        JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo
+                        after messenger poutine next level humblebrag swag franzen.</p>
                       <div class="icon-button">
                         <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
+                <div class="tab-pane fade" id="quan3" role="tabpanel" aria-labelledby="quan3-tab">
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="info-table">
@@ -277,8 +477,70 @@ https://templatemo.com/tm-591-villa-agency
                       <img src="assets/images/deal-03.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>Extra Info About Penthouse</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut Kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologistlabore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <h4>Quan 3</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut
+                        Kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice,
+                        chillwave vexillologistlabore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag
+                        fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee
+                        taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <div class="icon-button">
+                        <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="quan4" role="tabpanel" aria-labelledby="quan4-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Total Flat Space <span>320 m2</span></li>
+                          <li>Floor number <span>34th</span></li>
+                          <li>Number of rooms <span>6</span></li>
+                          <li>Parking Available <span>Yes</span></li>
+                          <li>Payment Process <span>Bank</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-03.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>Quan 4</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut
+                        Kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice,
+                        chillwave vexillologistlabore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag
+                        fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee
+                        taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <div class="icon-button">
+                        <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="quan5" role="tabpanel" aria-labelledby="quan5-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Total Flat Space <span>320 m2</span></li>
+                          <li>Floor number <span>34th</span></li>
+                          <li>Number of rooms <span>6</span></li>
+                          <li>Parking Available <span>Yes</span></li>
+                          <li>Payment Process <span>Bank</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-03.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>Quan 5</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut
+                        Kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice,
+                        chillwave vexillologistlabore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag
+                        fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee
+                        taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
                       <div class="icon-button">
                         <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
                       </div>
@@ -292,52 +554,13 @@ https://templatemo.com/tm-591-villa-agency
       </div>
     </div>
   </div>
-  <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div style="text-align: center;">
-          san pham 1
-          <br>
-          tieu de 1
-          <br>
-          gia 1
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div style="text-align: center;">
-          san pham 1
-          <br>
-          tieu de 1
-          <br>
-          gia 1
-        </div>
-        
-      </div>
-      <div class="carousel-item">
-        <div style="text-align: center;">
-          san pham 1
-          <br>
-          tieu de 1
-          <br>
-          gia 1
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+
   <footer class="footer-no-gap">
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
-        
-        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved.
+
+          Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
       </div>
     </div>
   </footer>
@@ -351,5 +574,6 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
 
-  </body>
+</body>
+
 </html>
