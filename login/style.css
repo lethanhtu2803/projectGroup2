@@ -223,9 +223,9 @@ body{
 
 .close {
   color: #555;
-  position: absolute;
-  top: 190px;
-  right: 768px;
+  /* position: relative;
+  top: 10px;
+  left: 300px; */
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
