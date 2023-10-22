@@ -59,7 +59,7 @@
       <div class="form-content">
         <div class="login-form">
           <div class="title">Đăng nhập</div>
-          <form action="../index.html" onsubmit="return checkValidate()">
+          <form action="../index.html">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
@@ -68,6 +68,9 @@
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <input type="password"  id="password" placeholder="Mật khẩu" required/>
+                <span class="toggle-newPassword" onclick="showPasswordLogin()">
+                  <i class="far fa-eye"></i>
+                </span>
               </div>
 
               <div class="text"><a href="../forgotPassword/email.html" id="myBtn">Quên mật khẩu</a></div>
@@ -98,6 +101,9 @@
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <input type="password" id="pass" placeholder="Nhập mật khẩu"  />
+                <span class="toggle-newPassword" onclick="showPassword()">
+                  <i class="far fa-eye"></i>
+                </span>
               </div>
               <span id="errorPass"></span>
               <div class="input-box">
@@ -130,8 +136,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Cảnh báo</h2>
-      <p id="error"></p>
-      <p id="error1"></p>
+      <p id="empty"></p>
     </div>
   </div>
 

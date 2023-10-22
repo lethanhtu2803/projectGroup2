@@ -96,43 +96,86 @@ var checkValidatePassword = function (selectorQuery,  selectorError) {
 // ĐĂNG KÍ
 
 // Hàm kiểm tra validate đăng kí
-var checkSignIn = function () {
+var checkSignIn = function checkSignIn(event) {
   var valid = true;
-  console.log(document.getElementById("name").value);
-  console.log(document.getElementById("pass").value);
-  console.log(document.getElementById("email").value);
-  console.log(document.getElementById("phoneNumber").value);
-  console.log(document.getElementById("datepicker").value);
-  valid =
-    checkEmptySignIn("name","error", "error1","errorName") &
-    checkEmptySignIn("pass", "error", "error1","errorPass") &
-    checkEmptySignIn("email", "error", "error1","errorEmail") &
-    checkEmptySignIn("phoneNumber", "error", "error1","errorPhone") &
-    checkEmptySignIn("datepicker", "error", "error1","errorDate");
+  // console.log(document.getElementById("name").value);
+  // console.log(document.getElementById("pass").value);
+  // console.log(document.getElementById("email").value);
+  // console.log(document.getElementById("phoneNumber").value);
+  // console.log(document.getElementById("datepicker").value);
+  valid &= checkEmptySignIn("name", "empty", "errorName");
+  valid &= checkEmptySignIn("pass", "empty", "errorPass");
+  valid &= checkEmptySignIn("email", "empty", "errorEmail");
+  valid &= checkEmptySignIn("phoneNumber", "empty", "errorPhone");
+  valid &= checkEmptySignIn("datepicker", "empty", "errorDate");
 
-  valid &= checkValidateName("name", "errorName") & checkValidatePassword("pass", "errorPass") & checkValidateEmail("email", "errorEmail") 
-          & checkValidatePhone("phoneNumber", "errorPhone");
+  valid &= checkValidateName("name", "errorName");
+  valid &= checkValidateEmail("email", "errorEmail");
+  valid &= checkValidatePassword("pass", "errorPass");
+  valid &= checkValidatePhone("phoneNumber", "errorPhone");
 
   if (!valid) {
+    event.preventDefault(); // Prevent form submission
     return false;
   }
+  console.log(valid)
   return valid;
 };
 
+// Hàm kiểm tra có ô nhập nào bỏ trống không
+var checkEmptySignIn = function (selectorQuery, selectorEmpty,selectorErrorValidate) {
+  var input = document.getElementById(selectorQuery).value.trim();
+  var error = document.getElementById(selectorEmpty);
+  var errorValid = document.getElementById(selectorErrorValidate);
+  if (input === "") {
+    modalClick();
+    error.innerHTML = "Vui lòng nhập đầy đủ thông tin. Không được bỏ trống";
+    errorValid.style.display = "none";
+    return false;
+  } else {
+    errorValid.style.display = "block";
+    modal.style.display = "none";
+    return true;
+  }
+  
+};
+
+
 // Hàm kiểm tra tên hợp lệ
 var checkValidateName = function (selectorQuery, selectorError) {
-  var regexName = /^[\p{L}\s]+$/u;
-  var input = document.getElementById(selectorQuery).value;
+  var regexName = /^[\p{L} ]+$/u;
+  var input = document.getElementById(selectorQuery).value.trim();
   var error = document.getElementById(selectorError);
+  console.log("regexName.test(input):", regexName.test(input));
+  console.log("input:", input);
   if (regexName.test(input)) {
+    console.log("Name" + regexName.test(input));
     error.style.display = "none";
     return true;
   } else {
+    console.log(1)
     error.innerHTML =
       "Vui lòng nhập đúng tên đăng nhập. Không có số và kí tự đặc biệt";
     return false;
   }
 };
+
+// Hàm check validate Email
+var checkValidateEmail = function (selectorQuery, selectorError) {
+  var regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  var input = document.getElementById(selectorQuery).value.trim();
+  var error = document.getElementById(selectorError);
+  console.log("Email" +  regexEmail.test(input));
+  if (regexEmail.test(input)) {
+    error.style.display = "none";
+    return true;
+  } else {
+    console.log(2)
+    error.innerHTML = "Vui lòng nhập đúng định dạng email";
+    return false;
+  }
+};
+
 
 
 // Hàm kiểm tra tính hợp lệ của password
@@ -140,23 +183,12 @@ var checkValidatePassword = function (selectorQuery, selectorError) {
   var regexPass = /^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})$/u;
   var input = document.getElementById(selectorQuery).value.trim();
   var error = document.getElementById(selectorError);
+  console.log("Pass" +  regexPass.test(input));
   if (regexPass.test(input)) {
+    error.style.display = "none";
     return true;
   } else {
     error.innerHTML = "Mật khẩu phải chứa kí tự đặc biệt, viết hoa, có số và có đội dài từ 6-20";
-    return false;
-  }
-};
-
-// Hàm check validate Email
-var checkValidateEmail = function (selectorValue, selectorError) {
-  var input = document.getElementById(selectorValue).value.trim();
-  var regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  var error = document.getElementById(selectorError);
-  if (regexEmail.test(input)) {
-    return true;
-  } else {
-    error.innerHTML = "Vui lòng nhập đúng định dạng email";
     return false;
   }
 };
@@ -167,32 +199,48 @@ var checkValidatePhone = function (selectorValue, selectorError) {
   var regexPhone = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
   var error = document.getElementById(selectorError);
   if (regexPhone.test(input)) {
-    return true;
-  } else {
-    error.innerHTML = "Mật khẩu phải chứa kí tự đặc biệt, viết hoa, có số và có đội dài từ 6-20";
-    return false;
-  }
-};
-
-
-// Hàm kiểm tra có ô nhập nào bỏ trống không
-var checkEmptySignIn = function (selectorQuery, selectorEmpty,selectorError,selectorErrorValidate) {
-  var input = document.getElementById(selectorQuery).value.trim();
-  var empty = document.getElementById(selectorEmpty);
-  var error = document.getElementById(selectorError);
-  var errorValid = document.getElementById(selectorErrorValidate)
-  if (input === "") {
-    modalClick();
-    empty.innerHTML = "Vui lòng nhập đầy đủ thông tin. Không được bỏ trống";
     error.style.display = "none";
-    errorValid.style.display = "none";
-    return false;
-  } else {
-    modal.style.display = "none";
     return true;
+  } else {
+    error.innerHTML = "Số điện thoại không hợp lệ";
+    return false;
   }
-  
 };
+
+// Hàm show password
+function showPassword() {
+  var passwordInput = document.getElementById("pass");
+  var toggleIcon = document.querySelector(".toggle-password i");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleIcon.classList.remove("far", "fa-eye");
+    toggleIcon.classList.add("far", "fa-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    toggleIcon.classList.remove("far", "fa-eye-slash");
+    toggleIcon.classList.add("far", "fa-eye");
+  }
+
+
+}
+
+function showPasswordLogin() {
+  var passwordInput = document.getElementById("password");
+  var toggleIcon = document.querySelector(".toggle-password i");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleIcon.classList.remove("far", "fa-eye");
+    toggleIcon.classList.add("far", "fa-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    toggleIcon.classList.remove("far", "fa-eye-slash");
+    toggleIcon.classList.add("far", "fa-eye");
+  }
+
+
+}
 
 // document.getElementById("submit").onclick = checkValidate;
 document.getElementById("submitRegister").onclick = checkSignIn;
