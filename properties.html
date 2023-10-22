@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <!--
 
 TemplateMo 591 villa agency
@@ -107,23 +109,52 @@ https://templatemo.com/tm-591-villa-agency
   </div>
 
   <div class="section properties">
-    <div class="container">
-      <ul class="properties-filter">
-        <li>
-          <a class="is_active" href="#!" data-filter="*">Tất cả</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".adv">Apartment</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".str">Villa House</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".rac">Penthouse</a>
-        </li>
-      </ul>
-      <div class="row">
-        <div class="list">
+    <div class="container" id="toHeader" >
+      <div class="input-group mb-3" style="width: 600px; margin: auto; margin-top: -60px;">
+        <input type="text" class="form-control" placeholder="Nhập căn hộ mà bạn muốn tìm .." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <br> <br>
+      <div style="display: flex; margin-left: 350px; margin-bottom: 20px;" >
+        <div class="dropdown">
+          <button style="width: 160px;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Vị trí
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Quận 1</a></li>
+            <li><a class="dropdown-item" href="#">Quận 2</a></li>
+            <li><a class="dropdown-item" href="#">Quận 3</a></li>
+            <li><a class="dropdown-item" href="#">Quận 4</a></li>
+            <li><a class="dropdown-item" href="#">Quận 5</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" style="margin-left: 50px;">
+          <button style="width: 160px;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Theo giá
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Dưới 1 tỉ</a></li>
+            <li><a class="dropdown-item" href="#">Dưới 2 tỉ</a></li>
+            <li><a class="dropdown-item" href="#">Dưới 3 tỉ</a></li>
+            <li><a class="dropdown-item" href="#">Dưới 4 tỉ</a></li>
+            <li><a class="dropdown-item" href="#">Dưới 5 tỉ</a></li>
+            <li><a class="dropdown-item" href="#">Trên 5 tỉ</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" style="margin-left: 50px;">
+          <button style="width: 160px;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Số phòng ngủ
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">1 phòng</a></li>
+            <li><a class="dropdown-item" href="#">2 phòng</a></li>
+            <li><a class="dropdown-item" href="#">3 phòng</a></li>
+          </ul>
+        </div>
+       
+      </div>
+      <div class="row box">
+          <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can1.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -172,6 +203,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can4.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -220,6 +253,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can7.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -268,6 +303,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can10.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -316,6 +353,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can13.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -364,6 +403,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can16.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -412,6 +453,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can19.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -460,6 +503,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can22.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -508,6 +553,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can25.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -556,6 +603,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can28.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -604,6 +653,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can31.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -652,6 +703,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can34.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -700,6 +753,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can37.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -748,6 +803,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can40.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -796,6 +853,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can43.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -844,6 +903,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can46.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -892,6 +953,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can49.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -940,6 +1003,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can52.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -988,6 +1053,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can55.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1036,6 +1103,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can3.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1084,6 +1153,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can6.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1132,6 +1203,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can9.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1180,6 +1253,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can12.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1228,6 +1303,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can15.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1276,6 +1353,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can18.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1324,6 +1403,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can21.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1372,6 +1453,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can24.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1420,6 +1503,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can27.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1468,6 +1553,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can30.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1516,6 +1603,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can33.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1564,6 +1653,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can36.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1612,6 +1703,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can39.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1660,6 +1753,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can42.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1708,6 +1803,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can45.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1756,6 +1853,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can48.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1804,6 +1903,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can51.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1852,6 +1953,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can54.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1900,6 +2003,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can11.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1948,6 +2053,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can14.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -1996,6 +2103,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can17.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2044,6 +2153,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can20.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2092,6 +2203,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can23.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2140,6 +2253,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can26.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2188,6 +2303,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can29.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2236,6 +2353,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can38.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2284,6 +2403,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can41.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2332,6 +2453,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can44.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2380,6 +2503,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can47.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2428,6 +2553,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can50.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2476,6 +2603,8 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
+              <div class="list adv">
                 <div class="item">
                   <a href="property-details.html"><img src="assets/images/50canho/can53.jpg" alt=""></a>
                   <span class="category">Căn hộ</span>
@@ -2524,6 +2653,7 @@ https://templatemo.com/tm-591-villa-agency
                     <a href="property-details.html">Chi tiết</a>
                   </div>
                 </div>
+              </div>
           </div>
         </div>
         <div class="row">
@@ -2538,7 +2668,7 @@ https://templatemo.com/tm-591-villa-agency
         </div>
     </div>
   </div>
-
+ 
   <footer>
     <div class="container">
       <div style="margin-left: 250px;" class="col-lg-8">
@@ -2558,6 +2688,8 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/pagination.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
   </body>
 </html>
