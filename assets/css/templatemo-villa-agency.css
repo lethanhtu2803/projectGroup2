@@ -1469,10 +1469,6 @@ Properties Style
 .properties ul.pagination li {
   display: inline-block;
   margin: 0px 5px;
-}
-
-.properties ul.pagination li a {
-  display: inline-block;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -1485,8 +1481,28 @@ Properties Style
   transition: all .3s;
 }
 
-.properties ul.pagination li a:hover,
-.properties ul.pagination li a.is_active {
+/* .properties ul.pagination li {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50%;
+  transition: all .3s;
+} */
+
+.list{
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  column-gap: 50px;
+} 
+
+.properties ul.pagination li:hover,
+.properties ul.pagination li.is_active {
   background-color: #f35525;
   color: #fff;
 }
