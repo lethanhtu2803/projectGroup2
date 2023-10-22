@@ -23,10 +23,14 @@ var checkValidatePassword = function () {
     return false;
   } else if (regexPass.test(newPass)) {
     if (newPass !== confirmPass) {
+      var toggleConfirmPassword = document.getElementsByClassName("toggle-confirmPassword")[0];
+toggleConfirmPassword.style.top = '-107px';
       document.getElementById("errorConfirmPass").innerHTML =
         "Mật khẩu xác nhận không giống với mật khẩu bạn vừa mới tạo.";
       return false;
     }
+    var toggleConfirmPassword = document.getElementsByClassName("toggle-newPassword")[0];
+toggleConfirmPassword.style.left = '159px';
     document.getElementById("errorNewPass").style.display = "none";
     return true;
   } else {
