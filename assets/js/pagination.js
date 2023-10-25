@@ -1,6 +1,6 @@
 var thisPage = 1;
 var limit = 6;
-var list = document.querySelectorAll('.list .item');
+var list = document.querySelectorAll('.properties-items .item');
 function loadItems() {
     var beginGet = limit * (thisPage - 1);
     var endGet = limit * thisPage - 1;

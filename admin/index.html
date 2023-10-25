@@ -32,8 +32,22 @@
   <link rel="stylesheet" href="../assets/css/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../assets/css/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../assets/css/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+          dateFormat: 'dd/mm/yy'
+      });
+      $( "#datepicker1" ).datepicker({
+          dateFormat: 'dd/mm/yy'
+      });
+  } );
+  </script>
 </head>
-
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
@@ -65,6 +79,7 @@
           <a class="nav-link" data-widget="navbar-search" href="#" role="button">
             <i class="fas fa-search"></i>
           </a>
+
           <div class="navbar-search-block">
             <form class="form-inline">
               <div class="input-group input-group-sm">
@@ -255,9 +270,9 @@
             <li class="nav-item">
               <a href="postapartment.html" class="nav-link">
                 <i class="fa-solid fa-newspaper"></i>&nbsp;
-                <p>
-                  Bài đăng
-                  <span class="right badge badge-danger">Mới</span>
+                <p> 
+                  Bài đăng của người dùng
+                
                 </p>
               </a>
             </li>
@@ -272,7 +287,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/layout/top-nav.html" class="nav-link">
+                  <a href="newcontractuser.html" class="nav-link">
                     <i class="fa-solid fa-user-plus"></i></i> &nbsp;
                     <p>Chủ sở hữu mới</p>
                   </a>
@@ -337,16 +352,19 @@
                 <div class="card-header">
                   <h3 class="card-title">DataTable with minimal features & hover style</h3>
                 </div>
+                
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>
+                        <th style="width: 50px;">
                           Mã tài khoản
                         </th>
                         <th>
                           Tên tài khoản
+                          <br>
+                          <input style="width: 140px;" type="text">
                         </th>
                         <th>Mật khẩu</th>
                         <th>Họ và tên</th>
@@ -356,7 +374,16 @@
                         <th>Địa chỉ</th>
                         <th>Ngày khởi tạo</th>
                         <th>Ảnh đại diện</th>
-                        <th>Xác thực</th>
+                        <th>Trạng thái
+                          <br>
+                          <select style="margin-top: 10px;" name="" id="">
+                            <option value="">Chọn trạng thái</option>
+                            <option value="">Đã xác thực</option>
+                            <option value="">Đã bị chặn</option>
+
+                          </select>
+                        </th>
+                        <th>Hành động</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -371,10 +398,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>2</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -385,9 +413,10 @@
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
                         <td>Đã xác thực</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>3</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -397,10 +426,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>4</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -410,10 +440,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>5</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -423,10 +454,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>6</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -436,10 +468,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>7</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -449,10 +482,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>8</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -462,10 +496,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>9</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -475,10 +510,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>10</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -488,10 +524,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>11</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -501,10 +538,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>12</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -514,10 +552,11 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       <tr>
-                        <td>13</td>
+                        <td>1</td>
                         <td>lethanhtu2803</td>
                         <td>lethanhtu2003</td>
                         <td>Lê Thanh Tú</td>
@@ -527,7 +566,8 @@
                         <td>Chung cư an bình, dĩ an, bình dương</td>
                         <td>18/10/2023</td>
                         <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
+                        <td>Đã bị chặn</td>
+                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
                       </tr>
                       
                   </table>
