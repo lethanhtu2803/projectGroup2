@@ -1,6 +1,6 @@
 var thisPage = 1;
 var limit = 6;
-var list = document.querySelectorAll('.list .item');
+var list = document.querySelectorAll('.properties-items .item');
 function loadItems() {
     var beginGet = limit * (thisPage - 1);
     var endGet = limit * thisPage - 1;
@@ -17,35 +17,49 @@ function loadItems() {
 
 loadItems();
 function listPage() {
-    // Số trang mà sẽ có dựa vào danh sách item và giới hạn item trên 1 trang
     var count = Math.ceil(list.length / limit);
     document.querySelector('.pagination').innerHTML = '';
 
-    if(thisPage != 1) {
+    if (thisPage != 1) {
         var prev = document.createElement('li');
-        prev.innerHTML = '<=';
+        var startPage = document.createElement('li');
+        startPage.innerHTML = '<i class="fa-solid fa-backward-fast"></i>';
+        prev.innerHTML = '<i class="fa-solid fa-arrow-left"></i>';
         prev.setAttribute('onclick', "changePage(" + (thisPage - 1) + ")");
+        startPage.setAttribute('onclick', "changePage(" + 1 + ")");
+        document.querySelector('.pagination').appendChild(startPage);
         document.querySelector('.pagination').appendChild(prev);
     }
 
-    for(var i = 1;i <= count;i++) {
-        // Tạo số trang để chuyển dựa vào i
+    // Chỉ show tối đa 10 nút chuyển trang thôi
+    var start = Math.floor((thisPage - 1) / 10) * 10 + 1;
+    var end = start + 9;
+    if (end > count) {
+        end = count;
+    }
+
+
+    for (var i = start; i <= end; i++) {
         var newPage = document.createElement('li');
         newPage.innerHTML = i;
-        if(i == thisPage) {
+        if (i == thisPage) {
             newPage.classList.add('is_active');
         }
-        newPage.setAttribute('onclick',"changePage(" + i + ")");
+        newPage.setAttribute('onclick', "changePage(" + i + ")");
         document.querySelector('.pagination').appendChild(newPage);
     }
 
-    if(thisPage != count) {
+    if (thisPage != count) {
         var next = document.createElement('li');
-        next.innerHTML = '=>';
-        next.setAttribute('onclick', "changePage(" + (thisPage +  1) + ")");
+        next.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+        next.setAttribute('onclick', "changePage(" + (thisPage + 1) + ")");
         document.querySelector('.pagination').appendChild(next);
     }
-    
+
+    var endPage = document.createElement('li');
+    endPage.innerHTML = '<i class="fa-solid fa-backward-fast fa-rotate-180"></i>';
+    endPage.setAttribute('onclick', "changePage(" + count + ")");
+    document.querySelector('.pagination').appendChild(endPage);
 }
 
 function changePage(i) {

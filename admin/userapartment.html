@@ -48,6 +48,7 @@
   } );
   </script>
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
@@ -79,7 +80,6 @@
           <a class="nav-link" data-widget="navbar-search" href="#" role="button">
             <i class="fas fa-search"></i>
           </a>
-
           <div class="navbar-search-block">
             <form class="form-inline">
               <div class="input-group input-group-sm">
@@ -247,7 +247,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link active">
+                  <a href="./index.html" class="nav-link ">
                     <i class="fa-solid fa-user"></i> &nbsp;
                     <p>Tài khoản</p>
 
@@ -260,19 +260,21 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="userapartment.html" class="nav-link">
+                  <a href="userapartment.html" class="nav-link active">
                     <i class="fa-solid fa-building-user"></i> &nbsp;
                     <p>Căn hộ của người dùng</p>
                   </a>
                 </li>
               </ul>
             </li>
+           
             <li class="nav-item">
-              <a href="postapartment.html" class="nav-link">
-                <i class="fa-solid fa-newspaper"></i>&nbsp;
-                <p> 
-                  Bài đăng của người dùng
+              <a href="postapartment.html" class="nav-link ">
                 
+                <i class="fa-solid fa-newspaper"></i>&nbsp;
+                <p>
+                  Bài đăng của người dùng
+                  
                 </p>
               </a>
             </li>
@@ -287,8 +289,8 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="newcontractuser.html" class="nav-link">
-                    <i class="fa-solid fa-user-plus"></i></i> &nbsp;
+                  <a href="pages/layout/top-nav.html" class="nav-link">
+                    <i class="newcontractuser.html"></i></i> &nbsp;
                     <p>Chủ sở hữu mới</p>
                   </a>
                 </li>
@@ -331,7 +333,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Danh sách tài khoản</h1>
+              <h1>Danh sách căn hộ người dùng</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -350,225 +352,56 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                  <h3 class="card-title">Đổ danh sách những căn hộ có trạng thái "Đã đăng"</h3>
                 </div>
-                
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th style="width: 50px;">
-                          Mã tài khoản
+                        <th>
+                          Mã căn hộ
                         </th>
                         <th>
-                          Tên tài khoản
-                          <br>
-                          <input style="width: 140px;" type="text">
+                          Tiêu đề
                         </th>
-                        <th>Mật khẩu</th>
-                        <th>Họ và tên</th>
-                        <th>Ngày sinh</th>
-                        <th>Thư điện tử</th>
-                        <th>Số điện thoại</th>
+                        <th>Mã tài khoản</th>
+                        <th>Ngày đăng</th>
+                        <th>Phòng ngủ</th>
+                        <th>Phòng tắm</th>
+                        <th>Giá</th>
+                        <th >Đặt cọc</th>
                         <th>Địa chỉ</th>
-                        <th>Ngày khởi tạo</th>
-                        <th>Ảnh đại diện</th>
-                        <th>Trạng thái
-                          <br>
-                          <select style="margin-top: 10px;" name="" id="">
-                            <option value="">Chọn trạng thái</option>
-                            <option value="">Đã xác thực</option>
-                            <option value="">Đã bị chặn</option>
-
-                          </select>
-                        </th>
-                        <th>Hành động</th>
+                        <th >Diện tích</th>
+                        <th>Mô tả</th>
+                        <th>Ảnh căn hộ</th>
+                        <th>Quản lý</th>
+                       
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
+                        <td>CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT</td>
                         <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
+                        <td>28/03/2023</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2 tỷ</td>
+                        <td>20 triệu</td>
                         <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
+                        <td>50m2</td>
+                        <td>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng
+
+                          Thiết kế tiện nghi, nội thất cao cấp sang trọng
+                          
+                          Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7
+                          
+                          Ở từ 2-4 người, cho nuôi thú cưng</td>
+                        <td><img src="../assets/images/50canho/can1.jpg" height="100" width="90" alt=""></td>
+                        <td><a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
                       </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>lethanhtu2003</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="../assets/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
+                     
                       
                   </table>
                 </div>

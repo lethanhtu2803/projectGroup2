@@ -39,6 +39,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
+  font-family: Tahoma, Arial, sans-serif;
 }
 
 .clearfix:after {
@@ -493,7 +494,7 @@ Header Style
   color: #fff;
 }
 
-.header-area .main-nav .nav li:hover a {
+.header-area .main-nav .nav li a:hover {
   color: #f35525;
 }
 
@@ -1479,6 +1480,7 @@ Properties Style
   font-weight: 600;
   border-radius: 50%;
   transition: all .3s;
+  cursor: pointer;
 }
 
 /* .properties ul.pagination li {

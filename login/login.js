@@ -244,3 +244,4 @@ function showPasswordLogin() {
 
 // document.getElementById("submit").onclick = checkValidate;
 document.getElementById("submitRegister").onclick = checkSignIn;
+
