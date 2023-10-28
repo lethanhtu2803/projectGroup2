@@ -48,7 +48,6 @@
   } );
   </script>
 </head>
-
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
@@ -271,13 +270,14 @@
             <li class="nav-item">
               <a href="postapartment.html" class="nav-link">
                 <i class="fa-solid fa-newspaper"></i>&nbsp;
-                <p>
+                <p> 
                   Bài đăng của người dùng
+                
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
                 <i class="fa-solid fa-file-signature"></i> &nbsp;
                 <p>
                   Hợp đồng
@@ -293,7 +293,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="newcontract.html" class="nav-link">
+                  <a href="newcontract.html" class="nav-link active">
                     <i class="fa-solid fa-plus"></i> &nbsp;
                     <p>Hợp đồng mới</p>
                   </a>
@@ -336,16 +336,13 @@
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
-            
             <div class="col-sm-6">
-             <a style="color: black;" href="postapartment.html"> <i style="font-size: 20px; margin-bottom: 10px;" class="fa-solid fa-arrow-right fa-rotate-180" ></i></a>
-              <br>
-             <h1>Chi tiết bài đăng</h1>
+              <h1>Hợp đồng mới</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">E-commerce</li>
+                <li class="breadcrumb-item active">Project Edit</li>
               </ol>
             </div>
           </div>
@@ -354,93 +351,74 @@
   
       <!-- Main content -->
       <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Hợp đồng</h3>
   
-        <!-- Default box -->
-        <div class="card card-solid">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12 col-sm-6">
-                <h3 class="d-inline-block d-sm-none">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT	</h3>
-                <div class="col-12">
-                  <img id="imgMain" src="../assets/images/50canho/can8.jpg" class="product-image" alt="Product Image">
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
-                <div class="col-12 product-image-thumbs">
-                  <img class="imgSub" src="../assets/images/50canho/can5.jpg" style="cursor: pointer;"  height="130px" width="300px" alt="Product Image">
-                <img class="imgSub" src="../assets/images/50canho/can1.jpg" style="margin-left: 50px; cursor: pointer;"  height="130px" width="300px" alt="Product Image">
-                  <img class="imgSub" src="../assets/images/50canho/can2.jpg" style="margin-left: 50px; cursor: pointer;"  height="130px" width="300px" alt="Product Image">
-                </div>
-                <script>
-                    $(document).ready(function(){
-                     
-                      $('.imgSub').click(function(){
-                        var src = $(this).attr('src');
-                        $('#imgMain').attr('src', src);
-                      });
-                    });
-                </script>
               </div>
-              <div style="font-size: larger;" class="col-12 col-sm-6">
-                <h3 class="my-3" style="font-weight: bold;">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT	</h3>
-                <p>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng Thiết kế tiện nghi, nội thất cao cấp sang trọng Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7 Ở từ 2-4 người, cho nuôi thú cưng</p>
-  
-                <hr>
-                <h3 style="font-weight: bold;">Thông tin căn hộ</h3>
-                <div data-toggle="buttons" style="margin-left: 20px;">
-                  <div>
-                    <i class="fa-solid fa-bed" style="color: #e57010;"></i> &nbsp; Số phòng ngủ : <span>2</span>
-                  </div >
-                  <div  style="margin-top: 20px;">
-                    <i class="fa-solid fa-bath" style="color: #e57010;"></i> &nbsp; Số phòng tắm : <span>2</span>
-                  </div>
-                  <div  style="margin-top: 20px;">
-                    <i class="fa-solid fa-arrows-up-down-left-right" style="color: #e57010;"></i> &nbsp; Diện tích : <span>69.5m2</span>
-                  </div >
-                  <div  style="margin-top: 20px;">
-                    <i class="fa-solid fa-calendar-days" style="color: #e57010;"></i> &nbsp; Ngày đăng : <span>28/03/2003</span>
-                  </div>
-                  <div  style="margin-top: 20px;">
-                    <i class="fa-solid fa-location-dot" style="color: #e57010;"></i> &nbsp; Địa chỉ : <span>Chung cư An Bình</span>
-                  </div>
-                  <div  style="margin-top: 20px;">
-                    <i class="fa-solid fa-hand-holding-dollar" style="color: #e57010;"></i> &nbsp; Đặt cọc : <span>20.000.000</span>
-                  </div>
-                 
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="inputDescription">Chủ sở hữu</label>
+                  <input type="text" id="inputName" class="form-control" value="Anh Tú">
                 </div>
-  
-                
-            
-                <div class="py-2 px-3 mt-4" style="background-color: #e57010;" >
-                  <h2 style="color: white;"  class="mb-0">
-                    2.000.000.000 VND
-                  </h2>
-                 
+                <div class="form-group">
+                  <label for="inputName">Ngày tạo hợp đồng</label>
+                  <input type="text" id="datepicker" class="form-control" value="28/03/2023">
                 </div>
-  
-
-  
-
-  
+                <div class="form-group">
+                  <label for="inputStatus">Chi nhánh</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Quận</option>
+                    <option>Quận 1</option>
+                    <option>Quận 2</option>
+                    <option>Quận 3</option>
+                    <option>Quận 4</option>
+                    <option>Quận 5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputStatus">Phòng ngủ</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Tầng</option>
+                    <option>Tầng 1</option>
+                    <option>Tầng 2</option>
+                    <option>Tầng 3</option>
+                    <option>Tầng 4</option>
+                    <option>Tầng 5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputStatus">Phòng</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Tên phòng</option>
+                    <option>Phòng 1</option>
+                    <option>Phòng 2</option>
+                    <option>Phòng 3</option>
+                    <option>Phòng 4</option>
+                    <option>Phòng 5</option>
+                  </select>
+                </div>
+               
               </div>
+              <!-- /.card-body -->
             </div>
-            <!-- <div class="row mt-4">
-              <nav class="w-100">
-                <div class="nav nav-tabs" id="product-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
-                  <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Comments</a>
-                  <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
-                </div>
-              </nav>
-              <div class="tab-content p-3" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae condimentum erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed posuere, purus at efficitur hendrerit, augue elit lacinia arcu, a eleifend sem elit et nunc. Sed rutrum vestibulum est, sit amet cursus dolor fermentum vel. Suspendisse mi nibh, congue et ante et, commodo mattis lacus. Duis varius finibus purus sed venenatis. Vivamus varius metus quam, id dapibus velit mattis eu. Praesent et semper risus. Vestibulum erat erat, condimentum at elit at, bibendum placerat orci. Nullam gravida velit mauris, in pellentesque urna pellentesque viverra. Nullam non pellentesque justo, et ultricies neque. Praesent vel metus rutrum, tempus erat a, rutrum ante. Quisque interdum efficitur nunc vitae consectetur. Suspendisse venenatis, tortor non convallis interdum, urna mi molestie eros, vel tempor justo lacus ac justo. Fusce id enim a erat fringilla sollicitudin ultrices vel metus. </div>
-                <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab"> Vivamus rhoncus nisl sed venenatis luctus. Sed condimentum risus ut tortor feugiat laoreet. Suspendisse potenti. Donec et finibus sem, ut commodo lectus. Cras eget neque dignissim, placerat orci interdum, venenatis odio. Nulla turpis elit, consequat eu eros ac, consectetur fringilla urna. Duis gravida ex pulvinar mauris ornare, eget porttitor enim vulputate. Mauris hendrerit, massa nec aliquam cursus, ex elit euismod lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget, ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui. Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum. </div>
-                <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
-              </div>
-            </div> -->
+            <!-- /.card -->
           </div>
-          <!-- /.card-body -->
+         
         </div>
-        <!-- /.card -->
-  
+        <div class="row">
+          <div class="col-12">
+            <a href="#" class="btn btn-secondary">Cancel</a>
+            <input type="submit" value="Save Changes" class="btn btn-success float-right">
+          </div>
+        </div>
       </section>
       <!-- /.content -->
     </div>
