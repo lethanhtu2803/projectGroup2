@@ -48,7 +48,6 @@
   } );
   </script>
 </head>
-
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
@@ -110,7 +109,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link ">
+                  <a href="./index.html" class="nav-link active">
                     <i class="fa-solid fa-user"></i> &nbsp;
                     <p>Tài khoản</p>
 
@@ -123,26 +122,24 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="userapartment.html" class="nav-link active">
+                  <a href="userapartment.html" class="nav-link">
                     <i class="fa-solid fa-building-user"></i> &nbsp;
                     <p>Căn hộ của người dùng</p>
                   </a>
                 </li>
               </ul>
             </li>
-           
             <li class="nav-item">
-              <a href="postapartment.html" class="nav-link ">
-                
+              <a href="postapartment.html" class="nav-link">
                 <i class="fa-solid fa-newspaper"></i>&nbsp;
-                <p>
+                <p> 
                   Bài đăng của người dùng
-                  
+                
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="newcontract.html" class="nav-link">
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
                 <i class="fa-solid fa-file-signature"></i> &nbsp;
                 <p>
                   Hợp đồng
@@ -152,13 +149,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="edituserapartment.html" class="nav-link">
+                  <a href="newcontractuser.html" class="nav-link">
                     <i class="fa-solid fa-user-plus"></i></i> &nbsp;
                     <p>Chủ sở hữu mới</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="newcontract.html" class="nav-link active">
                     <i class="fa-solid fa-plus"></i> &nbsp;
                     <p>Hợp đồng mới</p>
                   </a>
@@ -191,85 +188,94 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Danh sách căn hộ người dùng</h1>
+              <h1>Hợp đồng mới</h1>
             </div>
             
           </div>
         </div><!-- /.container-fluid -->
       </section>
-
+  
       <!-- Main content -->
       <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th style="vertical-align: top;">
-                          Mã căn hộ
-                        </th>
-                        <th style="vertical-align: top;">
-                          Tiêu đề
-                          <br>
-                          <input style="width: 140px;" type="text">
-                        </th>
-                        <th style="vertical-align: top;">Mã tài khoản</th>
-                        <th style="vertical-align: top;">Ngày đăng</th>
-                        <th style="vertical-align: top;">Phòng ngủ</th>
-                        <th style="vertical-align: top;">Phòng tắm</th>
-                        <th style="vertical-align: top;">Giá</th>
-                        <th style="vertical-align: top;">Đặt cọc</th>
-                        <th style="vertical-align: top;">Địa chỉ</th>
-                        <th style="vertical-align: top;">Diện tích</th>
-                        <th style="vertical-align: top;">Mô tả</th>
-                        <th style="vertical-align: top;">Ảnh căn hộ</th>
-                        <th style="vertical-align: top;">Quản lý</th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT</td>
-                        <td>1</td>
-                        <td>28/03/2023</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2 tỷ</td>
-                        <td>20 triệu</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>50m2</td>
-                        <td>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng
-
-                          Thiết kế tiện nghi, nội thất cao cấp sang trọng
-                          
-                          Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7
-                          
-                          Ở từ 2-4 người, cho nuôi thú cưng</td>
-                        <td><img src="../assets/images/50canho/can1.jpg" height="100" width="90" alt=""></td>
-                        <td><a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                     
-                      
-                  </table>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Hợp đồng</h3>
+  
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
-                <!-- /.card-body -->
               </div>
-              <!-- /.card -->
-
-
-              <!-- /.card -->
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="inputDescription">Chủ sở hữu</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Chọn chủ sở hữu</option>
+                    <option>1- Lê Thanh Tú</option>
+                    <option>2- Lê Thanh Tú</option>
+                    <option>3- Lê Thanh Tú</option>
+                    <option>4- Lê Thanh Tú</option>
+                    <option>5- Lê Thanh Tú</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputName">Ngày tạo hợp đồng</label>
+                  <input type="text" id="datepicker" class="form-control" value="28/03/2023">
+                </div>
+                <div class="form-group">
+                  <label for="inputStatus">Chi nhánh</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Quận</option>
+                    <option>Quận 1</option>
+                    <option>Quận 2</option>
+                    <option>Quận 3</option>
+                    <option>Quận 4</option>
+                    <option>Quận 5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputStatus">Phòng ngủ</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Tầng</option>
+                    <option>Tầng 1</option>
+                    <option>Tầng 2</option>
+                    <option>Tầng 3</option>
+                    <option>Tầng 4</option>
+                    <option>Tầng 5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputStatus">Phòng</label>
+                  <select id="inputStatus" class="form-control custom-select">
+                    <option disabled selected>Tên phòng</option>
+                    <option>Phòng 1</option>
+                    <option>Phòng 2</option>
+                    <option>Phòng 3</option>
+                    <option>Phòng 4</option>
+                    <option>Phòng 5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputDescription">Mô tả</label>
+                  <input type="text" id="inputName" class="form-control" value="Nhập mô tả...">
+                </div>
+               
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.col -->
+            <!-- /.card -->
           </div>
-          <!-- /.row -->
+         
         </div>
-        <!-- /.container-fluid -->
+        <div class="row">
+          <div class="col-12">
+            <a href="#" class="btn btn-secondary">Cancel</a>
+            <input type="submit" value="Save Changes" class="btn btn-success float-right">
+          </div>
+        </div>
       </section>
       <!-- /.content -->
     </div>
