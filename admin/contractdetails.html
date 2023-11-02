@@ -109,14 +109,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link active">
+                  <a href="index.html" class="nav-link active">
                     <i class="fa-solid fa-user"></i> &nbsp;
                     <p>Tài khoản</p>
 
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
+                  <a href="systemapartment.html" class="nav-link">
                     <i class="fa-solid fa-building"></i> &nbsp;
                     <p>Căn hộ của hệ thống</p>
                   </a>
@@ -182,9 +182,10 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div id="contract" class="content-wrapper" style="font-family: 'Times New Roman', Times, serif;margin-left: 570px;">
+    <div id="contract" class="content-wrapper mt-3" style="font-family: 'Times New Roman', Times, serif;padding-left: 30px;">
+      <div class="row">
       <!-- Content Header (Page header) -->
-        <div id="contentContract" class="content" style="overflow: scroll;width: 1000px;height: 800px;">
+        <div id="contentContract" class="content col-8" style="overflow: auto;width: 1000px;height: 800px;">
           <div class="content_header" style="text-align: center;">
             <br>
              <h5>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM </h5>
@@ -256,20 +257,63 @@
             7.3. Hai Bên tự đọc lại/nghe đọc lại nguyên văn bản Hợp đồng này, cùng chấp thuận toàn bộ các điều khoản của Hợp đồng và không có điều gì vướng mắc. Hai Bên cùng ký tên dưới đây để làm bằng chứng. <br>   
             <div class="sign" style="display: flex;">
               <div class="signA" style="margin-left: 60px;">
-                <p style="margin-left: 30px;">Bên A</p>
+                <p style="margin-left: 30px;font-weight: bold;">Bên A</p>
               (Ký,ghi rõ họ tên) <br> <br> <br> <br> <br> <br>
               </div>
               <div class="signB" style="margin-left: 500px;">
-                <p style="margin-left: 30px;">Bên B</p>
+                <p style="margin-left: 30px;font-weight: bold;">Bên B</p>
                 (Ký,ghi rõ họ tên)
               </div>         
           </div>
           </div>
         </div>
-      <!-- /.content -->
-      <div class="button_print">
-        <button onclick="return printDiv('contentContract')">In</button>
+        <div class="card card-primary col-4" style="height: 480px;">
+          <div class="card-header">
+            <h3 class="card-title">Thông tin hợp đồng</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            
+            <strong style="font-size: 20px;"><i class="fa-solid fa-location-dot"></i> &nbsp;CHI NHÁNH QUẬN 1</strong>
+
+            <p class="text-muted mt-3">235 Nguyễn Văn Cừ quận 1</p>
+
+            <strong><i class="fa-solid fa-user"></i> &nbsp;Chủ sở hữu</strong>
+
+            <p class="text-muted">
+            Nguyễn Hoàng Tú 
+            </p>
+
+            <strong><i class="fa-solid fa-door-closed"></i> &nbsp;Số phòng</strong>
+
+            <p class="text-muted">
+           303
+            </p>
+
+            <strong><i class="fa-solid fa-calendar-days"></i> &nbsp;Ngày tạo hợp đồng</strong>
+
+            <p class="text-muted">
+            2/11/2023
+            </p>
+
+            <hr>
+            <strong><i class="fa-solid fa-money-bill"></i> &nbsp;Giá</strong>
+
+            <p class="text-muted">2,8 tỷ</p>
+
+            <hr>
+
+            
+          </div>
+          <!-- /.card-body -->
+        </div>
       </div>
+      <!-- /.content -->
+      <div class="row mt-5">
+        <div class="button_print col-8 d-flex justify-content-center">
+          <button onclick="return printDiv('contentContract')" class="btn btn-primary" style="width: 80px;">In</button>
+        </div>
+    </div>
     </div>
     <script>
       function printDiv(divName){
