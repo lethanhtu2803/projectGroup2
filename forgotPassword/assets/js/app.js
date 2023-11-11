@@ -35,7 +35,7 @@ toggleConfirmPassword.style.left = '159px';
     return true;
   } else {
     document.getElementById("errorNewPass").innerHTML =
-      "Mật khẩu phải chứa kí tự đặc biệt, viết hoa,viết thường, có số và có đội dài từ 6-20";
+      "Mật khẩu phải chứa kí tự đặc biệt, viết hoa,viết thường, có số và có đội dài từ 8-20";
     return false;
   }
 };
