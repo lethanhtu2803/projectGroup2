@@ -138,8 +138,8 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link active">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
                 <i class="fa-solid fa-file-signature"></i> &nbsp;
                 <p>
                   Hợp đồng
@@ -155,7 +155,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="newcontract.html" class="nav-link active">
+                  <a href="newcontract.html" class="nav-link">
                     <i class="fa-solid fa-plus"></i> &nbsp;
                     <p>Hợp đồng mới</p>
                   </a>
@@ -171,9 +171,8 @@
 
               </ul>
             </li>
-
             <li class="nav-item">
-              <a href="feedbacks.html" class="nav-link">
+              <a href="feedbacks.html" class="nav-link active">
                 <i class="fa-solid fa-comment"></i> &nbsp;
                 <p>
                   Đánh giá
@@ -182,6 +181,7 @@
                 </p>
               </a>
             </li>
+
 
           </ul>
         </nav>
@@ -197,103 +197,169 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Hợp đồng mới</h1>
+              <h1>Danh sách tài khoản</h1>
             </div>
             
           </div>
         </div><!-- /.container-fluid -->
       </section>
-  
+
       <!-- Main content -->
       <section class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Hợp đồng</h3>
-  
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                
+                
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th style="width: 50px; vertical-align: top;">
+                          STT
+                        </th>
+                        <th style="vertical-align: top;">
+                          Mã tài khoản
+                        </th>
+                        <th style="vertical-align: top;">Tiêu đề</th>
+                        <th style="vertical-align: top;">Mô tả</th>
+                        <th style="vertical-align: top;">Ngày đánh giá</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>Đẹp</td>
+                        <td>Dịch vụ mua bán căn hộ bên $Apartment thật sự xuất sắc. Sẽ ghé mua lại</td>
+                        <td>11/11/2023</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>Hệ thống cũng được</td>
+                        <td>Dịch vụ CSKH tốt, thân thiện, tuy nhiên còn một số sai sót</td>
+                        <td>12/10/2023</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>12</td>
+                        <td>Nhân viên</td>
+                        <td>Nhân viên thân thiện, chuyên nghiệp</td>
+                        <td>05/09/2023</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>Căn hộ tốt</td>
+                        <td>Mua được nhà tốt giá ưu đãi, hợp đồng nhanh gọn</td>
+                        <td>06/08/2023</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>7</td>
+                        <td>Dịch vụ tệ</td>
+                        <td>Không được như những gì quảng cáo, thật sự thất vọng về dịch vụ hỗ trợ bên đây.</td>
+                        <td>20/06/2023</td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>10</td>
+                        <td>Nhà xấu</td>
+                        <td>Căn hộ hệ thống của bên này xây mà thiết kế xấu, ai là người đã thiết kế ra chúng vậy???</td>
+                        <td>02/06/2023</td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>11</td>
+                        <td>Hay</td>
+                        <td>Hệ thống tốt, nhà chưa vừa ý lắm nhưng giá rẻ và chấp nhận được</td>
+                        <td>12/05/2023</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>2</td>
+                        <td>Ok</td>
+                        <td>Nói chung là ok</td>
+                        <td>03/03/2023</td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td>20</td>
+                        <td>Nhân viên CSKH không chuyên nghiệp</td>
+                        <td>Nhân viên thì làm việc không chuyên nghiệp, hẹn khách mà tới trễ, làm việc thì sai sót.</td>
+                        <td>01/01/2023</td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td>6</td>
+                        <td>Hôm nay là Giáng Sinh</td>
+                        <td>Merry Christmas $Apartment</td>
+                        <td>24/12/2022</td>
+                      </tr>
+                      <tr>
+                        <td>11</td>
+                        <td>3</td>
+                        <td>Tui đánh giá web với một sự mong chờ</td>
+                        <td>Nhìn người ta đánh giá tốt về web mà tui mê quá mê...mong một ngày web mở rộng hệ thống ra Hà Nội. Tới lúc đó tui mua 3 4 căn hộ bên đây luôn!!!</td>
+                        <td>05/11/2022</td>
+                      </tr>
+                      <tr>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>Chất lượng, uy tín, đẹp đẽ và tất bật</td>
+                        <td>Đánh giá y chang tiêu đề....ko biết nói gì hơn ngoài khen hệ thống, mê cái cách họ làm việc gọn, lẹ.</td>
+                        <td>01/09/2022</td>
+                      </tr>
+                      <tr>
+                        <td>13</td>
+                        <td>8</td>
+                        <td>Ổn</td>
+                        <td>Ổn. Có thiện cảm</td>
+                        <td>30/06/2022</td>
+                      </tr>
+                      <tr>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>Tờ</td>
+                        <td>Ê tê nặng tệ</td>
+                        <td>28/03/2022</td>
+                      </tr>
+                      <tr>
+                        <td>15</td>
+                        <td>9</td>
+                        <td>Đây là một đánh giá tốt</td>
+                        <td>Sau khi tui mua ở đây 1 căn thì tui đang góp tiền để mua cho ba mẹ tui một căn nữa ở đây vì đơn giản hệ thống ở đây khiến tôi có thể an tâm khi đưa ba mẹ về sống</td>
+                        <td>01/03/2022</td>
+                      </tr>
+                     
+                      
+                  </table>
                 </div>
+                <!-- /.card-body -->
               </div>
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="inputDescription">Chủ sở hữu</label>
-                  <select id="inputStatus" class="form-control custom-select">
-                    <option disabled selected>Chọn chủ sở hữu</option>
-                    <option>1- Lê Thanh Tú</option>
-                    <option>2- Lê Thanh Tú</option>
-                    <option>3- Lê Thanh Tú</option>
-                    <option>4- Lê Thanh Tú</option>
-                    <option>5- Lê Thanh Tú</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="inputName">Ngày tạo hợp đồng</label>
-                  <input type="text" id="datepicker" class="form-control" value="28/03/2023">
-                </div>
-                <div class="form-group">
-                  <label for="inputStatus">Chi nhánh</label>
-                  <select id="inputStatus" class="form-control custom-select">
-                    <option disabled selected>Quận</option>
-                    <option>Quận 1</option>
-                    <option>Quận 2</option>
-                    <option>Quận 3</option>
-                    <option>Quận 4</option>
-                    <option>Quận 5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="inputStatus">Phòng ngủ</label>
-                  <select id="inputStatus" class="form-control custom-select">
-                    <option disabled selected>Tầng</option>
-                    <option>Tầng 1</option>
-                    <option>Tầng 2</option>
-                    <option>Tầng 3</option>
-                    <option>Tầng 4</option>
-                    <option>Tầng 5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="inputStatus">Phòng</label>
-                  <select id="inputStatus" class="form-control custom-select">
-                    <option disabled selected>Tên phòng</option>
-                    <option>Phòng 1</option>
-                    <option>Phòng 2</option>
-                    <option>Phòng 3</option>
-                    <option>Phòng 4</option>
-                    <option>Phòng 5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="inputDescription">Mô tả</label>
-                  <input type="text" id="inputName" class="form-control" value="Nhập mô tả...">
-                </div>
-               
-              </div>
-              <!-- /.card-body -->
+              <!-- /.card -->
+
+
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
+            <!-- /.col -->
           </div>
-         
+          <!-- /.row -->
         </div>
-        <div class="row">
-          <div class="col-12">
-            <a href="#" class="btn btn-secondary">Hủy</a>
-            <input type="submit" value="Thêm mới" class="btn btn-success float-right">
-          </div>
-        </div>
+        <!-- /.container-fluid -->
       </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
        
-      <strong>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn <a href="https://adminlte.io">$Apartment</a></strong>
-       
-     </footer>
+     <strong>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn <a href="https://adminlte.io">$Apartment</a></strong>
+      
+    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
