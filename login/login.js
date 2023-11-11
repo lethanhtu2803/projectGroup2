@@ -196,6 +196,10 @@ var checkValidatePassword = function () {
   var newPass = document.getElementById("newPassword").value.trim();
   var confirmPass = document.getElementById("confirmPassword").value.trim();
   var regexPass = /^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})$/u;
+  if (confirmPass === "") {
+    modalClick();
+    return false;
+  }
   if (newPass === "") {
     modalClick();
     return false;
@@ -205,6 +209,8 @@ var checkValidatePassword = function () {
 toggleConfirmPassword.style.top = '0px';
       document.getElementById("errorConfirmPass").innerHTML =
         "Mật khẩu xác nhận không giống với mật khẩu bạn vừa mới tạo.";
+        document.getElementById("errorNewPass").style.display =
+        "none";
       return false;
     }
     var toggleConfirmPassword = document.getElementsByClassName("toggle-newPassword")[0];
