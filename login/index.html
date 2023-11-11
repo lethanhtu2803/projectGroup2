@@ -100,23 +100,20 @@
               <span id="errorEmail"></span>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" id="pass" placeholder="Nhập mật khẩu"  />
-                <span class="toggle-newPassword" onclick="showPassword()">
+                <input type="password" id="newPassword" placeholder="Nhập mật khẩu"  />
+                <span class="toggle-newPassword" onclick="showPasswordRegister()">
                   <i class="far fa-eye"></i>
                 </span>
               </div>
-              <span id="errorPass"></span>
+              <span id="errorNewPass"></span>
               <div class="input-box">
-                <i class="fas fa-phone"></i>
-                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="phoneNumber"
-                  placeholder="Nhập số điện thoại"  />
+                <i class="fas fa-lock"></i>
+                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu"  />
+                <span class="toggle-confirmPassword" onclick="showConfirmPasswordRegister()">
+                  <i class="far fa-eye"></i>
+                </span>
               </div>
-              <span  id="errorPhone"></span>
-              <div class="input-box">
-                <i class="fas fa-calendar"></i>
-                <input type="text" id="datepicker" placeholder="Nhập ngày sinh"  />
-              </div>
-              <span  id="errorDate"></span>
+              <span id="errorConfirmPass"></span>
               <div class="button input-box">
                 <input type="submit" value="Đăng ký" id="submitRegister"/>
               </div>

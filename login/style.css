@@ -266,6 +266,14 @@ body{
   cursor: pointer;
 }
 
+.toggle-confirmPassword {
+  position: relative;
+  top: 0px;
+  left: -19px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 .modal button:hover {
   background-color: #333;
 }
