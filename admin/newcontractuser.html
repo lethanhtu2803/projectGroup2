@@ -47,6 +47,32 @@
       });
   } );
   </script>
+  <style>
+            input[type="file"] {
+          display: none;
+        }
+        .custom-upload-btn {
+           color: white;
+           width: 110px;
+           height: 35px;
+           background-color: #007bff;
+           font-size: 14px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           font-family: "Montserrat",sans-serif;
+           border-radius: 4px;
+        }
+
+        .custom-upload-btn:hover {
+          background-color: #007bff;
+          color: white; 
+          border: 2px solid #007bff;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          transform: scale(1.1); 
+
+}
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -219,6 +245,7 @@
                 </div>
               </div>
               <div class="card-body">
+                <form action="newcontractuser.html">
                 <div class="form-group">
                   <label for="inputName">Họ và tên</label>
                   <input type="text" id="inputName" class="form-control">
@@ -246,8 +273,8 @@
                 <div class="form-group">
                   <label for="inputName">Ảnh đại diện</label>
                   <br>
-                  <input  type="file" id="inputAvatar" >
-                  <button id="upload">Upload</button>
+                  <input style="margin-left: 100px;"  type="file" name="" required accept="image/*" id="inputAvatar" multiple>
+                  <label style="margin-top: 5px;" for="inputAvatar" class="custom-upload-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Tải lên</label>
                   <br>
                   <br>
                   <img id="avatar" src="../assets/images/Unknown_person.jpg" height="100px" width="100px" alt="">
@@ -275,6 +302,7 @@
             <input type="submit" value="Tạo chủ sở hữu mới" class="btn btn-success float-right">
           </div>
         </div>
+      </form>
       </section>
       <!-- /.content -->
     </div>
