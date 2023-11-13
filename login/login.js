@@ -23,41 +23,6 @@ window.onclick = function (event) {
   }
 };
 
-// var checkValidate = function () {
-//   var valid = true;
-
-//   valid =
-//     checkEmpty("username", "error", "errorNameModal") &
-//     checkEmpty("password", "error", "errorPassModal");
-
-//   valid &=
-//     checkValidateName("username", "errorNameModal") &
-//     checkValidatePassword("password", "errorPassModal");
-
-//   if (!valid) {
-//     return false;
-//   }
-//   return valid;
-// };
-
-// // Hàm kiểm tra có ô nhập nào bỏ trống không
-// var checkEmpty = function (selectorQuery, selectorEmpty, selectorError) {
-//   var input = document.getElementById(selectorQuery).value;
-//   var empty = document.getElementById(selectorEmpty);
-//   var error = document.getElementById(selectorError);
-//   if (input === "") {
-//     modalClick();
-//     empty.innerHTML =
-//       "Vui lòng nhập tên tài khoản và mật khẩu. Không được bỏ trống";
-//       error.style.display = "none";
-//     return false;
-//   }  else {
-//     modalClick();
-//     error.style.display = "block";
-//     return true;
-//   }
-
-// };
 
 // Hàm kiểm tra tính hợp lệ của username
 var checkValidateName = function (selectorQuery,  selectorError) {
@@ -98,18 +63,14 @@ var checkValidatePassword = function (selectorQuery,  selectorError) {
 // Hàm kiểm tra validate đăng kí
 var checkSignIn = function checkSignIn(event) {
   var valid = true;
-  // console.log(document.getElementById("name").value);
-  // console.log(document.getElementById("pass").value);
-  // console.log(document.getElementById("email").value);
-  // console.log(document.getElementById("phoneNumber").value);
-  // console.log(document.getElementById("datepicker").value);
+
   valid &= checkEmptySignIn("name", "empty", "errorName");
   valid &= checkEmptySignIn("newPassword", "empty", "errorNewPass");
   valid &= checkEmptySignIn("confirmPassword", "empty", "errorConfirmPass");
   valid &= checkEmptySignIn("email", "empty", "errorEmail");
  
 
-  // valid &= checkValidateName("name", "errorName");
+
   valid &= checkValidateEmail("email", "errorEmail");
   valid &= checkValidatePassword();
 
@@ -140,24 +101,6 @@ var checkEmptySignIn = function (selectorQuery, selectorEmpty,selectorErrorValid
 };
 
 
-// Hàm kiểm tra tên hợp lệ
-// var checkValidateName = function (selectorQuery, selectorError) {
-//   var regexName = /^[\p{L} ]+$/u;
-//   var input = document.getElementById(selectorQuery).value.trim();
-//   var error = document.getElementById(selectorError);
-//   console.log("regexName.test(input):", regexName.test(input));
-//   console.log("input:", input);
-//   if (regexName.test(input)) {
-//     console.log("Name" + regexName.test(input));
-//     error.style.display = "none";
-//     return true;
-//   } else {
-//     console.log(1)
-//     error.innerHTML =
-//       "Vui lòng nhập đúng tên đăng nhập. Không có số và kí tự đặc biệt";
-//     return false;
-//   }
-// };
 
 // Hàm check validate Email
 var checkValidateEmail = function (selectorQuery, selectorError) {
@@ -177,20 +120,6 @@ var checkValidateEmail = function (selectorQuery, selectorError) {
 
 
 
-// Hàm kiểm tra tính hợp lệ của password
-// var checkValidatePassword = function (selectorQuery, selectorError) {
-//   var regexPass = /^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})$/u;
-//   var input = document.getElementById(selectorQuery).value.trim();
-//   var error = document.getElementById(selectorError);
-//   console.log("Pass" +  regexPass.test(input));
-//   if (regexPass.test(input)) {
-//     error.style.display = "none";
-//     return true;
-//   } else {
-//     error.innerHTML = "Mật khẩu phải chứa kí tự đặc biệt, viết hoa, có số và có đội dài từ 6-20";
-//     return false;
-//   }
-// };
 
 var checkValidatePassword = function () {
   var newPass = document.getElementById("newPassword").value.trim();
@@ -225,19 +154,7 @@ toggleConfirmPassword.style.left = '159px';
 };
 
 
-// Hàm check valide phone number
-// var checkValidatePhone = function (selectorValue, selectorError) {
-//   var input = document.getElementById(selectorValue).value.trim();
-//   var regexPhone = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
-//   var error = document.getElementById(selectorError);
-//   if (regexPhone.test(input)) {
-//     error.style.display = "none";
-//     return true;
-//   } else {
-//     error.innerHTML = "Số điện thoại không hợp lệ";
-//     return false;
-//   }
-// };
+
 
 // Hàm show password
 function showPassword() {
@@ -306,6 +223,6 @@ function showPasswordLogin() {
 
 }
 
-// document.getElementById("submit").onclick = checkValidate;
+
 document.getElementById("submitRegister").onclick = checkSignIn;
 

@@ -17,7 +17,7 @@ function loadItems() {
 
 loadItems();
 function listPage() {
-    var count = Math.ceil(list.length / limit);
+    var count = Math.ceil(list.length / limit); // tổng số trang 
     document.querySelector('.pagination').innerHTML = '';
 
     if (thisPage != 1) {
