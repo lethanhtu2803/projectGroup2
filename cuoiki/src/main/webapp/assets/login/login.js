@@ -77,9 +77,9 @@ var checkSignIn = function checkSignIn(event) {
   if (!valid) {
     event.preventDefault(); // Prevent form submission
     return false;
-  }
-  console.log(valid)
-  return valid;
+  } 
+
+  return true;
 };
 
 // Hàm kiểm tra có ô nhập nào bỏ trống không

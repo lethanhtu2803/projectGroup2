@@ -13,7 +13,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/assets/user/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/user/css/fontawesome.css">
@@ -93,12 +93,12 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Trang Chủ</a></li>
-                      <li><a href="properties.html">Căn hộ khác</a></li>
-                      <li><a href="systemproperty.html">Căn hộ hệ thống</a></li>
-                      <li><a href="contact.html">Liên hệ</a></li>
-                      <li><a style="border: 2px solid #f35525; border-radius: 20px;" href="wishlist.html"><i class="fa-solid fa-heart" style="color:#f35525 ;"></i></a></li>
-                      <li><a style="border-radius: 20px;  background-color: #f35525; color: black;" href="postaparment.html"><i class="fa fa-pen"></i> Đăng tin</a></li>
+                      <li><a href="${pageContext.request.contextPath }/home" class="active">Trang Chủ</a></li>
+                      <li><a href="${pageContext.request.contextPath }/userapartment">Căn hộ khác</a></li>
+                      <li><a href="${pageContext.request.contextPath }/systemapartment">Căn hộ hệ thống</a></li>
+                      <li><a href="${pageContext.request.contextPath }/contact">Liên hệ</a></li>
+                      <li><a style="border: 2px solid #f35525; border-radius: 20px;" href="${pageContext.request.contextPath }/wishlist"><i class="fa-solid fa-heart" style="color:#f35525 ;"></i></a></li>
+                      <li><a style="border-radius: 20px;  background-color: #f35525; color: black;" href="${pageContext.request.contextPath }/postapartment"><i class="fa fa-pen"></i> Đăng tin</a></li>
                       <li><a href="${pageContext.request.contextPath }/account"><i class="fa fa-user"></i>Tài khoản</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -130,6 +130,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="${pageContext.request.contextPath}/assets/user/js/owl-carousel.js"></script>
   <script src="${pageContext.request.contextPath}/assets/user/js/counter.js"></script>
   <script src="${pageContext.request.contextPath}/assets/user/js/custom.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/user/js/pagination.js"></script>
 
   </body>
 </html>

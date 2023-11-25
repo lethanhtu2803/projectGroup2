@@ -97,21 +97,21 @@
         </div>
         <div class="signup-form">
           <div class="title">Đăng ký</div>
-          <form action="../index.html" onsubmit="return checkSignIn()">
+          <form action="${pageContext.request.contextPath }/login?action=register" method="post">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" id="name" placeholder="Nhập tên"  />
+                <input type="text" id="name" name="username" placeholder="Nhập tên đăng nhập"  />
               </div>
               <span id="errorName"></span>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="Nhập email"  />
+                <input type="email" id="email" name="email" placeholder="Nhập email"  />
               </div>
               <span id="errorEmail"></span>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" id="newPassword" placeholder="Nhập mật khẩu"  />
+                <input type="password" id="newPassword" name="password" placeholder="Nhập mật khẩu"  />
                 <span class="toggle-newPassword" onclick="showPasswordRegister()">
                   <i class="far fa-eye"></i>
                 </span>
@@ -126,7 +126,7 @@
               </div>
               <span id="errorConfirmPass"></span>
               <div class="button input-box">
-                <input type="submit" value="Đăng ký" id="submitRegister"/>
+                <input type="submit" value="Đăng ký" onclick="return checkSignIn();" id="submitRegister"/>
               </div>
               <div class="text sign-up-text">
                 Bạn đã có tài khoản chưa ? <label for="flip">Đăng nhập ngay</label>
