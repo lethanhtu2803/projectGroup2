@@ -2,6 +2,7 @@ package com.demo.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -71,7 +72,7 @@ public class AccountModel {
 		return account;
 	}
 	public static void main(String[] args) {
-		System.out.println(BCrypt.checkpw("123", "$2a$10$EGz5UXiizIxOG0fvJz2mM.0u4rcfA6KVBZx897NkzfNrRB/p/fRLa"));
+		
 	}
 	
 	public boolean login(String username, String password) {
@@ -84,6 +85,60 @@ public class AccountModel {
 		}
 		return false;
 	} 
+	public boolean register(Account account) {
+		boolean status = true;
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.save(account);
+		
+			transaction.commit();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			status = false;
+		
+			if(transaction != null) {
+				transaction.rollback();
+			}
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+		
+		return status;
+	}
+	public boolean update(Account account) {
+		boolean status = true;
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.update(account);
+		
+			transaction.commit();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			status = false;
+		
+			if(transaction != null) {
+				transaction.rollback();
+			}
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+		
+		return status;
+	}
 
 	
 	
