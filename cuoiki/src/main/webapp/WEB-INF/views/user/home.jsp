@@ -30,7 +30,7 @@
         <div class="col-lg-4">
           <div class="left-image">
             <img src="${pageContext.request.contextPath}/assets/user/images/featured.jpg" alt="">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
           </div>
         </div>
         <div class="col-lg-5">
@@ -280,10 +280,10 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh1.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh1.jpg" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>3 tỷ VNĐ</h6>
-            <h4><a href="userproperty-details.html">CĂN HỘ 1PN FULL NỘI THẤT NEW 100%</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">CĂN HỘ 1PN FULL NỘI THẤT NEW 100%</a></h4>
             <ul>
               <li>Phòng ngủ: <span>2</span></li>
               <li>Phòng tắm: <span>1</span></li>
@@ -292,16 +292,16 @@
               <li>Khu vực: <span>6 spots</span></li>
             </ul>
             <div class="main-button">
-              <a href="userproperty-details.html">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images//hinhnha/hinh2.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images//hinhnha/hinh2.jpg" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>2,6 tỷ VNĐ</h6>
-            <h4><a href="userproperty-details.html">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT</a></h4>
             <ul>
               <li>Phòng ngủ: <span>1</span></li>
               <li>Phòng tắm: <span>2</span></li>
@@ -310,16 +310,16 @@
               <li>Khu vực: <span>8 spots</span></li>
             </ul>
             <div class="main-button">
-              <a href="userproperty-details.html">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh3.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh3.jpg" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>2,4 tỷ VNĐ</h6>
-            <h4><a href="userproperty-details.html">CĂN HỘ 1 PHÒNG NGỦ NEW 100%</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">CĂN HỘ 1 PHÒNG NGỦ NEW 100%</a></h4>
             <ul>
               <li>Phòng ngủ: <span>1</span></li>
               <li>Phòng tắm: <span>1</span></li>
@@ -328,16 +328,16 @@
               <li>Khu vực: <span>10 spots</span></li>
             </ul>
             <div class="main-button">
-              <a href="userproperty-details.html">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh4.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh4.jpg" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>5 tỷ VNĐ</h6>
-            <h4><a href="userproperty-details.html">SIÊU PHẨM BAN CÔNG ĐÔI – FULL NỘI THẤT</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">SIÊU PHẨM BAN CÔNG ĐÔI – FULL NỘI THẤT</a></h4>
             <ul>
               <li>Phòng ngủ: <span>2</span></li>
               <li>Phòng tắm: <span>2</span></li>
@@ -346,16 +346,16 @@
               <li>Khu vực: <span>2 cars</span></li>
             </ul>
             <div class="main-button">
-              <a href="userproperty-details.html">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh5.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh5.jpg" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>4 tỷ VNĐ</h6>
-            <h4><a href="userproperty-details.html">STUDIO CỬA SỔ THOÁNG – ĐẦY ĐỦ NỘI THẤT – ĐƯỜNG LÂM VĂN BỀN</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">STUDIO CỬA SỔ THOÁNG – ĐẦY ĐỦ NỘI THẤT – ĐƯỜNG LÂM VĂN BỀN</a></h4>
             <ul>
               <li>Phòng ngủ: <span>2</span></li>
               <li>Phòng tắm: <span>1</span></li>
@@ -364,16 +364,16 @@
               <li>Khu vực: <span>Quận 4</span></li>
             </ul>
             <div class="main-button">
-              <a href="userproperty-details.html">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="userproperty-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh6.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh6.jpg" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>3,2 tỷ VNĐ</h6>
-            <h4><a href="userproperty-details.html">STUDIO BAN CÔNG FULL NỘI THẤT TÂN QUY</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">STUDIO BAN CÔNG FULL NỘI THẤT TÂN QUY</a></h4>
             <ul>
               <li>Phòng ngủ: <span>2</span></li>
               <li>Phòng tắm: <span>2</span></li>
@@ -382,7 +382,7 @@
               <li>Khu vực: <span>Quận 7</span></li>
             </ul>
             <div class="main-button">
-              <a href="userproperty-details.html">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
         </div>
@@ -426,7 +426,7 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <form id="contact-form" action="" method="post">
+          <form id="contact-form" action="${pageContext.request.contextPath }/home?action=submitFeedback" method="post">
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
@@ -437,7 +437,7 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="email">Email của bạn</label>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Nhập thư điện tử ..." required="">
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Nhập thư điện tử ..." required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -456,6 +456,18 @@
                 <fieldset>
                   <button type="submit" id="form-submit" class="orange-button">Gửi</button>
                 </fieldset>
+                <br>
+                <%
+                	HttpSession session1 = request.getSession();
+                	String success = (String) session1.getAttribute("success");
+                	String failed = (String) session1.getAttribute("failed");
+                	String success1 = success;
+                	String failed1 = failed;
+                	session1.removeAttribute("success");
+                	session1.removeAttribute("failed");
+                %>
+                <p class="text-success text-center fs-3"><%= success1 != null ? success1 : "" %></p>
+                <p class="text-success text-danger fs-3"><%= failed1 != null ? failed1 : "" %></p>
               </div>
             </div>
           </form>

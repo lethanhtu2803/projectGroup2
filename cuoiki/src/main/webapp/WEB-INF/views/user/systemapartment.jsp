@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="index.html">Trang chủ</a> / Căn hộ hệ thống</span>
+          <span class="breadcrumb"><a href="${pageContext.request.contextPath}/home">Trang chủ</a> / Căn hộ hệ thống</span>
           <h3>Căn hộ hệ thống</h3>
         </div>
       </div>
@@ -98,7 +98,7 @@
                 var arr = [1,2];
                 var bathroom = arr[Math.floor(Math.random() * 2)];
                 console.log(bathroom);
-                 div.innerHTML += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6"><div class="item"><a href="systemapartment-details.html"><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can' + img + '.jpg" alt=""></a><span class="category">Căn hộ hệ thống</span><h6>' + price + ' tỷ VNĐ</h6><h4><a href="systemapartment-details.html">Căn hộ <span>' + bedroom +'</span> PN <span>' + bathroom + '</span>WC Chi nhánh Quận ' + (i+1) +'</a></h4><ul><li>Địa chỉ: <span>'+ address(i+1)  + '</span></li><li>Tầng <span>' + (j+1) +'</span></li><li>Phòng  <span>' + (k+1) +'</span></li><li>Diện tích <span>30m2</span></li><li>Đặt cọc <span>' + deposit +'tr</span></li></ul><div class="main-button"><a href="systemapartment-details.html">Chi tiết</a></div></div></div>';
+                 div.innerHTML += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6"><div class="item"><a href="${pageContext.request.contextPath}/systemapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can' + img + '.jpg" alt=""></a><span class="category">Căn hộ hệ thống</span><h6>' + price + ' tỷ VNĐ</h6><h4><a href="${pageContext.request.contextPath}/systemapartmentdetails">Căn hộ <span>' + bedroom +'</span> PN <span>' + bathroom + '</span>WC Chi nhánh Quận ' + (i+1) +'</a></h4><ul><li>Địa chỉ: <span>'+ address(i+1)  + '</span></li><li>Tầng <span>' + (j+1) +'</span></li><li>Phòng  <span>' + (k+1) +'</span></li><li>Diện tích <span>30m2</span></li><li>Đặt cọc <span>' + deposit +'tr</span></li></ul><div class="main-button"><a href="${pageContext.request.contextPath}/systemapartmentdetails">Chi tiết</a></div></div></div>';
               }
             }
           }

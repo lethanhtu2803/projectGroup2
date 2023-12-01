@@ -1,80 +1,74 @@
 package com.demo.models;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import java.util.List;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.demo.entities.Account;
-import com.demo.entities.Accountdetails;
+import com.demo.entities.ConnectDB;
 
 public class AccountModel {
-	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	public List<Account> findAll(){
-		List<Account> accounts = null;
-		Session session = null;
-		Transaction transaction = null;
+		List<Account> accounts = new ArrayList<Account>();
 		try {
-			session = sessionFactory.openSession();
-			transaction = session.beginTransaction();
-			accounts = session.createQuery("from Account").getResultList();
-		
-			transaction.commit();
-			
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from account");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				Account account = new Account();
+				account.setId(resultSet.getInt("id"));
+				account.setUsername(resultSet.getString("username"));
+				account.setPassword(resultSet.getString("password"));
+				account.setEmail(resultSet.getString("email"));
+				account.setCreated(resultSet.getDate("created"));
+				account.setVerify(resultSet.getBoolean("verify"));
+				account.setSecurityCode(resultSet.getString("securitycode"));
+				account.setStatus(resultSet.getBoolean("status"));
+				account.setRole(resultSet.getInt("role"));
+				accounts.add(account);
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			accounts = null;
-		
-			if(transaction != null) {
-				transaction.rollback();
-			}
+			// TODO: handle exception
 		} finally {
-			if(session != null) {
-				session.close();
-			}
+			ConnectDB.disconnect();
 		}
 		
 		return accounts;
 	}
-	
 	public Account findAccountByUsername(String username) {
 		Account account = null;
-		Session session = null;
-		Transaction transaction = null;
 		try {
-			session = sessionFactory.openSession();
-			transaction = session.beginTransaction();
-			account = (Account) session.createQuery("from Account where username = :username")
-					.setParameter("username", username)
-					.getSingleResult();
-		
-			transaction.commit();
-			
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from account where username = ?");
+			preparedStatement.setString(1, username);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				account = new Account();
+				account.setId(resultSet.getInt("id"));
+				account.setUsername(resultSet.getString("username"));
+				account.setPassword(resultSet.getString("password"));
+				account.setEmail(resultSet.getString("email"));
+				account.setCreated(resultSet.getDate("created"));
+				account.setVerify(resultSet.getBoolean("verify"));
+				account.setSecurityCode(resultSet.getString("securitycode"));
+				account.setStatus(resultSet.getBoolean("status"));
+				account.setRole(resultSet.getInt("role"));
+				
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			account = null;
-		
-			if(transaction != null) {
-				transaction.rollback();
-			}
+			// TODO: handle exception
 		} finally {
-			if(session != null) {
-				session.close();
-			}
+			ConnectDB.disconnect();
 		}
-		
 		return account;
 	}
-	public static void main(String[] args) {
-		
-	}
-	
 	public boolean login(String username, String password) {
 		Account account = findAccountByUsername(username);
 		if(account != null) {
@@ -84,62 +78,65 @@ public class AccountModel {
 			
 		}
 		return false;
-	} 
+	}
 	public boolean register(Account account) {
 		boolean status = true;
-		Session session = null;
-		Transaction transaction = null;
 		try {
-			session = sessionFactory.openSession();
-			transaction = session.beginTransaction();
-			session.save(account);
-		
-			transaction.commit();
+			PreparedStatement preparedStatement = ConnectDB.connection()
+			.prepareStatement("insert into account(username,password,email,created,verify,securitycode,status,role) values(?, ?, ?, ?, ?, ?, ?, ?)");
+			preparedStatement.setString(1, account.getUsername());
+			preparedStatement.setString(2, account.getPassword());
+			preparedStatement.setString(3, account.getEmail());
+			preparedStatement.setDate(4, new Date(account.getCreated().getTime()));
+			preparedStatement.setBoolean(5, account.isVerify());
+			preparedStatement.setString(6, account.getSecurityCode());
+			preparedStatement.setBoolean(7, account.isStatus());
+			preparedStatement.setInt(8, account.getRole());
+			
+			status = preparedStatement.executeUpdate() > 0;
+			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			status = false;
-		
-			if(transaction != null) {
-				transaction.rollback();
-			}
+			// TODO: handle exception
 		} finally {
-			if(session != null) {
-				session.close();
-			}
+			ConnectDB.disconnect();
 		}
-		
 		return status;
 	}
 	public boolean update(Account account) {
 		boolean status = true;
-		Session session = null;
-		Transaction transaction = null;
 		try {
-			session = sessionFactory.openSession();
-			transaction = session.beginTransaction();
-			session.update(account);
-		
-			transaction.commit();
+			PreparedStatement preparedStatement = ConnectDB.connection()
+			.prepareStatement("update account set username = ?, password = ?, email = ?, created = ?, verify = ?, securitycode = ?, status = ?, role = ? where id = ?");
+			preparedStatement.setString(1, account.getUsername());
+			preparedStatement.setString(2, account.getPassword());
+			preparedStatement.setString(3, account.getEmail());
+			preparedStatement.setDate(4, new Date(account.getCreated().getTime()));
+			preparedStatement.setBoolean(5, account.isVerify());
+			preparedStatement.setString(6, account.getSecurityCode());
+			preparedStatement.setBoolean(7, account.isStatus());
+			preparedStatement.setInt(8, account.getRole());
+			preparedStatement.setInt(9, account.getId());
+			status = preparedStatement.executeUpdate() > 0;
+			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			status = false;
-		
-			if(transaction != null) {
-				transaction.rollback();
-			}
+			// TODO: handle exception
 		} finally {
-			if(session != null) {
-				session.close();
-			}
+			ConnectDB.disconnect();
 		}
-		
 		return status;
 	}
-
 	
-	
+	public static void main(String[] args) {
+		AccountModel accountModel = new AccountModel();
+		Account account = accountModel.findAccountByUsername("aaaa");
+		account.setUsername("bbbb");
+		
+		System.out.println(accountModel.update(account));
+	}
 }

@@ -87,16 +87,16 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="${pageContext.request.contextPath }/home" class="logo">
                         <h1>$Apartment</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="${pageContext.request.contextPath }/home" class="active">Trang Chủ</a></li>
-                      <li><a href="${pageContext.request.contextPath }/userapartment">Căn hộ khác</a></li>
-                      <li><a href="${pageContext.request.contextPath }/systemapartment">Căn hộ hệ thống</a></li>
-                      <li><a href="${pageContext.request.contextPath }/contact">Liên hệ</a></li>
+                      <li><a href="${pageContext.request.contextPath }/home" class="${activeHome }">Trang Chủ</a></li>
+                      <li><a href="${pageContext.request.contextPath }/userapartment" class="${activeUser }">Căn hộ khác</a></li>
+                      <li><a href="${pageContext.request.contextPath }/systemapartment" class="${activeSystem }">Căn hộ hệ thống</a></li>
+                      <li><a href="${pageContext.request.contextPath }/contact" class="${activeContact }">Liên hệ</a></li>
                       <li><a style="border: 2px solid #f35525; border-radius: 20px;" href="${pageContext.request.contextPath }/wishlist"><i class="fa-solid fa-heart" style="color:#f35525 ;"></i></a></li>
                       <li><a style="border-radius: 20px;  background-color: #f35525; color: black;" href="${pageContext.request.contextPath }/postapartment"><i class="fa fa-pen"></i> Đăng tin</a></li>
                       <li><a href="${pageContext.request.contextPath }/account"><i class="fa fa-user"></i>Tài khoản</a></li>
@@ -117,7 +117,7 @@ https://templatemo.com/tm-591-villa-agency
       <div style="margin-left: 250px;" class="col-lg-8">
         <p>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn
         
-        <a rel="nofollow" href="index.html" target="_blank">$Apartment</a></p>
+        <a rel="nofollow" href="${pageContext.request.contextPath }/home" target="_blank">$Apartment</a></p>
       </div>
     </div>
   </footer>

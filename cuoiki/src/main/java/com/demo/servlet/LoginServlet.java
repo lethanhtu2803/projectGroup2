@@ -111,11 +111,21 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		AccountModel accountModel = new AccountModel();
 		AccountDetailsModel accountDetailsModel = new AccountDetailsModel();
+		Account account = accountModel.findAccountByUsername(username);
 		if(accountModel.login(username, password)) {
-			request.getSession().setAttribute("accountdetails", 
-					accountDetailsModel.findAccountByAccountID(accountModel.findAccountByUsername(username).getId()));
-			request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
-			response.sendRedirect("account");
+			if(account.getRole() == 0) {
+				request.getSession().setAttribute("accountAdmin", account);
+				request.getSession().removeAttribute("accountdetails");
+				request.getSession().removeAttribute("account");
+				response.sendRedirect("admin/account");
+			} else if(account.getRole() == 1) {
+				request.getSession().setAttribute("accountdetails", 
+						accountDetailsModel.findAccountByAccountID(accountModel.findAccountByUsername(username).getId()));
+				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
+				request.getSession().removeAttribute("accountAdmin");
+				response.sendRedirect("account");
+			}
+			
 		
 		} else {
 			request.getSession().setAttribute("msg", "Tài khoản hoặc mật khẩu không đúng");

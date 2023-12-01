@@ -13,7 +13,7 @@
 
   <div class="contact-page section" style="margin-top: 60px;">
     <div class="container">
-      <a href="properties.html"><button class="btn" style="margin-left: 24px;color: white;background-color: #f35525;font-weight: bold;"><i class="fa-solid fa-arrow-right fa-rotate-180"></i> Tiếp tục xem</button></a>
+      <a href="${pageContext.request.contextPath}/userapartment"><button class="btn" style="margin-left: 24px;color: white;background-color: #f35525;font-weight: bold;"><i class="fa-solid fa-arrow-right fa-rotate-180"></i> Tiếp tục xem</button></a>
       <div class="row mb-5 mt-5 border border-white" id="contact-form">
         <h3 style="text-align: center;color: coral;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> Căn nhà yêu thích của bạn</h3>
