@@ -18,7 +18,8 @@
           <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
               <span>Bài đăng</span>
-              <button class="btn" style="background-color: #f35525; "><a style="color: white;" href="mypost.html">Xem bài viết đã đăng</a></button>
+              <button class="btn" style="background-color: #f35525; "><a style="color: white;" 
+              href="${pageContext.request.contextPath}/mypost">Xem bài viết đã đăng</a></button>
             </div>
             <div class="card-body">
                 <form method="" action="mypost.html">
