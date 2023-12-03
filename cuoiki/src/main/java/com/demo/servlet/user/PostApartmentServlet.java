@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.models.PostModel;
 @WebServlet("/postapartment")
 /**
  * Servlet implementation class HomeServlet
@@ -31,6 +33,7 @@ public class PostApartmentServlet extends HttpServlet {
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setAttribute("p", "../user/postapartment.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
 	}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
   <div class="main-banner">
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
@@ -278,117 +279,32 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-md-6">
+      <c:forEach var="post" items="${posts }">
+       <div class="col-lg-4 col-md-6">
           <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh1.jpg" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>3 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">CĂN HỘ 1PN FULL NỘI THẤT NEW 100%</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">${post.subject}</a></h4>
             <ul>
-              <li>Phòng ngủ: <span>2</span></li>
-              <li>Phòng tắm: <span>1</span></li>
-              <li>Diện tích: <span>545m2</span></li>
-              <li>Ngày đăng: <span>3</span></li>
-              <li>Khu vực: <span>6 spots</span></li>
+              <li>Phòng ngủ: <span>${post.bedroom}</span></li>
+              <li>Phòng tắm: <span>${post.bathroom}</span></li>
+              <li>Diện tích: <span>${post.area} m2</span></li>
+              <li>Ngày đăng: <span>${post.postdate}</span></li>
+              <li>Địa chỉ: <span>${post.address}</span></li>
             </ul>
             <div class="main-button">
               <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images//hinhnha/hinh2.jpg" alt=""></a>
-            <span class="category">Căn hộ</span>
-            <h6>2,6 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT</a></h4>
-            <ul>
-              <li>Phòng ngủ: <span>1</span></li>
-              <li>Phòng tắm: <span>2</span></li>
-              <li>Diện tích: <span>450m2</span></li>
-              <li>Ngày đăng: <span>3</span></li>
-              <li>Khu vực: <span>8 spots</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh3.jpg" alt=""></a>
-            <span class="category">Căn hộ</span>
-            <h6>2,4 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">CĂN HỘ 1 PHÒNG NGỦ NEW 100%</a></h4>
-            <ul>
-              <li>Phòng ngủ: <span>1</span></li>
-              <li>Phòng tắm: <span>1</span></li>
-              <li>Diện tích: <span>225m2</span></li>
-              <li>Ngày đăng: <span>3</span></li>
-              <li>Khu vực: <span>10 spots</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh4.jpg" alt=""></a>
-            <span class="category">Căn hộ</span>
-            <h6>5 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">SIÊU PHẨM BAN CÔNG ĐÔI – FULL NỘI THẤT</a></h4>
-            <ul>
-              <li>Phòng ngủ: <span>2</span></li>
-              <li>Phòng tắm: <span>2</span></li>
-              <li>Diện tích: <span>125m2</span></li>
-              <li>Ngày đăng: <span>25th</span></li>
-              <li>Khu vực: <span>2 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh5.jpg" alt=""></a>
-            <span class="category">Căn hộ</span>
-            <h6>4 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">STUDIO CỬA SỔ THOÁNG – ĐẦY ĐỦ NỘI THẤT – ĐƯỜNG LÂM VĂN BỀN</a></h4>
-            <ul>
-              <li>Phòng ngủ: <span>2</span></li>
-              <li>Phòng tắm: <span>1</span></li>
-              <li>Diện tích: <span>180m2</span></li>
-              <li>Ngày đăng: <span>28/03/2021</span></li>
-              <li>Khu vực: <span>Quận 4</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/hinhnha/hinh6.jpg" alt=""></a>
-            <span class="category">Căn hộ</span>
-            <h6>3,2 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">STUDIO BAN CÔNG FULL NỘI THẤT TÂN QUY</a></h4>
-            <ul>
-              <li>Phòng ngủ: <span>2</span></li>
-              <li>Phòng tắm: <span>2</span></li>
-              <li>Diện tích: <span>165m2</span></li>
-              <li>Ngày đăng: <span>26/07/2022</span></li>
-              <li>Khu vực: <span>Quận 7</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
-            </div>
+        </div> 
+      </c:forEach>
+      	
+      
           </div>
         </div>
       </div>
-    </div>
-  </div>
+
 
   <div class="contact section">
     <div class="container">

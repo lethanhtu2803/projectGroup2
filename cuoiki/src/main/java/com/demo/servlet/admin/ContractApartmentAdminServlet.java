@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet({"/admin/contractApartment"})
+@WebServlet({"/admin/contractapartment"})
 /**
  * Servlet implementation class AccountAdminServlet
  */

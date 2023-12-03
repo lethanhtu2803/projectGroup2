@@ -163,7 +163,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="${pageContext.request.contextPath }/admin/contractApartment" class="nav-link ${activeListContract }">
+                  <a href="${pageContext.request.contextPath }/admin/contractapartment" class="nav-link ${activeListContract }">
                     <i class="fa-solid fa-file-contract"></i> &nbsp;
                     <p>Danh sách hợp đồng</p>
                   </a>
