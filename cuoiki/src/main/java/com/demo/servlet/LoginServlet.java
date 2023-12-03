@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 		String securityCode = request.getParameter("securityCode");
 		AccountModel accountModel = new AccountModel();
 		Account account = accountModel.findAccountByUsername(username);
-		if(account.getUsername().equals(username) && account.getSecuritycode().equalsIgnoreCase(securityCode)) {
+		if(account.getUsername().equals(username) && account.getSecurityCode().equalsIgnoreCase(securityCode)) {
 			account.setVerify(true);
 			if(accountModel.update(account)) {
 				response.sendRedirect("login");
@@ -146,7 +146,7 @@ public class LoginServlet extends HttpServlet {
 		account.setStatus(true);
 		account.setVerify(false);
 		account.setRole(1);
-		account.setSecuritycode(securityCode);
+		account.setSecurityCode(securityCode);
 		AccountModel accountModel = new AccountModel();
 		if(accountModel.register(account)) {
 			String content = "Xin chào, đây là email từ $Apartment! Vui lòng nhấp vào <a href='http://localhost:8080/projectGroup2/login?action=verify&username=" + username + "&email=" + email +"&securityCode=" + securityCode + "'>Liên kết</a> để xác nhận tài khoản của bạn.";

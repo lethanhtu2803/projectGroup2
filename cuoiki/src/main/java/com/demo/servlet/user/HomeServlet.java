@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Account;
 import com.demo.entities.Feedback;
-import com.demo.models.FeedBackModel;
+import com.demo.models.FeedbackModel;
 import com.demo.models.PostModel;
+//import com.demo.models.PostModel;
 @WebServlet("/home")
 /**
  * Servlet implementation class HomeServlet
@@ -38,6 +39,8 @@ public class HomeServlet extends HttpServlet {
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PostModel postModel = new PostModel();
+		request.setAttribute("posts", postModel.findTopSix());
 		request.setAttribute("activeHome", "active");
 		request.setAttribute("p", "../user/home.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
@@ -47,7 +50,6 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String action = request.getParameter("action");
 		if(action.equalsIgnoreCase("submitFeedback")) {
 			doPost_SubmitFeedback(request, response);
@@ -56,26 +58,27 @@ public class HomeServlet extends HttpServlet {
 	protected void doPost_SubmitFeedback(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Account account = (Account) request.getSession().getAttribute("account");
-		FeedBackModel feedBackModel = new FeedBackModel();
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String subject = request.getParameter("subject");
-		String message = request.getParameter("message");
-		Feedback feedback = new Feedback();
-		feedback.setAccount(account);
-		feedback.setCreated(new Date());
-		feedback.setDescription(message);
-		feedback.setSubject(subject);
 		if(account != null ) {
+		
+			FeedbackModel feedBackModel = new FeedbackModel();
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String subject = request.getParameter("subject");
+			String message = request.getParameter("message");
+			Feedback feedback = new Feedback();
+			feedback.setAccountid(account.getId());
+			feedback.setCreated(new Date());
+			feedback.setDescription(message);
+			feedback.setSubject(subject);
 			if(feedBackModel.submitFeedback(feedback)) {
 				request.getSession().setAttribute("success","Cảm ơn đã đóng góp ý kiến cho hệ thống.Kính chúc quý khách một ngày tốt lành");
-				response.sendRedirect("home");
+				response.sendRedirect("home#form-submit");
 			} else {
 				request.getSession().setAttribute("failed","Bình luận không thành công");
 			}
 		} else {
 			request.getSession().setAttribute("failed","Bạn cần đăng nhập tài khoản để thực hiện chức năng này");
-			response.sendRedirect("home");
+			response.sendRedirect("home#form-submit");
 		}
 	}
 
