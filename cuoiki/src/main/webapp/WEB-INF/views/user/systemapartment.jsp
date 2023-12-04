@@ -1,5 +1,10 @@
+<%@page import="com.demo.entities.Systemapartment"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.demo.models.SystemApartmentModel"%>
+<%@page import="com.demo.models.BranchModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
  <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -68,41 +73,33 @@
        
       </div>
       <div id="div" class="row properties-box">
-
+      <%
+      	BranchModel branchModel = new BranchModel();
+      	SystemApartmentModel systemapartment = new SystemApartmentModel();
+      %>
+			<% for(Systemapartment system : systemapartment.findAll()){ %>
+        	  <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">
+                <div class="item">
+                  <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/<%=system.getAvatar() %>" alt=""></a>
+                  <a href="${pageContext.request.contextPath}/wishlist"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>
+                  
+                  <h6><%= system.getPrice() %> tỷ VNĐ</h6>
+                  <h4><a href="${pageContext.request.contextPath}/userapartmentdetails"><%= system.getSubject() %></a></h4>
+                  <ul>
+                  <li>Số phòng: <span><%= system.getFloorid() %> 0 <%= system.getRoomid() %></span></li>
+                     <li>Phòng ngủ: <span><%= system.getBedroom() %></span></li>
+              <li>Phòng tắm: <span><%= system.getBathroom() %></span></li>
+              <li>Diện tích: <span><%= system.getArea() %> m2</span></li>
+              <li>Địa chỉ: <span><%= branchModel.findBranchByID(system.getBranchid()).getAddress() %></span></li>
+                  </ul>
+                  <div class="main-button">
+                    <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
+                  </div>
+                </div>
+          </div>
+        	<% } %>
       </div>
-      <script>
-          var div = document.getElementById('div');
-          function address(i){
-            var quan = '';
-              if(i == 1){
-                quan = '123 Nguyễn Văn Cừ Quận 1 TP Hồ Chí Minh'
-              } else if(i == 2){
-                quan = '45 Đào Trinh Nhất Quận 2 TP Hồ Chí Minh'
-              } else if(i == 3){
-                quan = '31 Võ Văn Tần Quận 3 TP Hồ Chí Minh'
-              } else if(i == 4){
-                quan = '76 Hoàng Diệu Quận 4 TP Hồ Chí Minh'
-              } else if(i == 5){
-                quan = '44 Võ Văn Ngân Quận 5 TP Hồ Chí Minh'
-              } 
-              return quan;
-          }
-          console.log(address(2));
-          for(var i = 0; i < 5; i++){
-            for(var j = 0; j < 5; j++){
-              for(var k = 0; k < 5; k++){
-                var price = Math.floor(Math.random() * 5) + 1;
-                var img = Math.floor(Math.random() * 40) + 1;
-                var deposit = Math.floor(Math.random() * 20) + 10;
-                var bedroom = Math.floor(Math.random() * 3) + 1;
-                var arr = [1,2];
-                var bathroom = arr[Math.floor(Math.random() * 2)];
-                console.log(bathroom);
-                 div.innerHTML += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6"><div class="item"><a href="${pageContext.request.contextPath}/systemapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can' + img + '.jpg" alt=""></a><span class="category">Căn hộ hệ thống</span><h6>' + price + ' tỷ VNĐ</h6><h4><a href="${pageContext.request.contextPath}/systemapartmentdetails">Căn hộ <span>' + bedroom +'</span> PN <span>' + bathroom + '</span>WC Chi nhánh Quận ' + (i+1) +'</a></h4><ul><li>Địa chỉ: <span>'+ address(i+1)  + '</span></li><li>Tầng <span>' + (j+1) +'</span></li><li>Phòng  <span>' + (k+1) +'</span></li><li>Diện tích <span>30m2</span></li><li>Đặt cọc <span>' + deposit +'tr</span></li></ul><div class="main-button"><a href="${pageContext.request.contextPath}/systemapartmentdetails">Chi tiết</a></div></div></div>';
-              }
-            }
-          }
-      </script>
+    
         </div>
         <div class="row">
           <div class="col-lg-12">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -33,38 +34,18 @@
               </tr>
             </thead>
             <tbody style="vertical-align: middle;text-align: center;">
-              <tr>
-                <td><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can1.jpg" height="140"></td>
-                <td>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</td>
-                <td>4,2 tỷ VNĐ</td>
-                <td>Ở từ 2-4 người, cho nuôi thú cưng</td>
+            <c:forEach var="post"  items="${sessionScope.posts }" varStatus="i">
+             <tr>
+                <td><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" height="140"></td>
+                <td>${post.subject}</td>
+                <td>${post.price} tỷ VNĐ</td>
+                <td>${post.description}</td>
                 <td><a href="userproperty-details.html">Xem chi tiết</a></td>
-                <td><i class="fa-solid fa-trash text-danger"></i></td>
+                <td><a href="${pageContext.request.contextPath}/wishlist?action=remove&id=${i.index}" onclick="return confirm('Xóa căn hộ khỏi danh sách yêu thích?');"><i class="fa-solid fa-trash text-danger"></i></a></td>
               </tr>
-              <tr>
-                <td><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can1.jpg" height="140"></td>
-                <td>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</td>
-                <td>4,2 tỷ VNĐ</td>
-                <td>Ở từ 2-4 người, cho nuôi thú cưng</td>
-                <td><a href="userproperty-details.html">Xem chi tiết</a></td>
-                <td><i class="fa-solid fa-trash text-danger"></i></td>
-              </tr>
-              <tr>
-                <td><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can1.jpg" height="140"></td>
-                <td>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</td>
-                <td>4,2 tỷ VNĐ</td>
-                <td>Ở từ 2-4 người, cho nuôi thú cưng</td>
-                <td><a href="userproperty-details.html">Xem chi tiết</a></td>
-                <td><i class="fa-solid fa-trash text-danger"></i></td>
-              </tr>
-              <tr>
-                <td><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can1.jpg" height="140"></td>
-                <td>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</td>
-                <td>4,2 tỷ VNĐ</td>
-                <td>Ở từ 2-4 người, cho nuôi thú cưng</td>
-                <td><a href="userproperty-details.html">Xem chi tiết</a></td>
-                <td><i class="fa-solid fa-trash text-danger"></i></td>
-              </tr>
+            </c:forEach>
+             
+       
             </tbody>
           </table>
         </form>
