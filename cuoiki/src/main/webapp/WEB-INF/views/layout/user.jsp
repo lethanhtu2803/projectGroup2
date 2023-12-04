@@ -1,3 +1,5 @@
+<%@page import="com.demo.entities.Post"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
@@ -92,12 +94,18 @@ https://templatemo.com/tm-591-villa-agency
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
+                    <%
+                    	HttpSession session1 = request.getSession();
+                    	List<Post> posts = (List<Post>) session1.getAttribute("posts");
+                    	
+                    %>
                     <ul class="nav">
                       <li><a href="${pageContext.request.contextPath }/home" class="${activeHome }">Trang Chủ</a></li>
                       <li><a href="${pageContext.request.contextPath }/userapartment" class="${activeUser }">Căn hộ khác</a></li>
                       <li><a href="${pageContext.request.contextPath }/systemapartment" class="${activeSystem }">Căn hộ hệ thống</a></li>
                       <li><a href="${pageContext.request.contextPath }/contact" class="${activeContact }">Liên hệ</a></li>
-                      <li><a style="border: 2px solid #f35525; border-radius: 20px;" href="${pageContext.request.contextPath }/wishlist"><i class="fa-solid fa-heart" style="color:#f35525 ;"></i></a></li>
+                      <li><a style="border: 2px solid #f35525; border-radius: 20px;" href="${pageContext.request.contextPath }/wishlist"><i class="fa-solid fa-heart" style="color:#f35525 ;">
+                      </i><span id="total_item" style="position: relative;left: 5px;top: -10px;color: #f35525;"><%= posts != null ? posts.size() : 0 %></span></a></li>
                       <li><a style="border-radius: 20px;  background-color: #f35525; color: black;" href="${pageContext.request.contextPath }/postapartment"><i class="fa fa-pen"></i> Đăng tin</a></li>
                       <li><a href="${pageContext.request.contextPath }/account"><i class="fa fa-user"></i>Tài khoản</a></li>
                   </ul>   

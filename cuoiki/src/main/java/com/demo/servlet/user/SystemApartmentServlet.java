@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.models.SystemApartmentModel;
 @WebServlet("/systemapartment")
 /**
  * Servlet implementation class HomeServlet
@@ -31,6 +33,8 @@ public class SystemApartmentServlet extends HttpServlet {
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+		request.setAttribute("systemapartments", systemApartmentModel.findAll());
 		request.setAttribute("activeSystem", "active");
 		request.setAttribute("p", "../user/systemapartment.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
