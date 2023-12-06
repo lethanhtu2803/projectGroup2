@@ -1,5 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
    <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -16,13 +19,14 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="main-image">
-          <a id="a_img" href="${pageContext.request.contextPath}/assets/user/images/banner-01.jpg">  <img class="img_proMain" src="${pageContext.request.contextPath}/assets/user/images/banner-01.jpg" alt=""></a>
+          <a id="a_img" href="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}">  <img class="img_proMain" height="428" width="856" src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
             <br>
             <br>
             <div style="display: flex;">
-              <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/banner-01.jpg" alt=""> &nbsp;
-              <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/banner-02.jpg" alt=""> &nbsp;
-              <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/banner-03.jpg" alt="">
+            <c:forEach var="image" items="${images }">
+           	 <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/150canho/${image.name}" alt=""> &nbsp;
+            </c:forEach>
+          
               <style>
                 .img_pro {
                   cursor: pointer;
@@ -41,8 +45,8 @@
           </div>
           <div class="main-content">
             <span class="category">Đã đăng 30 phút trước</span>
-            <h4>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</h4>
-            <h5 style="margin-bottom: -25px;">Giá: 2 tỷ</h5>
+            <h4>${post.subject}</h4>
+            <h5 style="margin-bottom: -25px;">Giá: ${post.price} tỷ</h5>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -59,14 +63,14 @@
                     <div class="col">
                       <ul>
                         <li>
-                         <strong>Khu vực</strong>
+                         <strong>Khu vực: </strong>
                           <span>TP. Hồ Chí Minh</span>
                         </li>
                         <li>
                           <strong>
                             <i class="fa-solid fa-bed" style="color: #e57010;"></i>
                           </strong>
-                          <span>2 Phòng ngủ</span>
+                          <span>${post.bedroom} Phòng ngủ</span>
                         </li>
                         <li>
                           <strong>
@@ -76,27 +80,27 @@
                         </li>
                         <li>
                           <strong>Đặt cọc</strong>
-                          <span>100 triệu</span>
+                          <span>${post.deposit} triệu</span>
                         </li>
                       </ul>
                     </div>
                     <div class="col">
                       <ul>
                         <li>
-                         <strong>Địa chỉ</strong>
-                          <span>123, Nguyễn Văn Cừ, Quận 1</span>
+                         <strong>Địa chỉ: </strong>
+                          <span>${post.address}</span>
                         </li>
                         <li>
                           <strong>
                             <i class="fa-solid fa-bath" style="color: #e57010;"></i>
                           </strong>
-                          <span>2 Phòng tắm</span>
+                          <span>${post.bathroom} Phòng tắm</span>
                         </li>
                         <li>
                           <strong>
                             <i class="fa-solid fa-arrows-up-down-left-right" style="color: #e57010;"></i>
                           </strong>
-                          <span>65 m2</span>
+                          <span>${post.area} m2</span>
                         </li>
                         <li>
                           <i class="fa-solid fa-square-parking" style="color: #e57010;"></i>
@@ -210,7 +214,7 @@
                     <div class="col">
                       <ul>
                         <li>
-                          <p>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng Thiết kế tiện nghi, nội thất cao cấp sang trọng Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7 Ở từ 2-4 người, cho nuôi thú cưng</p>
+                          <p>${post.description }</p>
                         </li>
                       </ul>
                     </div>
@@ -220,6 +224,7 @@
             </div>
           </div>
         </div>
+    
         <div class="col-lg-4">
           <div class="card bg-light d-flex flex-fill">
             <div style="text-align: center;" class="card-header text-muted border-bottom-0 bg-primary">
@@ -229,14 +234,14 @@
             <div class="card-body pt-0 mt-3">
               <div class="row">
                 <div class="col-7">
-                  <h2 class="lead mb-3" style="font-weight: bold;"><b>Lê Thanh Tú</b></h2>
-                  <p class="text-muted text-sm">Số điện thoại: 0948502190 </p>
-                  <p class="text-muted text-sm">Email: letu36592@gmail.com </p>
-                  <p class="text-muted text-sm">Địa chỉ: 123, Nguyễn Văn Cừ</p>
+                  <h2 class="lead mb-3" style="font-weight: bold;"><b>${account.name }</b></h2>
+                  <p class="text-muted text-sm">Số điện thoại: ${account.phonenumber } </p>
+                  <p class="text-muted text-sm">Email: ${account1.email } </p>
+             
                   
                 </div>
                 <div class="col-5 text-center">
-                  <img style="border-radius: 50%; width: 150px; height: 150px;" src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" alt="user-avatar" class="img-circle img-fluid">
+                  <img style="border-radius: 50%; width: 150px; height: 150px;" src="${pageContext.request.contextPath}/assets/user/images/${account.avatar}" alt="user-avatar" class="img-circle img-fluid">
                 </div>
               </div>
             </div>

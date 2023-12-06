@@ -69,6 +69,64 @@ public class AccountModel {
 		}
 		return account;
 	}
+	
+	public Account findAccountByEmail(String email) {
+		Account account = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from account where email = ?");
+			preparedStatement.setString(1, email);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				account = new Account();
+				account.setId(resultSet.getInt("id"));
+				account.setUsername(resultSet.getString("username"));
+				account.setPassword(resultSet.getString("password"));
+				account.setEmail(resultSet.getString("email"));
+				account.setCreated(resultSet.getDate("created"));
+				account.setVerify(resultSet.getBoolean("verify"));
+				account.setSecurityCode(resultSet.getString("securitycode"));
+				account.setStatus(resultSet.getBoolean("status"));
+				account.setRole(resultSet.getInt("role"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			account = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return account;
+	}
+	public Account findAccountByAccountID(int accID) {
+		Account account = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from account where id = ?");
+			preparedStatement.setInt(1, accID);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				account = new Account();
+				account.setId(resultSet.getInt("id"));
+				account.setUsername(resultSet.getString("username"));
+				account.setPassword(resultSet.getString("password"));
+				account.setEmail(resultSet.getString("email"));
+				account.setCreated(resultSet.getDate("created"));
+				account.setVerify(resultSet.getBoolean("verify"));
+				account.setSecurityCode(resultSet.getString("securitycode"));
+				account.setStatus(resultSet.getBoolean("status"));
+				account.setRole(resultSet.getInt("role"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			account = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return account;
+	}
+	
 	public boolean login(String username, String password) {
 		Account account = findAccountByUsername(username);
 		if(account != null) {
@@ -134,9 +192,9 @@ public class AccountModel {
 	
 	public static void main(String[] args) {
 		AccountModel accountModel = new AccountModel();
-		Account account = accountModel.findAccountByUsername("aaaa");
-		account.setUsername("bbbb");
+		Account account = accountModel.findAccountByEmail("phucthanh2104@gmail.com");
 		
-		System.out.println(accountModel.update(account));
+		
+		System.out.println(account);
 	}
 }

@@ -84,7 +84,7 @@
                 </span>
               </div>
  		
-              <div class="text"><a href="../forgotPassword/email.html" id="myBtn">Quên mật khẩu</a></div>
+              <div class="text"><a href="${pageContext.request.contextPath }/email" id="myBtn">Quên mật khẩu</a></div>
               <div class="button input-box">
                 
                 <input type="submit"  value="Đăng nhập" id="submit"/>

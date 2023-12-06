@@ -61,11 +61,11 @@
         <c:forEach var="post" items="${posts }">
         	  <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">
                 <div class="item">
-                  <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
+                  <a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
                   <a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id=${post.id}"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>
                   
                   <h6>${post.price } tỷ VNĐ</h6>
-                  <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">${post.subject }</a></h4>
+                  <h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}">${post.subject }</a></h4>
                   <ul>
                      <li>Phòng ngủ: <span>${post.bedroom}</span></li>
               <li>Phòng tắm: <span>${post.bathroom}</span></li>
@@ -74,7 +74,7 @@
               <li>Địa chỉ: <span>${post.address}</span></li>
                   </ul>
                   <div class="main-button">
-                    <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
+                    <a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}">Chi tiết</a>
                   </div>
                 </div>
           </div>

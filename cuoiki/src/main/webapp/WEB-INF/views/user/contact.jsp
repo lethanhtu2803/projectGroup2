@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="index.html">Trang chủ</a></span>
+          <span class="breadcrumb"><a href="${pageContext.request.contextPath}/home">Trang chủ</a></span>
           <h3> Liên Hệ Chúng Tôi</h3>
         </div>
       </div>
@@ -23,13 +23,13 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="item phone">
-                <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
+                <img src="${pageContext.request.contextPath}/assets/user/images/phone-icon.png" alt="" style="max-width: 52px;">
                 <h6>18001515<br><span>Đường dây nóng</span></h6>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="item email">
-                <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
+                <img src="${pageContext.request.contextPath}/assets/user/images/email-icon.png" alt="" style="max-width: 52px;">
                 <h6>apart@gmail.com<br><span>Email của chúng tôi</span></h6>
               </div>
             </div>
@@ -53,13 +53,13 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Tiêu đề</label>
-                  <input type="subject" name="subject" id="subject" placeholder="" autocomplete="on" required="">
+                  <input type="subject" name="subject" id="subject" placeholder="Vui lòng nhập tiêu đề" autocomplete="on" required="">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
                   <label for="message">Thông điệp</label>
-                  <textarea name="message" id="message" required=""></textarea>
+                  <textarea name="message" id="message" required="" placeholder="Vui lòng nhập thông điệp"></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">

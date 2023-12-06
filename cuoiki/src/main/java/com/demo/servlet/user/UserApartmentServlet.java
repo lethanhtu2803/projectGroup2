@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.demo.entities.Account;
+import com.demo.entities.Post;
+import com.demo.models.AccountModel;
 import com.demo.models.PostModel;
 @WebServlet("/userapartment")
 /**
@@ -37,6 +40,7 @@ public class UserApartmentServlet extends HttpServlet {
 		request.setAttribute("posts", postModel.findAll());
 		request.setAttribute("activeUser", "active");
 		request.setAttribute("p", "../user/userapartment.jsp");
+	
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
 	}
 

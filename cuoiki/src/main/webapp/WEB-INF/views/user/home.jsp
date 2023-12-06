@@ -342,7 +342,7 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <form id="contact-form" action="${pageContext.request.contextPath }/home?action=submitFeedback" method="post">
+          <form id="contact-form" action="${pageContext.request.contextPath }/home?action=submitFeedback" method="post" accept-charset="UTF-8" >
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>

@@ -1,5 +1,25 @@
+<%@page import="com.demo.models.BranchModel"%>
+<%@page import="com.demo.entities.Systemapartment"%>
+<%@page import="com.demo.models.SystemApartmentModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%
+    	SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+    	BranchModel branchModel = new BranchModel();
+    	HttpSession session1 = request.getSession();
+    	int id = Integer.parseInt(request.getParameter("id"));
+    	String msg = "";
+    	if(session1.getAttribute("msg") != null){
+    		msg = session1.getAttribute("msg").toString();
+        	session1.removeAttribute("msg");
+    	} 
+    	
+    	Systemapartment systemapartment = systemApartmentModel.findSystemApartmentByID(id);
+    %>
+   <head>
+   		<meta charset="UTF-8">
+   </head>
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -10,19 +30,22 @@
       </div>
     </div>
   </div>
-
+	
   <div class="single-property section">
     <div class="container">
+       <a href="${pageContext.request.contextPath}/systemapartment"><button class="btn" style="color: white;background-color: #f35525;font-weight: bold;"><i class="fa-solid fa-arrow-right fa-rotate-180"></i> Trở lại</button></a>
+      	<br> <br>
       <div class="row">
+      	
         <div class="col-lg-8">
           <div class="main-image">
-          <a id="a_img" href="${pageContext.request.contextPath}/assets/user/images/banner-01.jpg">  <img class="img_proMain" src="${pageContext.request.contextPath}/assets/user/images/banner-01.jpg" alt=""></a>
+          <a id="a_img" href="${pageContext.request.contextPath}/assets/user/images/150canho/<%= systemapartment.getAvatar() %>">  <img height="428" width="856" class="img_proMain" src="${pageContext.request.contextPath}/assets/user/images/150canho/<%= systemapartment.getAvatar() %>" alt=""></a>
             <br>
             <br>
             <div style="display: flex;">
-              <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/banner-01.jpg" alt=""> &nbsp;
-              <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/banner-02.jpg" alt=""> &nbsp;
-              <img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/banner-03.jpg" alt="">
+            <c:forEach var="image" items="${images }">
+            	<img class="img_pro" src="${pageContext.request.contextPath}/assets/user/images/150canho/${image.name}" alt=""> &nbsp;
+            </c:forEach>
               <style>
                 .img_pro {
                   cursor: pointer;
@@ -41,8 +64,8 @@
           </div>
           <div class="main-content">
             <span class="category">Đã đăng 30 phút trước</span>
-            <h4>Căn hộ 2 PN 1WC Chi nhánh Quận 1</h4>
-            <h5 style="margin-bottom: -25px;">Giá: 2 tỷ</h5>
+            <h4><%= systemapartment.getSubject() %></h4>
+            <h5 style="margin-bottom: -25px;">Giá: <%= systemapartment.getPrice()%> tỷ</h5>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -66,7 +89,7 @@
                           <strong>
                             <i class="fa-solid fa-bed" style="color: #e57010;"></i>
                           </strong>
-                          <span>2 Phòng ngủ</span>
+                          <span><%= systemapartment.getBedroom() %> Phòng ngủ</span>
                         </li>
                         <li>
                           <strong>
@@ -76,7 +99,7 @@
                         </li>
                         <li>
                           <strong>Đặt cọc</strong>
-                          <span>100 triệu</span>
+                          <span><%= systemapartment.getDeposit() %> triệu</span>
                         </li>
                       </ul>
                     </div>
@@ -84,19 +107,19 @@
                       <ul>
                         <li>
                          <strong>Địa chỉ</strong>
-                          <span>123, Nguyễn Văn Cừ, Quận 1</span>
+                          <span><%= branchModel.findBranchByID(systemapartment.getBranchid()).getAddress() %></span>
                         </li>
                         <li>
                           <strong>
                             <i class="fa-solid fa-bath" style="color: #e57010;"></i>
                           </strong>
-                          <span>2 Phòng tắm</span>
+                          <span><%= systemapartment.getBathroom() %> Phòng tắm</span>
                         </li>
                         <li>
                           <strong>
                             <i class="fa-solid fa-arrows-up-down-left-right" style="color: #e57010;"></i>
                           </strong>
-                          <span>65 m2</span>
+                          <span><%= systemapartment.getArea() %> m2</span>
                         </li>
                         <li>
                           <i class="fa-solid fa-square-parking" style="color: #e57010;"></i>
@@ -210,7 +233,7 @@
                     <div class="col">
                       <ul>
                         <li>
-                          <p>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng Thiết kế tiện nghi, nội thất cao cấp sang trọng Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7 Ở từ 2-4 người, cho nuôi thú cưng</p>
+                          <p><%= systemapartment.getDescription() %></p>
                         </li>
                       </ul>
                     </div>
@@ -228,29 +251,41 @@
             </div>
             <div class="card-body pt-0 mt-3">
               <div class="row">
+            	  <span style="color: green; font-size: large;"><%= msg == null ? "" : msg %></span>
+            	  <br>
                   <span>Để lại thông tin và chúng tôi sẽ liên hệ với bạn ngay.</span>
                   <br>
                   <div class="card-body">
-                    <form method="post">
+                    <form method="post" action="${pageContext.request.contextPath }/systemapartmentdetails?action=contact" accept-charset="UTF-8" >
                         <!-- Form Group (username)-->
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputUsername">Họ và tên</label>
-                            <input class="form-control" id="inputUsername" type="text" placeholder="Nhập họ và tên" required>
+                            <label class="small mb-1" for="inputName">Họ và tên</label>
+                            <input class="form-control" id="inputName"  type="text" placeholder="Nhập họ và tên" required name="name">
                         </div>
                         <div class="mb-3">
-                          <label class="small mb-1" for="inputUsername">Số điện thoại</label>
-                          <input class="form-control" id="inputUsername" pattern="(\(\+[0-9]{2}\)|0)([0-9]{9,10})"  type="text" placeholder="Nhập số điện thoại" required>
-                      </div>
-                    
+                          <label class="small mb-1" for="inputPhone">Số điện thoại</label>
+                          <input class="form-control" id="inputPhone" name="phone" pattern="(\(\+[0-9]{2}\)|0)([0-9]{9,10})" type="text" placeholder="Nhập số điện thoại" required>
+                        </div>
+                         <div class="mb-3">
+                            <label class="small mb-1" for="inputEmail">Email</label>
+                            <input class="form-control" id="inputEmail" name="email" pattern="[^ @]*@[^ @]*" type="text"  placeholder="Nhập email" required>
+                        </div>
+                          <div class="mb-3">
+                            <label class="small mb-1" for="inputDescription">Tin nhắn</label>
+                            <textarea class="form-control" placeholder="Nhập nội dung" name="description"   id="inputDescription" required=""></textarea>
+                        </div>
+                      		
+                    	<input type="hidden" value="<%= systemapartment.getId() %> - <%= systemapartment.getSubject() %>"  name="subject" id="subject">
+                    	<input type="hidden" value="<%= systemapartment.getId()%>" name="id" >
                         <!-- Save changes button-->
                         <div style="display: flex; align-items: center; justify-content: center;">
-                        <button  class="btn btn-primary" type="submit">Gửi thông tin</button>
+                        <button  class="btn btn-primary"   id="submit">Gửi thông tin</button>
                       </div>
-                  
+                  </form>
                 </div>
               </div>
             </div>
-            
+          
           </div>
         </div>
       </div>

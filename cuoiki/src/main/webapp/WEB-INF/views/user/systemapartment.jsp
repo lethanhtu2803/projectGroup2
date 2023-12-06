@@ -80,11 +80,11 @@
 			<% for(Systemapartment system : systemapartment.findAll()){ %>
         	  <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">
                 <div class="item">
-                  <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/<%=system.getAvatar() %>" alt=""></a>
+                  <a href="${pageContext.request.contextPath}/systemapartmentdetails?id=<%= system.getId() %>"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/<%=system.getAvatar() %>" alt=""></a>
                   <a href="${pageContext.request.contextPath}/wishlist"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>
                   
                   <h6><%= system.getPrice() %> tỷ VNĐ</h6>
-                  <h4><a href="${pageContext.request.contextPath}/userapartmentdetails"><%= system.getSubject() %></a></h4>
+                  <h4><a href="${pageContext.request.contextPath}/systemapartmentdetails?id=<%= system.getId() %>"><%= system.getSubject() %></a></h4>
                   <ul>
                   <li>Số phòng: <span><%= system.getFloorid() %> 0 <%= system.getRoomid() %></span></li>
                      <li>Phòng ngủ: <span><%= system.getBedroom() %></span></li>
@@ -93,7 +93,7 @@
               <li>Địa chỉ: <span><%= branchModel.findBranchByID(system.getBranchid()).getAddress() %></span></li>
                   </ul>
                   <div class="main-button">
-                    <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
+                    <a href="${pageContext.request.contextPath}/systemapartmentdetails?id=<%= system.getId() %>">Chi tiết</a>
                   </div>
                 </div>
           </div>
