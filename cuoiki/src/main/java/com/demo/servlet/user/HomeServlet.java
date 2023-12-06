@@ -56,6 +56,7 @@ public class HomeServlet extends HttpServlet {
 		}
 	}
 	protected void doPost_SubmitFeedback(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		Account account = (Account) request.getSession().getAttribute("account");
 		if(account != null ) {

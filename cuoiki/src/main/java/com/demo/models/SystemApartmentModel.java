@@ -42,8 +42,41 @@ public class SystemApartmentModel {
 		
 		return systemapartments;
 	}
+	public Systemapartment findSystemApartmentByID(int id){
+		Systemapartment systemapartment = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from systemapartment where id = ?");
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				systemapartment = new Systemapartment();
+				systemapartment.setId(resultSet.getInt("id"));
+				systemapartment.setSubject(resultSet.getString("subject"));
+				systemapartment.setBranchid(resultSet.getInt("branchid"));
+				systemapartment.setFloorid(resultSet.getInt("floorid"));
+				systemapartment.setRoomid(resultSet.getInt("roomid"));
+				systemapartment.setBedroom(resultSet.getInt("bedroom"));
+				systemapartment.setBathroom(resultSet.getInt("bathroom"));
+				systemapartment.setPrice(resultSet.getDouble("price"));
+				systemapartment.setDeposit(resultSet.getDouble("deposit"));
+				systemapartment.setArea(resultSet.getString("area"));
+				systemapartment.setAvatar(resultSet.getString("avatar"));
+				systemapartment.setStatus(resultSet.getBoolean("status"));
+				systemapartment.setDescription(resultSet.getString("description"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			systemapartment = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		
+		return systemapartment;
+	}
 	public static void main(String[] args) {
 		SystemApartmentModel apartmentModel = new SystemApartmentModel();
-		System.out.println(apartmentModel.findAll());
+		System.out.println(apartmentModel.findSystemApartmentByID(177));
 	}
 }

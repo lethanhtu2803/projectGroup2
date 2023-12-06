@@ -36,6 +36,7 @@ public class AccountDetailsModel {
 	}
 	public static void main(String[] args) {
 		AccountDetailsModel accountDetailsModel = new AccountDetailsModel();
-		System.out.println(accountDetailsModel.findAccountByAccountID(2));
+		System.out.println(accountDetailsModel.findAccountByAccountID(1));
+		System.out.println("Lê Thanh Tú");
 	}
 }
