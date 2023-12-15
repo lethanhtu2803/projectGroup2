@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
     <%
     	SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
     	BranchModel branchModel = new BranchModel();
@@ -63,7 +64,8 @@
             </div>
           </div>
           <div class="main-content">
-            <span class="category">Đã đăng 30 phút trước</span>
+            <span class="category">Đã đăng vào ngày <f:formatDate value="${system.created }"
+													pattern="dd/MM/yyyy" var="created" /> ${created }</span>
             <h4><%= systemapartment.getSubject() %></h4>
             <h5 style="margin-bottom: -25px;">Giá: <%= systemapartment.getPrice()%> tỷ</h5>
           </div>

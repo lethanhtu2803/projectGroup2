@@ -40,7 +40,7 @@
                 <td>${post.subject}</td>
                 <td>${post.price} tỷ VNĐ</td>
                 <td>${post.description}</td>
-                <td><a href="userproperty-details.html">Xem chi tiết</a></td>
+                <td><a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}">Xem chi tiết</a></td>
                 <td><a href="${pageContext.request.contextPath}/wishlist?action=remove&id=${i.index}" onclick="return confirm('Xóa căn hộ khỏi danh sách yêu thích?');"><i class="fa-solid fa-trash text-danger"></i></a></td>
               </tr>
             </c:forEach>
