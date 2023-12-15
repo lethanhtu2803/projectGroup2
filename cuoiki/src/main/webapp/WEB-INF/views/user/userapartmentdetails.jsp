@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
    <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -44,7 +44,8 @@
             </div>
           </div>
           <div class="main-content">
-            <span class="category">Đã đăng 30 phút trước</span>
+            <span class="category">Đã đăng vào ngày <f:formatDate value="${post.postdate }"
+													pattern="dd/MM/yyyy" var="postdate" /> ${postdate }</span>
             <h4>${post.subject}</h4>
             <h5 style="margin-bottom: -25px;">Giá: ${post.price} tỷ</h5>
           </div>

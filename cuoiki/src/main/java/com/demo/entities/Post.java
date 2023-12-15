@@ -11,13 +11,13 @@ public class Post {
 	private int bathroom;
 	private double price;
 	private double deposit;
-	private String area;
+	private double area;
 	private String description;
 	private String address;
 	private String avatar;
 	private boolean status;
 	public Post(Integer id, int accountid, String subject, Date postdate, int bedroom, int bathroom, double price,
-			double deposit, String area, String description, String address, String avatar, boolean status) {
+			double deposit, double area, String description, String address, String avatar, boolean status) {
 		super();
 		this.id = id;
 		this.accountid = accountid;
@@ -84,10 +84,10 @@ public class Post {
 	public void setDeposit(double deposit) {
 		this.deposit = deposit;
 	}
-	public String getArea() {
+	public double getArea() {
 		return area;
 	}
-	public void setArea(String area) {
+	public void setArea(double area) {
 		this.area = area;
 	}
 	public String getDescription() {

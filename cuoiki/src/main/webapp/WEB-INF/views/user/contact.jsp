@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <form id="contact-form" action="" method="post">
+          <form id="contact-form" action="${pageContext.request.contextPath }/contact?action=contact" method="post">
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
@@ -66,6 +66,18 @@
                 <fieldset>
                   <button type="submit" id="form-submit" class="orange-button">Gửi</button>
                 </fieldset>
+                <br>
+                <%
+                	HttpSession session1 = request.getSession();
+                	String success = (String) session1.getAttribute("success");
+                	String failed = (String) session1.getAttribute("failed");
+                	String success1 = success;
+                	String failed1 = failed;
+                	session1.removeAttribute("success");
+                	session1.removeAttribute("failed");
+                %>
+                <p class="text-success text-center fs-3"><%= success1 != null ? success1 : "" %></p>
+                <p class="text-success text-danger fs-3"><%= failed1 != null ? failed1 : "" %></p>
               </div>
             </div>
           </form>
