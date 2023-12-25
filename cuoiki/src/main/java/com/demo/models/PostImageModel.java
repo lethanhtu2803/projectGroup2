@@ -1,5 +1,6 @@
 package com.demo.models;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -34,6 +35,30 @@ public class PostImageModel {
 		
 		return images;
 	}
+	
+	public boolean create(PostImage postImage) {
+		boolean status = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+			.prepareStatement("insert into postImage(name,created,postid) values(?, ?, ?)");
+			preparedStatement.setString(1, postImage.getName());
+			preparedStatement.setDate(2, new Date(postImage.getCreated().getTime()));
+			preparedStatement.setInt(3, postImage.getPostid());
+		
+			
+			status = preparedStatement.executeUpdate() > 0;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			status = false;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return status;
+	}
+	
 	public static void main(String[] args) {
 		PostImageModel imageModel = new PostImageModel();
 		System.out.println(imageModel.findPostImageByPostID(1));

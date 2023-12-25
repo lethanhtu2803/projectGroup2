@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Account;
+import com.demo.models.AccountModel;
 import com.demo.models.FeedbackModel;
 @WebServlet({"/admin/feedback"})
 /**
@@ -38,6 +39,7 @@ public class FeedbackAdminServlet extends HttpServlet {
 		request.setAttribute("activeFeedback", "active");
 		FeedbackModel feedBackModel = new FeedbackModel();
 		request.setAttribute("feedbacks", feedBackModel.findAll());
+		AccountModel accountModel = new AccountModel();
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 	}
 

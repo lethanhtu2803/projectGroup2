@@ -106,7 +106,7 @@
                        
                 });
                     
-                    // $('<p>Thành phần p</p>').appendTo('#div');
+                   /*  $('<p>Thành phần p</p>').appendTo('#div'); */
                    
                   });
                 </script>
