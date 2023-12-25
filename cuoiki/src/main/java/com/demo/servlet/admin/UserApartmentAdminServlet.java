@@ -1,11 +1,17 @@
 package com.demo.servlet.admin;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.models.AccountPartialModel;
+import com.demo.models.PostModel;
+import com.google.gson.Gson;
 @WebServlet({"/admin/userapartment"})
 /**
  * Servlet implementation class AccountAdminServlet
@@ -28,12 +34,26 @@ public class UserApartmentAdminServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if(action == null) {
 			doGet_Index(request, response);
-		} 
+		} else if(action.equalsIgnoreCase("searchBySubject")) {
+			doGet_SearchBySubject(request, response);
+		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("admin", "../admin/userapartment.jsp");
 		request.setAttribute("activeUser", "active");
+		PostModel postModel = new PostModel();
+		request.setAttribute("userapartment", postModel.findAll());
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	}
+	
+	protected void doGet_SearchBySubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter writer = response.getWriter();
+		String subject = request.getParameter("subject");
+		PostModel postModel = new PostModel();
+		Gson gson = new Gson();
+		writer.print(gson.toJson(postModel.findPostBySubject(subject)));
 	}
 
 	/**

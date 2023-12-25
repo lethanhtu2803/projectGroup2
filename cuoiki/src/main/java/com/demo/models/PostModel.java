@@ -1,8 +1,11 @@
 package com.demo.models;
 
+
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
 import java.util.List;
 
 import com.demo.entities.ConnectDB;
@@ -343,9 +346,40 @@ public class PostModel {
 		}
 		return status;
 	}
+	
+	public boolean create(Post post) {
+		boolean status = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+			.prepareStatement("insert into post(accountid,subject,postdate,bedroom,bathroom,price,deposit,area,description,address,avatar,status) values(?, ?, ?, ?,?, ?, ?, ?,?, ?, ?, ?)");
+			preparedStatement.setInt(1, post.getAccountid());
+			preparedStatement.setString(2, post.getSubject());
+			preparedStatement.setDate(3, new Date(post.getPostdate().getTime()));
+			preparedStatement.setInt(4, post.getBedroom());
+			preparedStatement.setInt(5, post.getBathroom());
+			preparedStatement.setDouble(6, post.getPrice());
+			preparedStatement.setDouble(7, post.getDeposit());
+			preparedStatement.setDouble(8, post.getArea());
+			preparedStatement.setString(9, post.getDescription());
+			preparedStatement.setString(10, post.getAddress());
+			preparedStatement.setString(11, post.getAvatar());
+			preparedStatement.setBoolean(12, post.isStatus());
+			
+			status = preparedStatement.executeUpdate() > 0;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			status = false;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return status;
+	}
 
 	public static void main(String[] args) {
 		PostModel postModel = new PostModel();
-		System.out.println(postModel.findPostByArea(25));
+	//	System.out.println(postModel.create(new Post(2,"aa","2023-11-02",1,2,30.0,27,23."aa","aa","aa",false)));
 	}
 }

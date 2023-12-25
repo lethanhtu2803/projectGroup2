@@ -1,3 +1,5 @@
+<%@page import="com.demo.models.FeedbackModel"%>
+<%@page import="com.demo.models.AccountModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -39,10 +41,11 @@
 									</tr>
 								</thead>
 								<tbody>
+								
 									<c:forEach var="feedback" items="${feedbacks }">
 										<tr>
 											<td>${feedback.id }</td>
-											<td>${feedback.account.id }</td>
+											<td>${feedback.accountid }</td>
 											<td>${feedback.subject }</td>
 											<td>${feedback.description }</td>
 											<td><f:formatDate value="${feedback.created }"
