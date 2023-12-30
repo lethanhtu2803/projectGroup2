@@ -35,7 +35,20 @@
  
 
 </head>
-
+<%
+HttpSession session2 = request.getSession();
+String errorAccount = (String) session2.getAttribute("errorAccount");
+String errorAccount1 = errorAccount;
+session2.removeAttribute("errorAccount");
+%>
+ <%
+            	if(errorAccount1 != null) {
+            		
+        %>
+            <script>
+				alert("Bạn cần phải đăng nhập tài khoản mới thực hiện chức năng đăng bài được. Vui lòng bạn đăng nhập tài khoản");
+            </script> 
+            <%} %>
 <body>
   <div class="container">
     <input type="checkbox" id="flip" />
