@@ -51,7 +51,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("select * from post order by id desc");
+					.prepareStatement("select * from post WHERE status = 1 order by id desc");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Post post = new Post();
@@ -85,8 +85,44 @@ public class PostModel {
 		Post post = null;
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("select * from post where id = ?");
+					.prepareStatement("select * from post where id = ? AND status = 1");
 			preparedStatement.setInt(1, id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				post = new Post();
+				post.setId(resultSet.getInt("id"));
+				post.setAccountid(resultSet.getInt("accountid"));
+				post.setSubject(resultSet.getString("subject"));
+				post.setDescription(resultSet.getString("description"));
+				post.setPostdate(resultSet.getDate("postdate"));
+				post.setBedroom(resultSet.getInt("bedroom"));
+				post.setBathroom(resultSet.getInt("bathroom"));
+				post.setPrice(resultSet.getDouble("price"));
+				post.setDeposit(resultSet.getDouble("deposit"));
+				post.setArea(resultSet.getDouble("area"));
+				post.setAddress(resultSet.getString("address"));
+				post.setAvatar(resultSet.getString("avatar"));
+				post.setStatus(resultSet.getBoolean("status"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			post = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+
+		return post;
+	}
+	
+	
+	
+	public Post lastPost() {
+		Post post = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("select * from post order by id desc limit 1");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				post = new Post();
@@ -120,8 +156,44 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("select * from post where subject like ?");
+					.prepareStatement("select * from post where subject like ? AND status = 1");
 			preparedStatement.setString(1, "%" + subject + "%");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Post post = new Post();
+				post.setId(resultSet.getInt("id"));
+				post.setAccountid(resultSet.getInt("accountid"));
+				post.setSubject(resultSet.getString("subject"));
+				post.setDescription(resultSet.getString("description"));
+				post.setPostdate(resultSet.getDate("postdate"));
+				post.setBedroom(resultSet.getInt("bedroom"));
+				post.setBathroom(resultSet.getInt("bathroom"));
+				post.setPrice(resultSet.getDouble("price"));
+				post.setDeposit(resultSet.getDouble("deposit"));
+				post.setArea(resultSet.getDouble("area"));
+				post.setAddress(resultSet.getString("address"));
+				post.setAvatar(resultSet.getString("avatar"));
+				post.setStatus(resultSet.getBoolean("status"));
+				posts.add(post);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			posts = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+
+		return posts;
+	}
+	
+	public List<Post> findPostByAccountID(int accountid) {
+		List<Post> posts = new ArrayList<Post>();
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("select * from post where accountid = ?  order by id DESC");
+			preparedStatement.setInt(1, accountid);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Post post = new Post();
@@ -156,7 +228,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("Select * from post where address like ?");
+					.prepareStatement("Select * from post where address like ? AND status = 1");
 			preparedStatement.setString(1, "%" + district + ",%");
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -193,7 +265,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("Select * from post where price <= ?");
+					.prepareStatement("Select * from post where price <= ? AND status = 1");
 			preparedStatement.setDouble(1, price);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -229,7 +301,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("Select * from post where price >= ?");
+					.prepareStatement("Select * from post where price >= ? AND status = 1");
 			preparedStatement.setDouble(1, price);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -266,7 +338,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("Select * from post where bedroom = ?");
+					.prepareStatement("Select * from post where bedroom = ? AND status = 1");
 			preparedStatement.setInt(1, bedroom);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -303,7 +375,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("Select * from post where area BETWEEN ? - 5 AND ? + 5 ");
+					.prepareStatement("Select * from post where status = 1 AND area BETWEEN ? - 5 AND ? + 5");
 			preparedStatement.setDouble(1, area);
 			preparedStatement.setDouble(2, area);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -380,6 +452,10 @@ public class PostModel {
 
 	public static void main(String[] args) {
 		PostModel postModel = new PostModel();
+<<<<<<< HEAD
+		System.out.println(postModel.findPostByAccountID(2));
+=======
 	//	System.out.println(postModel.create(new Post(2,"aa","2023-11-02",1,2,30.0,27,23."aa","aa","aa",false)));
+>>>>>>> be408edc4d5979ea69dacecb431e31aa6376265a
 	}
 }

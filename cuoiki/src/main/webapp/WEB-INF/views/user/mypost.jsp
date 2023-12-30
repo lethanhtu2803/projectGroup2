@@ -1,5 +1,39 @@
+<%@page import="com.demo.entities.Post"%>
+<%@page import="com.demo.entities.Account"%>
+<%@page import="com.demo.models.PostModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+      		<%	
+      			PostModel postModel = new PostModel();
+      			Account account = (Account) request.getSession().getAttribute("account");
+      			int id = account.getId();
+      			request.getAttribute("postaccount");
+            	HttpSession session2 = request.getSession();
+            	String msg = (String) session2.getAttribute("msgPost");
+            	String msg1 = msg;
+            	String error = (String) session2.getAttribute("errorPost");
+            	String error1 = error;
+            	session2.removeAttribute("msgPost");
+            	session2.removeAttribute("errorPost");
+            	
+            %>
+            <%
+            	if(msg1 != null) {
+            		
+            %>
+            <script>
+				alert("Thêm bài đăng thành công");
+            </script>
+            <%} %>
+             <%
+            	if(error1 != null) {
+            		
+            %>
+            <script>
+				alert("Thêm bài không thành công");
+            </script>
+            <%} %>
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -14,7 +48,6 @@
   <div class="contact-page section" style="margin-top: 60px;">
     <div class="container">
       <a href="${pageContext.request.contextPath}/postapartment"><button class="btn" style="margin-left: 24px;color: white;background-color: #f35525;font-weight: bold;"><i class="fa-solid fa-arrow-right fa-rotate-180"></i> Trở lại</button></a>
-
       <div class="row mt-5" >
         <div class="col-lg-12">
           <form id="contact-form" action="" method="post">
@@ -30,23 +63,23 @@
               </tr>
             </thead>
             <tbody style="vertical-align: middle;text-align: center;">
+           <%
+           	for(Post post : postModel.findPostByAccountID(account.getId())) {
+           %>
               <tr>
-                <td><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can1.jpg" height="140"></td>
-                <td>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</td>
-                <td>4,2 tỷ VNĐ</td>
-                <td>Ở từ 2-4 người, cho nuôi thú cưng</td>
-                <td><a href="userproperty-details.html">Xem chi tiết</a></td>
+                <td><img src="${pageContext.request.contextPath}/assets/user/images/150canho/<%= post.getAvatar() %>" height="140"></td>
+                <td><%= post.getSubject() %></td>
+                <td><%= post.getPrice() %> tỷ VNĐ</td>
+                <td><%= post.getDescription() %></td>
+                <c:if test="<%= post.isStatus() == false%>">
+                	<td>Đang chờ được duyệt</td>
+                </c:if>
+                <c:if test="<%= post.isStatus() == true%>">
+                	<td><a href="${pageContext.request.contextPath }/userapartmentdetails?id=<%= post.getId() %>">Xem chi tiết</a></td>
+                </c:if>
                 <td><i class="fa-solid fa-trash text-danger"></i></td>
               </tr>
-              <tr>
-                <td><img src="${pageContext.request.contextPath}/assets/user/images/50canho/can1.jpg" height="140"></td>
-                <td>CĂN HỘ ESSENSIA SKY - MẶT TIỀN NGUYỄN HỮU THỌ - CÁCH QUẬN 1 CHỈ 8KM</td>
-                <td>4,2 tỷ VNĐ</td>
-                <td>Ở từ 2-4 người, cho nuôi thú cưng</td>
-                <td><a href="userproperty-details.html">Xem chi tiết</a></td>
-                <td><i class="fa-solid fa-trash text-danger"></i></td>
-              </tr>
-             
+            <%} %>
             </tbody>
           </table>
         </form>

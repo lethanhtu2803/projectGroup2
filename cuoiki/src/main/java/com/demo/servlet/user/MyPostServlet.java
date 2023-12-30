@@ -1,11 +1,21 @@
 package com.demo.servlet.user;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import com.demo.entities.Account;
+import com.demo.entities.PostImage;
+import com.demo.helpers.UploadFileHelper;
+import com.demo.models.PostImageModel;
+import com.demo.models.PostModel;
 @WebServlet("/mypost")
 /**
  * Servlet implementation class HomeServlet
@@ -31,6 +41,11 @@ public class MyPostServlet extends HttpServlet {
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PostModel postModel = new PostModel();
+		Account account = (Account) request.getSession().getAttribute("account");
+		if(account != null) {
+			request.setAttribute("postaccount", postModel.findPostByAccountID(account.getId()));
+		}
 		request.setAttribute("p", "../user/mypost.jsp");
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
 	}
@@ -40,7 +55,9 @@ public class MyPostServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
+	
+	
 
 }
