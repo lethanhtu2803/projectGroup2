@@ -1,5 +1,19 @@
+<%@page import="com.demo.models.BranchModel"%>
+<%@page import="com.demo.models.SystemApartmentModel"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.demo.entities.Contract"%>
+<%@page import="com.demo.models.OwnerModel"%>
+<%@page import="com.demo.models.ContractApartmentModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%
+    	ContractApartmentModel contractApartmentModel = new ContractApartmentModel();
+    	OwnerModel ownerModel = new OwnerModel();
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    	SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+    	BranchModel branchModel = new BranchModel();
+    %>
   <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -48,151 +62,24 @@
                     </tr>
                     </thead>
                     <tbody>
+                    
+                    <% for(Contract contract : contractApartmentModel.findAll()){ %>
                     <tr>
-                      <td>1</td>
-                      <td>3</td>
-                      <td>28/10/2023</td>
-                      <td>1</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>8</td>
-                      <td>28/10/2023</td>
-                      <td>5</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>10</td>
-                      <td>28/10/2023</td>
-                      <td>2</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>15</td>
-                      <td>28/10/2023</td>
-                      <td>11</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>1</td>
-                      <td>28/10/2023</td>
-                      <td>10</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>2</td>
-                      <td>28/10/2023</td>
-                      <td>20</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>28/10/2023</td>
-                      <td>1</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>8</td>
-                      <td>4</td>
-                      <td>28/10/2023</td>
-                      <td>9</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>9</td>
-                      <td>19</td>
-                      <td>28/10/2023</td>
-                      <td>15</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>20</td>
-                      <td>28/10/2023</td>
-                      <td>14</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>11</td>
-                      <td>30</td>
-                      <td>28/10/2023</td>
-                      <td>12</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>12</td>
-                      <td>25</td>
-                      <td>28/10/2023</td>
-                      <td>17</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>13</td>
-                      <td>13</td>
-                      <td>28/10/2023</td>
-                      <td>13</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>14</td>
-                      <td>11</td>
-                      <td>28/10/2023</td>
-                      <td>6</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>15</td>
-                      <td>22</td>
-                      <td>28/10/2023</td>
-                      <td>14</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>16</td>
-                      <td>23</td>
-                      <td>28/10/2023</td>
-                      <td>10</td>
-                      <td>Có hiệu lực</td>
-                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails">Xem chi tiết</a></td>
-                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract"><i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
+                      <td><%= contract.getId() %></td>
+                      <td><%= contract.getSystemapartmentid() + " - " + 
+                      branchModel.findBranchByID( systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getBranchid()).getName() + " - Phòng " +
+                      systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getFloorid() + "0" + 
+                    		  systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getRoomid() %></td>
+                      <td><%= dateFormat.format(contract.getCreated()) %></td>
+                      <td><%= contract.getOwnerid() + " - " + ownerModel.findOwnerByID(contract.getOwnerid()).getName() %></td>
+                      <td><%= contract.isStatus() ? "Có hiệu lực" : "Không có hiệu lực" %></td>
+                      <td><a href="${pageContext.request.contextPath}/admin/contractdetails?id=<%= contract.getId() %>">Xem chi tiết</a></td>
+                      <td><a onclick="return confirm('Sửa hợp đồng?')" href="${pageContext.request.contextPath}/admin/editcontract">
+                      <i class="fa-solid fa-file-pen"></i></a> &nbsp;  <a onclick="return confirm('Vô hiệu hóa?')" href="#"><i class="fa-solid fa-xmark"></i></a></td>
                     </tr>
                    
+           
+                   <% } %>
                     </tfoot>
                   </table>
                 </div>

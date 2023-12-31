@@ -10,20 +10,7 @@ public class Owner {
 	private String address;
 	private String identifynumber;
 	private Date created;
-	public Owner(Integer id, String name, Date birthday, String phone, String address, String identifynumber,
-			Date created) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.birthday = birthday;
-		this.phone = phone;
-		this.address = address;
-		this.identifynumber = identifynumber;
-		this.created = created;
-	}
-	public Owner() {
-		super();
-	}
+	private String avatar;
 	public Integer getId() {
 		return id;
 	}
@@ -66,10 +53,32 @@ public class Owner {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+	public Owner(Integer id, String name, Date birthday, String phone, String address, String identifynumber,
+			Date created, String avatar) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.birthday = birthday;
+		this.phone = phone;
+		this.address = address;
+		this.identifynumber = identifynumber;
+		this.created = created;
+		this.avatar = avatar;
+	}
+	public Owner() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "Owner [id=" + id + ", name=" + name + ", birthday=" + birthday + ", phone=" + phone + ", address="
-				+ address + ", identifynumber=" + identifynumber + ", created=" + created + "]";
+				+ address + ", identifynumber=" + identifynumber + ", created=" + created + ", avatar=" + avatar + "]";
 	}
+	
 	
 }

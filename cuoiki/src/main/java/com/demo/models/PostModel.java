@@ -452,10 +452,6 @@ public class PostModel {
 
 	public static void main(String[] args) {
 		PostModel postModel = new PostModel();
-<<<<<<< HEAD
 		System.out.println(postModel.findPostByAccountID(2));
-=======
-	//	System.out.println(postModel.create(new Post(2,"aa","2023-11-02",1,2,30.0,27,23."aa","aa","aa",false)));
->>>>>>> be408edc4d5979ea69dacecb431e31aa6376265a
 	}
 }
