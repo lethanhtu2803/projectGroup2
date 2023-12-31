@@ -31,7 +31,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -75,7 +75,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -117,7 +117,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -160,7 +160,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -202,7 +202,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -244,7 +244,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -290,7 +290,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -335,7 +335,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -380,7 +380,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -425,7 +425,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -470,7 +470,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -515,7 +515,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -559,7 +559,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -602,7 +602,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -645,7 +645,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -687,7 +687,7 @@
 							var formattedDate = new Date(posts[i].postdate).toLocaleDateString('vi-VN');
 							s += '<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">';
 							s += '<div class="item">';
-							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt=""></a>';
+							s += '<a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id +'"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ posts[i].avatar +'" alt="" width="356" height="267"></a>';
 							s += '<a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id='+ posts[i].id +'"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>';
 							s += '<h6>' + posts[i].price + ' tỷ VND</h6>';	
 							s += '<h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id='+ posts[i].id + '">' + posts[i].subject + '</a></h4>';
@@ -782,7 +782,7 @@
         <c:forEach var="post" items="${posts }">
         	  <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">
                 <div class="item">
-                  <a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
+                  <a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt="" width="356" height="267"></a>
                   <a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id=${post.id}"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>
                   
                   <h6>${post.price } tỷ VNĐ</h6>

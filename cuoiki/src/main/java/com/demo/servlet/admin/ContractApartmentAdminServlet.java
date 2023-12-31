@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.models.ContractApartmentModel;
 @WebServlet({"/admin/contractapartment"})
 /**
  * Servlet implementation class AccountAdminServlet
@@ -35,6 +37,10 @@ public class ContractApartmentAdminServlet extends HttpServlet {
 		request.setAttribute("activeContract", "active");
 		request.setAttribute("activeContractOpen", "menu-open");
 		request.setAttribute("activeListContract", "active");
+		
+		ContractApartmentModel contractApartmentModel = new ContractApartmentModel();
+		request.setAttribute("contracts", contractApartmentModel.findAll());
+		
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 	}
 

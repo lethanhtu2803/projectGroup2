@@ -37,7 +37,23 @@
     $( "#datepicker" ).datepicker({
         dateFormat: 'dd/mm/yy'
     });
+    
+    $.noConflict();
+    jQuery(function($) {
+        $('#datepicker').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+    
+    
   } );
+  $.noConflict();
+  jQuery(function($) {
+      $('#datepicker').datepicker({
+          dateFormat: 'dd/mm/yy'
+      });
+  });
+
   </script>
 <!--
 

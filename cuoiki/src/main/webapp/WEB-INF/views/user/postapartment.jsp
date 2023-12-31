@@ -21,46 +21,52 @@
               <button class="btn" style="background-color: #f35525; "><a style="color: white;" 
               href="${pageContext.request.contextPath}/mypost">Xem bài viết đã đăng</a></button>
             </div>
+            
+           
             <div class="card-body">
-                <form method="" action="mypost.html">
+                <form method="post" action="${pageContext.request.contextPath}/postapartment" enctype="multipart/form-data">
                     <!-- Form Group (username)-->
                     <div class="mb-3">
                         <label class="small mb-1" for="inputUsername">Tiêu đề</label>
-                        <input class="form-control" id="inputUsername" type="text" placeholder="Nhập tiêu đề" required>
+                        <input class="form-control" name="subject" id="inputUsername" type="text" placeholder="Nhập tiêu đề" required>
                     </div>
                     <div class="mb-3">
                       <label class="small mb-1" for="inputUsername">Giá</label>
-                      <input class="form-control" id="inputUsername"  type="text" placeholder="Nhập giá" required>
+                      <input class="form-control" id="inputUsername" name="price" type="text" placeholder="Nhập giá" required>
+                  </div>
+                  <div class="mb-3">
+                      <label class="small mb-1" for="inputUsername">Đặt cọc</label>
+                      <input class="form-control" id="inputUsername" name="deposit" type="text" placeholder="Nhập giá" required>
                   </div>
                   <div class="row gx-3 mb-3">
                     <!-- Form Group (phone number)-->
                     <div class="col-md-6">
                         <label class="small mb-1" for="inputPhone">Số phòng ngủ</label>
-                        <input class="form-control" id="inputPhone" min="1" max="3" type="number" placeholder="Nhập số phòng ngủ" required>
+                        <input class="form-control" name="bedroom" id="inputPhone" min="1" max="3" type="number" placeholder="Nhập số phòng ngủ" required>
                     </div>
                     <!-- Form Group (birthday)-->
                     <div class="col-md-6">
                       <label class="small mb-1" for="inputPhone">Số phòng tắm</label>
-                      <input class="form-control" id="inputPhone" min="1" max="3" type="number" placeholder="Nhập số phòng tắm" required>
+                      <input class="form-control" name="bathroom" id="inputPhone" min="1" max="3" type="number" placeholder="Nhập số phòng tắm" required>
                   </div>
                 </div>
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (phone number)-->
                   <div class="col-md-6">
                       <label class="small mb-1" for="inputPhone">Địa chỉ</label>
-                      <input class="form-control" id="inputPhone" type="text" placeholder="Nhập địa chỉ" required>
+                      <input class="form-control" name="address" id="inputPhone" type="text" placeholder="Nhập địa chỉ" required>
                   </div>
                   <!-- Form Group (birthday)-->
                   <div class="col-md-6">
-                    <label class="small mb-1" for="inputPhone">Đặt cọc</label>
-                    <input class="form-control" id="inputPhone" type="text" placeholder="Nhập số tiền đặt cọc" required>
+                    <label class="small mb-1" for="inputPhone">Diện tích</label>
+                    <input class="form-control" name="area" id="inputPhone" type="text" placeholder="Nhập diện tích căn hộ" required>
                 </div>
               </div>
               
                   <div class="mb-3">
                     <label class="small mb-1" for="inputUsername">Mô tả</label>
                     <br>
-                    <textarea class="form-control" name="" id="inputUsername" cols="30" rows="10" required></textarea>
+                    <textarea class="form-control" name="description" id="inputUsername" cols="30" rows="10" required></textarea>
                 </div>
              
                 
@@ -75,7 +81,7 @@
           <div class="card mb-4 mb-xl-0">
             <div class="card-header">Ảnh căn hộ</div>
             <div class="card-body text-center">
-              <div class="small font-italic text-muted mb-4"><span id="msg">JPG or PNG no larger than 5 MB</span></div>
+              <div class="small font-italic text-muted mb-4"><span id="msg">File hình không quá 5MB</span></div>
                 <!-- Profile picture image-->
                 <div id="pictures" style="max-height: 300px; overflow: auto ;">
                     
@@ -83,7 +89,7 @@
                 <!-- Profile picture help block-->
               
                 <!-- Profile picture upload button-->
-                <input style="margin-left: 100px;"  type="file" name="" required accept="image/*" id="inputAvatar" multiple>
+                <input style="margin-left: 100px;"  type="file" name="files" multiple="multiple" required accept="image/*" id="inputAvatar">
                 <label style="margin-top: 5px;" for="inputAvatar" class="custom-upload-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Tải lên</label>
                 <script>
                   $(document).ready(function(){
@@ -106,7 +112,7 @@
                        
                 });
                     
-                    // $('<p>Thành phần p</p>').appendTo('#div');
+                   /*  $('<p>Thành phần p</p>').appendTo('#div'); */
                    
                   });
                 </script>

@@ -64,9 +64,11 @@ public class EmailServlet extends HttpServlet {
 			request.getSession().setAttribute("accountEmail", accountModel.findAccountByEmail(email));
 			String content = "Xin chào, đây là email từ $Apartment! Hệ thống xin gửi bạn đoạn mã OTP "+ OTP + " để thay đổi mật khẩu.";
 			MailHelper.MailHelper(((Account) request.getSession().getAttribute("accountEmail")).getEmail(), "Xác nhận mã OTP", content);
+			System.out.println(true);
 			response.sendRedirect("otp");
 		} else {
 			request.getSession().setAttribute("msgEmail", "Email không tồn tại. Vui lòng kiểm tra lại");
+			System.out.println(false);
 			response.sendRedirect("email");
 		}
 	}

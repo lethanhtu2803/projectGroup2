@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
  <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
               <h1>Danh sách tài khoản</h1>
+             
+ 
+
             </div>
             
           </div>
@@ -19,8 +24,188 @@
           <div class="row">
             <div class="col-12">
               <div class="card">
-                
-                
+                <script>
+					$(document).ready(function() {
+						$('#name').keyup(function() {
+							var name = $(this).val();
+							console.log(name);
+							$.ajax({
+								type: 'GET',
+								dataType: 'json',
+								contentType: 'application/json; charset=utf-8',
+								url: '${pageContext.request.contextPath}/admin/account',
+								data: {
+									action: "searchByName",
+									name: name
+								},
+								success: function(accounts) {
+									var s ='';
+									for(var i = 0;i < accounts.length; i++) {
+										var ngaysinhDate = new Date(accounts[i].birthday);
+										var ngaysinhFormatted = new Intl.DateTimeFormat('vi-VN', {day: '2-digit', month: '2-digit', year: 'numeric'}).format(ngaysinhDate);
+										var ngaytaoDate = new Date(accounts[i].created);
+										var ngaytaoFormatted = new Intl.DateTimeFormat('vi-VN', {day: '2-digit', month: '2-digit', year: 'numeric'}).format(ngaytaoDate);
+										s+='<tr>';
+										s+='<td>' + accounts[i].id + '</td>';
+										s+='<td>' + accounts[i].username + '</td>';
+										s+='<td>' + accounts[i].name + '</td>';
+										s+='<td>' + ngaysinhFormatted + '</td>';
+										s+='<td>' + accounts[i].email + '</td>';
+										s+='<td>' + accounts[i].phoneNumber + '</td>';
+										s+='<td>' + accounts[i].address + '</td>';
+										s+='<td>' + ngaytaoFormatted + '</td>';
+										s+='<td><img src="${pageContext.request.contextPath}/assets/user/images/'+ accounts[i].avatar +'" height="100" width="90" alt=""></td>';
+										s+='<td>';
+										if(accounts[i].verify == true && accounts[i].status == true) {
+											s+='Đã xác thực';
+										} else if(accounts[i].verify == false && accounts[i].status == true) {
+											s+='Chưa xác thực';
+										} else if(accounts[i].status == false) {
+											s+='Vô hiệu hóa';
+										}
+										s+='</td>';
+										s+='<td>'
+										if(accounts[i].status == true) {
+											s+= '<a href="${pageContext.request.contextPath }/admin/account?action=blockUser&id='+ accounts[i].id +'" onclick="return confirm(`Bạn có chắc chắn muốn chặn`)">Chặn</a> |';
+										} else if(accounts[i].status == false) {
+											s+= '<a href="${pageContext.request.contextPath }/admin/account?action=unblockUser&id='+ accounts[i].id +'" onclick="return confirm(`bạn có chắc chắn muốn bỏ chặn`)">Bỏ chặn</a> |';
+										}
+										s+= '<a  href="#" onclick="return confirm(`bạn có chắc chắn muốn xóa`)">Xóa</a>';
+										s+='</td>';
+										s+='</tr>';					
+									}
+									$('#example2 tbody').html(s);
+								}							
+							});
+						});
+
+						$('#phone').keyup(function() {
+							var phone = $(this).val();
+							console.log(name);
+							$.ajax({
+								type: 'GET',
+								dataType: 'json',
+								contentType: 'application/json; charset=utf-8',
+								url: '${pageContext.request.contextPath}/admin/account',
+								data: {
+									action: "searchByPhone",
+									phone: phone
+								},
+								success: function(accounts) {
+									var s ='';						
+									for(var i = 0;i < accounts.length; i++) {
+										var ngaysinhDate = new Date(accounts[i].birthday);
+										var ngaysinhFormatted = new Intl.DateTimeFormat('vi-VN', {day: '2-digit', month: '2-digit', year: 'numeric'}).format(ngaysinhDate);
+										var ngaytaoDate = new Date(accounts[i].created);
+										var ngaytaoFormatted = new Intl.DateTimeFormat('vi-VN', {day: '2-digit', month: '2-digit', year: 'numeric'}).format(ngaytaoDate);
+										s+='<tr>';
+										s+='<td>' + accounts[i].id + '</td>';
+										s+='<td>' + accounts[i].username + '</td>';
+										s+='<td>' + accounts[i].name + '</td>';
+										s+='<td>' + ngaysinhFormatted + '</td>';
+										s+='<td>' + accounts[i].email + '</td>';
+										s+='<td>' + accounts[i].phoneNumber + '</td>';
+										s+='<td>' + accounts[i].address + '</td>';
+										s+='<td>' + ngaytaoFormatted + '</td>';
+										s+='<td><img src="${pageContext.request.contextPath}/assets/user/images/'+ accounts[i].avatar +'" height="100" width="90" alt=""></td>';
+										s+='<td>';
+										if(accounts[i].verify == true && accounts[i].status == true) {
+											s+='Đã xác thực';
+										} else if(accounts[i].verify == false && accounts[i].status == true) {
+											s+='Chưa xác thực';
+										} else if(accounts[i].status == false) {
+											s+='Vô hiệu hóa';
+										}
+										s+='</td>';
+										s+='<td>'
+										if(accounts[i].status == true) {
+											s+= '<a href="${pageContext.request.contextPath }/admin/account?action=blockUser&id='+ accounts[i].id +'" onclick="return confirm(`Bạn có chắc chắn muốn chặn`)">Chặn</a> |';
+										} else if(accounts[i].status == false) {
+											s+= '<a href="${pageContext.request.contextPath }/admin/account?action=unblockUser&id='+ accounts[i].id +'" onclick="return confirm(`bạn có chắc chắn muốn bỏ chặn`)">Bỏ chặn</a> |';
+										}
+										s+= '<a  href="#" onclick="return confirm(`bạn có chắc chắn muốn xóa`)">Xóa</a>';
+										s+='</td>';
+										s+='</tr>';					
+									}
+									$('#example2 tbody').html(s);
+								}							
+							});
+						});
+
+						$('#changeStatus').change(function() {
+							var value = $(this).val();
+							$.ajax({
+								type: 'GET',
+								dataType: 'json',
+								contentType: 'application/json; charset=utf-8',
+								url: '${pageContext.request.contextPath}/admin/account',
+								data: {
+									action: "searchByVerify",
+									value: value
+								},
+								success: function(accounts) {
+									var s ='';						
+									for(var i = 0;i < accounts.length; i++) {
+										var ngaysinhDate = new Date(accounts[i].birthday);
+										var ngaysinhFormatted = new Intl.DateTimeFormat('vi-VN', {day: '2-digit', month: '2-digit', year: 'numeric'}).format(ngaysinhDate);
+										var ngaytaoDate = new Date(accounts[i].created);
+										var ngaytaoFormatted = new Intl.DateTimeFormat('vi-VN', {day: '2-digit', month: '2-digit', year: 'numeric'}).format(ngaytaoDate);
+										s+='<tr>';
+										s+='<td>' + accounts[i].id + '</td>';
+										s+='<td>' + accounts[i].username + '</td>';
+										s+='<td>' + accounts[i].name + '</td>';
+										s+='<td>' + ngaysinhFormatted + '</td>';
+										s+='<td>' + accounts[i].email + '</td>';
+										s+='<td>' + accounts[i].phoneNumber + '</td>';
+										s+='<td>' + accounts[i].address + '</td>';
+										s+='<td>' + ngaytaoFormatted + '</td>';
+										s+='<td><img src="${pageContext.request.contextPath}/assets/user/images/'+ accounts[i].avatar +'" height="100" width="90" alt=""></td>';
+										s+='<td>';
+										if(accounts[i].verify == true && accounts[i].status == true) {
+											s+='Đã xác thực';
+										} else if(accounts[i].verify == false && accounts[i].status == true) {
+											s+='Chưa xác thực';
+										} else if(accounts[i].status == false) {
+											s+='Vô hiệu hóa';
+										}
+										s+='</td>';
+										s+='<td>'
+										if(accounts[i].status == true) {
+											s+= '<a href="${pageContext.request.contextPath }/admin/account?action=blockUser&id='+ accounts[i].id +'" onclick="return confirm(`Bạn có chắc chắn muốn chặn`)">Chặn</a> |';
+										} else if(accounts[i].status == false) {
+											s+= '<a href="${pageContext.request.contextPath }/admin/account?action=unblockUser&id='+ accounts[i].id +'" onclick="return confirm(`bạn có chắc chắn muốn bỏ chặn`)">Bỏ chặn</a> |';
+										}
+										s+= '<a  href="#" onclick="return confirm(`bạn có chắc chắn muốn xóa`)">Xóa</a>';
+										s+='</td>';
+										s+='</tr>';					
+									}
+									$('#example2 tbody').html(s);
+								}							
+							});
+						});
+					});
+                </script>
+                <% 
+                	HttpSession session2 = request.getSession();
+                	String msg = (String) session2.getAttribute("msg");
+                	String msgUnblock = (String) session2.getAttribute("msg2");
+                	String msg1 = msg;
+                	String msgUnblock1 = msgUnblock;
+                	session2.removeAttribute("msg");
+                	session2.removeAttribute("msg2");
+                	
+               %>
+               <%if(msg1 != null) { %>
+                		<script>
+                		  alert("Đã chặn thành công");
+                		</script>
+                <% }%>
+              <%if(msgUnblock1 != null) { %>
+                		<script>
+                		  alert("Đã gỡ chặn thành công");
+                		</script>
+                <% }%>
+            
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
@@ -30,25 +215,29 @@
                           Mã tài khoản
                         </th>
                         <th style="vertical-align: top;">
-                          Tên tài khoản
+                          Tên tài khoản                      
+                        </th>              
+                        <th style="vertical-align: top;">
+                          Họ và tên
                           <br>
-                          <input style="width: 140px;" type="text">
-                        </th>
-                        <th style="vertical-align: top;">Mật khẩu</th>
-                        <th style="vertical-align: top;">Họ và tên</th>
+                          <input type="text" name="name" id="name">
+                         </th>
                         <th style="vertical-align: top;">Ngày sinh</th>
                         <th style="vertical-align: top;">Thư điện tử</th>
-                        <th style="vertical-align: top;">Số điện thoại</th>
+                        <th style="vertical-align: top;">Số điện thoại
+                        <br>
+                          <input type="text" name="phone" id="phone">
+                        </th>
                         <th style="vertical-align: top;">Địa chỉ</th>
                         <th style="vertical-align: top;">Ngày khởi tạo</th>
                         <th style="vertical-align: top;">Ảnh đại diện</th>
                         <th style="vertical-align: top;">Trạng thái
                           <br>
-                          <select style="margin-top: 10px;" name="" id="">
-                            <option value="">Chọn trạng thái</option>
-                            <option value="">Đã xác thực</option>
-                            <option value="">Chưa xác thực</option>
-                            <option value="">Đã bị chặn</option>
+                          <select style="margin-top: 10px;" name="" id="changeStatus">
+                            <option value="0">Chọn trạng thái</option>
+                            <option value="1">Đã xác thực</option>
+                            <option value="2">Chưa xác thực</option>
+                            <option value="3">Vô hiệu hóa</option>
 
                           </select>
                         </th>
@@ -56,214 +245,44 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <c:forEach var="account" items="${accounts}">
                       <tr>
-                        <td>1</td>
-                        <td>lethanhtu2803</td>
-                        <td>123</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>doducthien0608</td>
-                        <td>123</td>
-                        <td>Đỗ Đức Thiện</td>
-                        <td>06/08/2003</td>
-                        <td>neverabc2003@gmail.com</td>
-                        <td>0397205667</td>
-                        <td>100, đường 11, Dĩ An, Bình Dương</td>
-                        <td>20/11/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/ducthien.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>nguyenhoangtu1205</td>
-                        <td>123</td>
-                        <td>Nguyễn Hoàng Tú</td>
-                        <td>12/05/2003</td>
-                        <td>nguyenhoangtu@gmail.com</td>
-                        <td>0982475645</td>
-                        <td>Quận 8, TPHCM</td>
-                        <td>31/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/hoangtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>lethanhtu2803</td>
-                        <td>123</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>doducthien0608</td>
-                        <td>123</td>
-                        <td>Đỗ Đức Thiện</td>
-                        <td>06/08/2003</td>
-                        <td>neverabc2003@gmail.com</td>
-                        <td>0397205667</td>
-                        <td>100, đường 11, Dĩ An, Bình Dương</td>
-                        <td>20/11/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/ducthien.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>nguyenhoangtu1205</td>
-                        <td>123</td>
-                        <td>Nguyễn Hoàng Tú</td>
-                        <td>12/05/2003</td>
-                        <td>nguyenhoangtu@gmail.com</td>
-                        <td>0982475645</td>
-                        <td>Quận 8, TPHCM</td>
-                        <td>31/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/hoangtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr><tr>
-                        <td>7</td>
-                        <td>lethanhtu2803</td>
-                        <td>123</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>doducthien0608</td>
-                        <td>123</td>
-                        <td>Đỗ Đức Thiện</td>
-                        <td>06/08/2003</td>
-                        <td>neverabc2003@gmail.com</td>
-                        <td>0397205667</td>
-                        <td>100, đường 11, Dĩ An, Bình Dương</td>
-                        <td>20/11/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/ducthien.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>9</td>
-                        <td>nguyenhoangtu1205</td>
-                        <td>123</td>
-                        <td>Nguyễn Hoàng Tú</td>
-                        <td>12/05/2003</td>
-                        <td>nguyenhoangtu@gmail.com</td>
-                        <td>0982475645</td>
-                        <td>Quận 8, TPHCM</td>
-                        <td>31/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/hoangtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr><tr>
-                        <td>10</td>
-                        <td>lethanhtu2803</td>
-                        <td>123</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>11</td>
-                        <td>doducthien0608</td>
-                        <td>123</td>
-                        <td>Đỗ Đức Thiện</td>
-                        <td>06/08/2003</td>
-                        <td>neverabc2003@gmail.com</td>
-                        <td>0397205667</td>
-                        <td>100, đường 11, Dĩ An, Bình Dương</td>
-                        <td>20/11/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/ducthien.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>12</td>
-                        <td>nguyenhoangtu1205</td>
-                        <td>123</td>
-                        <td>Nguyễn Hoàng Tú</td>
-                        <td>12/05/2003</td>
-                        <td>nguyenhoangtu@gmail.com</td>
-                        <td>0982475645</td>
-                        <td>Quận 8, TPHCM</td>
-                        <td>31/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/hoangtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr><tr>
-                        <td>13</td>
-                        <td>lethanhtu2803</td>
-                        <td>123</td>
-                        <td>Lê Thanh Tú</td>
-                        <td>28/03/2003</td>
-                        <td>letu36592@gmail.com</td>
-                        <td>0948502190</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td>18/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>14</td>
-                        <td>doducthien0608</td>
-                        <td>123</td>
-                        <td>Đỗ Đức Thiện</td>
-                        <td>06/08/2003</td>
-                        <td>neverabc2003@gmail.com</td>
-                        <td>0397205667</td>
-                        <td>100, đường 11, Dĩ An, Bình Dương</td>
-                        <td>20/11/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/ducthien.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã xác thực</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
-                      <tr>
-                        <td>15</td>
-                        <td>nguyenhoangtu1205</td>
-                        <td>123</td>
-                        <td>Nguyễn Hoàng Tú</td>
-                        <td>12/05/2003</td>
-                        <td>nguyenhoangtu@gmail.com</td>
-                        <td>0982475645</td>
-                        <td>Quận 8, TPHCM</td>
-                        <td>31/10/2023</td>
-                        <td><img src="${pageContext.request.contextPath}/assets/user/images/hoangtu.jpg" height="100" width="90" alt=""></td>
-                        <td>Đã bị chặn</td>
-                        <td><a href="#" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | <a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a></td>
-                      </tr>
+                        <td>${account.id }</td>
+                        <td>${account.username }</td>
+                        <td>${account.name }</td>
+                        <td><f:formatDate value="${account.birthday }"
+													pattern="dd/MM/yyyy" var="birthday" /> ${birthday }</td>
+                        <td>${account.email }</td>
+                        <td>${account.phoneNumber }</td>
+                        <td>${account.address }</td>
+                        <td><f:formatDate value="${account.created }"
+													pattern="dd/MM/yyyy" var="created" /> ${created }</td>
+                        <td><img src="${pageContext.request.contextPath}/assets/user/images/${account.avatar}" height="100" width="90" alt=""></td>
+                        <td>
+                        	<c:if test="${account.verify == true && account.status == true}">
+                        		Đã xác thực 
+                        	</c:if>
+                        	<c:if test="${account.verify == false && account.status == true}">
+                        		Chưa xác thực 
+                        	</c:if>
+                        	<c:if test="${account.status == false }">
+                        		Vô hiệu hóa 
+                        	</c:if>
+                        </td>
+                       <td>
+                       		<c:if test="${account.status == true }">
+                       			<a href="${pageContext.request.contextPath }/admin/account?action=blockUser&id=${account.id}" onclick="return confirm('bạn có chắc chắn muốn chặn')">Chặn</a> | 
+                       		</c:if>
+                       		<c:if test="${account.status == false }">
+                       			<a href="${pageContext.request.contextPath }/admin/account?action=unblockUser&id=${account.id}" onclick="return confirm('bạn có chắc chắn muốn bỏ chặn')">Bỏ chặn</a> | 
+                       		</c:if>
+                       		<a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a>
+                       </td>
                       
+                        
+                      </tr>
+				</c:forEach>
+				</tbody>
                   </table>
                 </div>
                 <!-- /.card-body -->

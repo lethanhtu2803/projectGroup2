@@ -1,22 +1,20 @@
 package com.demo.helpers;
 
-import javax.mail.*;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Properties;
 
 public class MailHelper {
 	final static String username = "atun123456789cu@gmail.com";//your email id
-    final static String password = "fzdd iwbv mscj govl";// your password
+    final static String password = "qnwb zznk duhr ogmw";// your password
 
 	 public static void MailHelper(String email, String subject, String final_Text) {
 		 Properties props = new Properties();

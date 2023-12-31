@@ -1,5 +1,27 @@
+<%@page import="com.demo.entities.Branch"%>
+<%@page import="com.demo.entities.Systemapartment"%>
+<%@page import="com.demo.models.BranchModel"%>
+<%@page import="com.demo.models.SystemApartmentModel"%>
+<%@page import="com.demo.models.OwnerModel"%>
+<%@page import="com.demo.entities.Owner"%>
+<%@page import="com.demo.entities.Contract"%>
+<%@page import="com.demo.models.ContractApartmentModel"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+    <%
+    	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    	int id = Integer.parseInt(request.getParameter("id"));
+    	ContractApartmentModel contractApartmentModel = new ContractApartmentModel();
+    	OwnerModel ownerModel = new OwnerModel();
+		Contract contract = contractApartmentModel.findContractByID(id);
+		SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+		BranchModel branchModel = new BranchModel();
+		Systemapartment systemapartment = systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid());
+		Branch branch = branchModel.findBranchByID(systemapartment.getBranchid());
+		
+    %>
      <div id="contract" class="content-wrapper mt-3" style="font-family: 'Times New Roman', Times, serif;padding-left: 30px;">
       <div class="row">
       <!-- Content Header (Page header) -->
@@ -13,7 +35,7 @@
               <h3 style="text-align: center;font-weight: bold;">HỢP ĐỒNG</h3>
               <h3 style="text-align: center;font-weight: bold;">MUA BÁN CĂN HỘ NHÀ CHUNG CƯ</h3>
             Tại địa chỉ: <span>1</span> <br>
-            Hôm nay, <span>28/10/2023</span> tại <span>Quận 5</span>, chúng tôi gồm có: <br>
+            Hôm nay, <span><%= simpleDateFormat.format(new Date()) %></span> tại <span>Quận 5</span>, chúng tôi gồm có: <br>
             <h3 style="font-weight: bold;font-size: 18px;">BÊN BÁN (Bên A)</h3>
             Chủ sở hữu: <span>Hệ thống cung cấp căn hộ cao cấp $Apartment</span> <br>
             Ông/bà: ................................................................................................................................. <br>
@@ -92,32 +114,33 @@
           <!-- /.card-header -->
           <div class="card-body">
             
-            <strong style="font-size: 20px;"><i class="fa-solid fa-location-dot"></i> &nbsp;CHI NHÁNH QUẬN 1</strong>
+            <strong style="font-size: 20px;"><i class="fa-solid fa-location-dot"></i> &nbsp;
+            <%= branch.getName() %></strong>
 
-            <p class="text-muted mt-3">235 Nguyễn Văn Cừ quận 1</p>
+            <p class="text-muted mt-3"><%= branch.getAddress() %></p>
 
             <strong><i class="fa-solid fa-user"></i> &nbsp;Chủ sở hữu</strong>
 
             <p class="text-muted">
-            Nguyễn Hoàng Tú 
+            <%= ownerModel.findOwnerByID(contract.getOwnerid()).getName() %>
             </p>
 
             <strong><i class="fa-solid fa-door-closed"></i> &nbsp;Số phòng</strong>
 
             <p class="text-muted">
-           303
+          		<%= systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getFloorid() + "0" + systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getRoomid() %>
             </p>
 
             <strong><i class="fa-solid fa-calendar-days"></i> &nbsp;Ngày tạo hợp đồng</strong>
 
             <p class="text-muted">
-            2/11/2023
+            	<span><%= simpleDateFormat.format(contract.getCreated()) %>
             </p>
 
             <hr>
             <strong><i class="fa-solid fa-money-bill"></i> &nbsp;Giá</strong>
 
-            <p class="text-muted">2,8 tỷ</p>
+            <p class="text-muted"><%= systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getPrice() %> tỷ VND</p>
 
             <hr>
 
@@ -130,6 +153,9 @@
       <div class="row mt-5">
         <div class="button_print col-8 d-flex justify-content-center">
           <button onclick="return printDiv('contentContract')" class="btn btn-primary" style="width: 80px;">In</button>
+           <button id="editContract" onclick="return confirm('Bạn có chắc chắn muốn sửa?')" class="btn btn-primary" style="width: 80px;">Sửa</button>
+            <button id="saveContract" onclick="return confirm('Lưu lại?')" class="btn btn-primary" style="width: 80px;">Lưu</button>
+            <button id="reload" class="btn btn-primary" style="width: 80px;">Tải lại</button>
         </div>
     </div>
     </div>
@@ -145,4 +171,16 @@
           document.body.innerHTML = originalContents;
   
       }
+      $(document).ready(function(){
+          $('#editContract').click(function(){
+            $('#contentContract').attr('contenteditable', true);
+            $('#contentContract').css('border', '1px solid red');
+          });
+          $('#saveContract').click(function(){
+              $('#contentContract').attr('contenteditable', false);
+            });
+          $('#reload').click(function(){
+        	  window.location.reload();
+            });
+      });
   </script>
