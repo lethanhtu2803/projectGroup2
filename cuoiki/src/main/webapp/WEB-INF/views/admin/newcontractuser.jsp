@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+    
    <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -56,11 +58,36 @@
                 <div class="form-group">
                   <label for="inputName">Ảnh đại diện</label>
                   <br>
-                  <input style="margin-left: 100px;"  type="file" name="" required accept="image/*" id="inputAvatar" multiple>
-                  <label style="margin-top: 5px;" for="inputAvatar" class="custom-upload-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Tải lên</label>
-                  <br>
+                  <input style="margin-left: 100px; display: none;"  type="file" required accept="image/*" id="inputAvatar" multiple>
+                  <label style="margin-top: 5px; cursor: pointer;" for="inputAvatar" class="custom-upload-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Tải lên</label>
+                  
+                  <label style="margin-top: 5px; cursor: pointer; margin-left: 5px;" class="custom-upload-btn" id="capture-btn"><i class="fa-solid fa-camera"></i> &nbsp; Chụp ảnh</label>
+                  <div id="camera-container">
+    					<video id="camera-feed" autoplay playsinline></video>
+    					
+					</div>
+					
+                  
                   <br>
                   <img id="avatar" src="${pageContext.request.contextPath}/assets/user/images/Unknown_person.jpg" height="100px" width="100px" alt="">
+               
+                  
+                <script>
+		                document.addEventListener("DOMContentLoaded", function () {
+		                    Webcam.attach("#camera-feed");
+		                    document.getElementById("capture-btn").addEventListener("click", function () {
+		                        Webcam.snap(function (data_uri) {
+		                            document.getElementById("camera-container").style.display = "none";
+		                            document.getElementById("avatar").src = data_uri;
+		                            document.getElementById("avatar").style.display = "block";
+		                        });
+		                    });
+		                });
+           	 </script>
+
+                  
+				
+                  
                   <script>
                     $(document).ready(function(){
                       $('#inputAvatar').change( function() {

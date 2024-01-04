@@ -80,5 +80,4 @@ public class Owner {
 				+ address + ", identifynumber=" + identifynumber + ", created=" + created + ", avatar=" + avatar + "]";
 	}
 	
-	
 }

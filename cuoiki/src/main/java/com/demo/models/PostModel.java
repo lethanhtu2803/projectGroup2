@@ -17,7 +17,7 @@ public class PostModel {
 		List<Post> posts = new ArrayList<Post>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("select * from post order by id desc limit 6");
+					.prepareStatement("select * from post WHERE status = 1 order by id desc limit 6");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Post post = new Post();

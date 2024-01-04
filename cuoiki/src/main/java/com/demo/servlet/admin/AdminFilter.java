@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.demo.entities.Account;
+import com.demo.models.FeedbackModel;
 @WebFilter("/admin/*")
 /**
  * Servlet Filter implementation class AdminFilter
@@ -44,6 +45,7 @@ public class AdminFilter extends HttpFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		HttpSession session = httpRequest.getSession();
 		Account account = (Account) session.getAttribute("accountAdmin");
+		
 		if(account != null && account.getRole() == 0) {
 			chain.doFilter(request, response);
 		

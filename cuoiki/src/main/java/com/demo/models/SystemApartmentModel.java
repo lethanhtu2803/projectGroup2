@@ -76,6 +76,43 @@ public class SystemApartmentModel {
 		return systemapartment;
 	}
 	
+	public Systemapartment findSystemApartmentByRoomAndBranch(int branchid, int floorid, int roomid){
+		Systemapartment systemapartment = null;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("select * from systemapartment where branchid = ? and floorid = ? and roomid = ?");
+			preparedStatement.setInt(1, branchid);
+			preparedStatement.setInt(2, floorid);
+			preparedStatement.setInt(3, roomid);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				systemapartment = new Systemapartment();
+				systemapartment.setId(resultSet.getInt("id"));
+				systemapartment.setSubject(resultSet.getString("subject"));
+				systemapartment.setBranchid(resultSet.getInt("branchid"));
+				systemapartment.setFloorid(resultSet.getInt("floorid"));
+				systemapartment.setRoomid(resultSet.getInt("roomid"));
+				systemapartment.setBedroom(resultSet.getInt("bedroom"));
+				systemapartment.setBathroom(resultSet.getInt("bathroom"));
+				systemapartment.setPrice(resultSet.getDouble("price"));
+				systemapartment.setDeposit(resultSet.getDouble("deposit"));
+				systemapartment.setArea(resultSet.getString("area"));
+				systemapartment.setAvatar(resultSet.getString("avatar"));
+				systemapartment.setStatus(resultSet.getBoolean("status"));
+				systemapartment.setDescription(resultSet.getString("description"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			systemapartment = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		
+		return systemapartment;
+	}
+	
 	public List<Systemapartment> findSystemApartByDistrict(String subject) {
 		List<Systemapartment> result = new ArrayList<Systemapartment>();
 		try {
@@ -260,6 +297,6 @@ public class SystemApartmentModel {
 	
 	public static void main(String[] args) {
 		SystemApartmentModel apartmentModel = new SystemApartmentModel();
-		System.out.println(apartmentModel.findSystemApartByArea(35));
+		System.out.println(apartmentModel.findSystemApartmentByRoomAndBranch(1,2,3));
 	}
 }

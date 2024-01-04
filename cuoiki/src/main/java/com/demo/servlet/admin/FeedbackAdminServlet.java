@@ -40,6 +40,8 @@ public class FeedbackAdminServlet extends HttpServlet {
 		FeedbackModel feedBackModel = new FeedbackModel();
 		request.setAttribute("feedbacks", feedBackModel.findAll());
 		AccountModel accountModel = new AccountModel();
+		request.getSession().removeAttribute("feedbacks");
+		request.getSession().setAttribute("feedbacks", feedBackModel.findAll().size());
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 	}
 

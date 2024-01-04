@@ -69,8 +69,8 @@ public class HomeServlet extends HttpServlet {
 			Feedback feedback = new Feedback();
 			feedback.setAccountid(account.getId());
 			feedback.setCreated(new Date());
-			feedback.setDescription(message);
-			feedback.setSubject(subject);
+			feedback.setDescription(new String(message.getBytes("ISO-8859-1"), "UTF-8"));
+			feedback.setSubject(new String(subject.getBytes("ISO-8859-1"), "UTF-8"));
 			if(feedBackModel.submitFeedback(feedback)) {
 				request.getSession().setAttribute("success","Cảm ơn đã đóng góp ý kiến cho hệ thống.Kính chúc quý khách một ngày tốt lành");
 				response.sendRedirect("home#form-submit");

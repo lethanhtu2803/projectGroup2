@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.demo.entities.Account;
 import com.demo.models.AccountModel;
 import com.demo.models.AccountPartialModel;
+import com.demo.models.FeedbackModel;
 import com.demo.models.SystemApartmentModel;
 import com.google.gson.Gson;
 @WebServlet({"/admin/account"})
@@ -20,7 +21,7 @@ import com.google.gson.Gson;
  */
 public class AccountAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private String oldFeedback = "";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -53,6 +54,9 @@ public class AccountAdminServlet extends HttpServlet {
 		request.setAttribute("activeAccount", "active");
 		AccountPartialModel accountPartialModel = new AccountPartialModel();
 		request.setAttribute("accounts", accountPartialModel.findAll());
+		FeedbackModel feedbackModel = new FeedbackModel();
+		
+
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
 	}
 	
