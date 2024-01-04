@@ -1,11 +1,17 @@
 package com.demo.servlet.admin;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.demo.entities.Contract;
+import com.demo.models.ContractModel;
+import com.demo.models.SystemApartmentModel;
 @WebServlet({"/admin/newcontract"})
 /**
  * Servlet implementation class AccountAdminServlet
@@ -43,7 +49,38 @@ public class NewContractApartmentAdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = request.getParameter("action");
+		if(action == null) {
+			doPost_NewContract(request, response);
+		}
+	}
+	
+	protected void doPost_NewContract(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+		ContractModel contractModel = new ContractModel();
+		String owner = request.getParameter("owner");
+		int ownerId = Integer.parseInt(owner.substring(0,1));
+		int branchid = Integer.parseInt(request.getParameter("branch"));
+		int floorid = Integer.parseInt(request.getParameter("floor"));
+		int roomid = Integer.parseInt(request.getParameter("room"));
+		String description = request.getParameter("description");
+		String created = request.getParameter("created");
+		int systemapartmentid = systemApartmentModel.findSystemApartmentByRoomAndBranch(branchid, floorid, roomid).getId();
+		Contract contract = new Contract();
+		contract.setOwnerid(ownerId);
+		contract.setSystemapartmentid(systemapartmentid);
+		contract.setStatus(true);
+		contract.setCreated(new Date(created));
+		contract.setDescription(new String(description.getBytes("ISO-8859-1"), "UTF-8")
+);
+		if(contractModel.create(contract)) {
+			System.out.println("Success");
+			response.sendRedirect(request.getContextPath() + "/admin/newcontract");
+		} else {
+			System.out.println("Failed");
+			response.sendRedirect(request.getContextPath() + "/admin/newcontract");
+		}
 	}
 
 }

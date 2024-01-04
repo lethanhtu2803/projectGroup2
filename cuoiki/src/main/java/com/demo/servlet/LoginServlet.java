@@ -16,6 +16,7 @@ import com.demo.helpers.MailHelper;
 import com.demo.helpers.RandomStringHelper;
 import com.demo.models.AccountDetailsModel;
 import com.demo.models.AccountModel;
+import com.demo.models.FeedbackModel;
 
 @WebServlet("/login")
 /**
@@ -112,16 +113,19 @@ public class LoginServlet extends HttpServlet {
 		AccountModel accountModel = new AccountModel();
 		AccountDetailsModel accountDetailsModel = new AccountDetailsModel();
 		Account account = accountModel.findAccountByUsername(username);
+		FeedbackModel feedbackModel = new FeedbackModel();
 		if(accountModel.login(username, password)) {
 			if(account.getRole() == 0) {
 				request.getSession().setAttribute("accountAdmin", account);
 				request.getSession().removeAttribute("accountdetails");
 				request.getSession().removeAttribute("account");
+				request.getSession().setAttribute("feedbacks", feedbackModel.findAll().size());
 				response.sendRedirect("admin/account");
 			} else if(account.getRole() == 1) {
 				request.getSession().setAttribute("accountdetails", 
 						accountDetailsModel.findAccountByAccountID(accountModel.findAccountByUsername(username).getId()));
 				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
+				
 				request.getSession().removeAttribute("accountAdmin");
 				response.sendRedirect("account");
 			}

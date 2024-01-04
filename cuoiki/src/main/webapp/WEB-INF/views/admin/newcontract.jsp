@@ -12,7 +12,26 @@
           </div>
         </div><!-- /.container-fluid -->
       </section>
-  
+  	<script>
+  		$(document).ready(function () {
+			$('#autocomplete').autocomplete({
+				source: '${pageContext.request.contextPath}/autocomplete',
+				 select: function( event, ui ) {
+				        $( "#autocomplete" ).val( ui.item.id + ' - ' +  ui.item.name);
+				        
+				 
+				        return false;
+				      }
+					
+			})
+			.autocomplete( "instance" )._renderItem = function( ul, item ) {
+				
+			      return $( "<li>" )
+			        .append( "<div><img src='${pageContext.request.contextPath}/assets/user/images/" + item.avatar + "' height='50' width='50'> &nbsp; " + item.id + " - " + item.name +"</div>" )
+			        .appendTo( ul );
+			    };
+		});
+  	</script>
       <!-- Main content -->
       <section class="content">
         <div class="row">
@@ -28,57 +47,51 @@
                 </div>
               </div>
               <div class="card-body">
+              <form method="post" action="${pageContext.request.contextPath }/admin/newcontract">
                 <div class="form-group">
-                  <label for="inputDescription">Chủ sở hữu</label>
-                  <select id="inputStatus" class="form-control custom-select">
-                    <option disabled selected>Chọn chủ sở hữu</option>
-                    <option>1- Lê Thanh Tú</option>
-                    <option>2- Lê Thanh Tú</option>
-                    <option>3- Lê Thanh Tú</option>
-                    <option>4- Lê Thanh Tú</option>
-                    <option>5- Lê Thanh Tú</option>
-                  </select>
+                  <label for="inputDescription">Chủ sở hữu </label>
+                  <input type="text" id="autocomplete" name="owner" style="width: 250px; margin-left: 30px;">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Ngày tạo hợp đồng</label>
-                  <input type="text" id="datepicker" class="form-control" value="28/03/2023">
+                  <input type="text" id="datepicker" name="created" class="form-control" value="28/03/2023">
                 </div>
                 <div class="form-group">
                   <label for="inputStatus">Chi nhánh</label>
-                  <select id="inputStatus" class="form-control custom-select">
+                  <select id="inputStatus" class="form-control custom-select" name="branch">
                     <option disabled selected>Quận</option>
-                    <option>Quận 1</option>
-                    <option>Quận 2</option>
-                    <option>Quận 3</option>
-                    <option>Quận 4</option>
-                    <option>Quận 5</option>
+                    <option value=1>Quận 1</option>
+                    <option value=2>Quận 2</option>
+                    <option value=3>Quận 3</option>
+                    <option value=4>Quận 4</option>
+                    <option value=5>Quận 5</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="inputStatus">Phòng ngủ</label>
-                  <select id="inputStatus" class="form-control custom-select">
+                  <label for="inputStatus">Tầng</label>
+                  <select id="inputStatus" class="form-control custom-select" name="floor">
                     <option disabled selected>Tầng</option>
-                    <option>Tầng 1</option>
-                    <option>Tầng 2</option>
-                    <option>Tầng 3</option>
-                    <option>Tầng 4</option>
-                    <option>Tầng 5</option>
+                    <option value=1>Tầng 1</option>
+                    <option value=2>Tầng 2</option>
+                    <option value=3>Tầng 3</option>
+                    <option value=4>Tầng 4</option>
+                    <option value=5>Tầng 5</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="inputStatus">Phòng</label>
-                  <select id="inputStatus" class="form-control custom-select">
+                  <select id="inputStatus" class="form-control custom-select" name="room">
                     <option disabled selected>Tên phòng</option>
-                    <option>Phòng 1</option>
-                    <option>Phòng 2</option>
-                    <option>Phòng 3</option>
-                    <option>Phòng 4</option>
-                    <option>Phòng 5</option>
+                    <option value=1>Phòng 1</option>
+                    <option value=2>Phòng 2</option>
+                    <option value=3>Phòng 3</option>
+                    <option value=4>Phòng 4</option>
+                    <option value=5>Phòng 5</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="inputDescription">Mô tả</label>
-                  <input type="text" id="inputName" class="form-control" value="Nhập mô tả...">
+                  <input type="text" name="description" id="inputName" class="form-control" placeholder="Nhập mô tả...">
                 </div>
                
               </div>
@@ -90,10 +103,11 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <a href="#" class="btn btn-secondary">Hủy</a>
+            <a href="${pageContext.request.contextPath }/admin/newcontract" class="btn btn-secondary">Hủy</a>
             <input type="submit" value="Thêm mới" class="btn btn-success float-right">
           </div>
         </div>
+        </form>
       </section>
       <!-- /.content -->
     </div>

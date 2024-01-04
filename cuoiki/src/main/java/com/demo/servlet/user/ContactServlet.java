@@ -65,9 +65,9 @@ public class ContactServlet extends HttpServlet {
 			String description = request.getParameter("message");
 			ContactModel contactModel = new ContactModel();
 			Contact contact = new Contact();
-			contact.setSubject(subject);
-			contact.setDescription(description);
-			contact.setName(name);
+			contact.setSubject(new String(subject.getBytes("ISO-8859-1"), "UTF-8"));
+			contact.setDescription(new String(description.getBytes("ISO-8859-1"), "UTF-8"));
+			contact.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
 			contact.setPhone(accountdetails.getPhonenumber());
 			contact.setEmail(email);
 			contact.setStatus(false);
