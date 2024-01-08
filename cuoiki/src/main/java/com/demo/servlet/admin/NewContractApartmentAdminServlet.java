@@ -1,6 +1,7 @@
 package com.demo.servlet.admin;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.demo.entities.Contract;
 import com.demo.models.ContractModel;
+import com.demo.models.FeedbackModel;
 import com.demo.models.SystemApartmentModel;
+import com.google.gson.Gson;
 @WebServlet({"/admin/newcontract"})
 /**
  * Servlet implementation class AccountAdminServlet
@@ -34,7 +37,9 @@ public class NewContractApartmentAdminServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if(action == null) {
 			doGet_Index(request, response);
-		} 
+		} else if(action.equalsIgnoreCase("checkExists")) {
+			doGet_CheckExists(request, response);
+		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("admin", "../admin/newcontract.jsp");
@@ -42,6 +47,15 @@ public class NewContractApartmentAdminServlet extends HttpServlet {
 		request.setAttribute("activeContractOpen", "menu-open");
 		request.setAttribute("activeNewContract", "active");
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	}
+	protected void doGet_CheckExists(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter printWriter = response.getWriter();
+		Gson gson = new Gson();
+		ContractModel contractModel = new ContractModel();
+		
+		printWriter.print(gson.toJson(contractModel.checkExists(contractModel.findAll(), Integer.parseInt(request.getParameter("branchID")), Integer.parseInt(request.getParameter("floorID")), Integer.parseInt(request.getParameter("roomID")))));
 	}
 
 	/**

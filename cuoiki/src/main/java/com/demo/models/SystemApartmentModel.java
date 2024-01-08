@@ -1,7 +1,8 @@
-package com.demo.models;
+	package com.demo.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,39 @@ import com.demo.entities.Systemapartment;
 
 public class SystemApartmentModel {
 	public List<Systemapartment> findAll(){
+		List<Systemapartment> systemapartments = new ArrayList<Systemapartment>();
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from systemapartment where status = 1");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				Systemapartment systemapartment = new Systemapartment();
+				systemapartment.setId(resultSet.getInt("id"));
+				systemapartment.setSubject(resultSet.getString("subject"));
+				systemapartment.setBranchid(resultSet.getInt("branchid"));
+				systemapartment.setFloorid(resultSet.getInt("floorid"));
+				systemapartment.setRoomid(resultSet.getInt("roomid"));
+				systemapartment.setBedroom(resultSet.getInt("bedroom"));
+				systemapartment.setBathroom(resultSet.getInt("bathroom"));
+				systemapartment.setPrice(resultSet.getDouble("price"));
+				systemapartment.setDeposit(resultSet.getDouble("deposit"));
+				systemapartment.setArea(resultSet.getString("area"));
+				systemapartment.setAvatar(resultSet.getString("avatar"));
+				systemapartment.setStatus(resultSet.getBoolean("status"));
+				systemapartment.setDescription(resultSet.getString("description"));
+				systemapartments.add(systemapartment);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			systemapartments = null;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		
+		return systemapartments;
+	}
+	
+	public List<Systemapartment> findAllInAdmin(){
 		List<Systemapartment> systemapartments = new ArrayList<Systemapartment>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from systemapartment");
@@ -118,7 +152,7 @@ public class SystemApartmentModel {
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
 					.prepareStatement("select * from systemapartment where subject LIKE ?");
-			preparedStatement.setString(1, "%" + subject);
+			preparedStatement.setString(1, "%" + subject + "%");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Systemapartment systemapartment = new Systemapartment();
@@ -292,6 +326,24 @@ public class SystemApartmentModel {
 		}
 
 		return result;
+	}
+	
+	public boolean delete(int id) {
+		boolean status = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("DELETE FROM systemapartment where id = ?");
+			preparedStatement.setInt(1, id);
+			status =  preparedStatement.executeUpdate() > 0;
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return status;
 	}
 	
 	

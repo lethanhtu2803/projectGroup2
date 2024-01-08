@@ -14,7 +14,7 @@ public class FeedbackModel {
 	public List<Feedback> findAll(){
 		List<Feedback> feedbacks = new ArrayList<Feedback>();
 		try {
-			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from feedback");
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("select * from feedback order by id desc");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				Feedback feedback = new Feedback();

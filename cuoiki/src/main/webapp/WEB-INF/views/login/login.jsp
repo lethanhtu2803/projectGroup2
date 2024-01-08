@@ -36,17 +36,17 @@
 
 </head>
 <%
-HttpSession session2 = request.getSession();
-String errorAccount = (String) session2.getAttribute("errorAccount");
-String errorAccount1 = errorAccount;
-session2.removeAttribute("errorAccount");
+	HttpSession session2 = request.getSession();
+	String errorAccount = (String) session2.getAttribute("msg");
+	String errorAccount1 = errorAccount;
+	session2.removeAttribute("msg");
 %>
- <%
+ 		<%
             	if(errorAccount1 != null) {
             		
         %>
             <script>
-				alert("Bạn cần phải đăng nhập tài khoản mới thực hiện chức năng đăng bài được. Vui lòng bạn đăng nhập tài khoản");
+				alert("<%= errorAccount1 %>");
             </script> 
             <%} %>
 <body>

@@ -1,5 +1,18 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.demo.entities.Post"%>
+<%@page import="com.demo.models.AccountDetailsModel"%>
+<%@page import="com.demo.models.PostModel"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+    <%
+    	PostModel postModel = new PostModel();
+    	AccountDetailsModel accountDetailsModel = new AccountDetailsModel();
+    	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    %>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    
   <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -19,7 +32,17 @@
           <div class="row">
             <div class="col-12">
               <div class="card">
-                
+                <%
+                	HttpSession session2 = request.getSession();
+                	String msg = (String) session2.getAttribute("msg");
+                	String msg1 = msg;
+                	session2.removeAttribute("msg");
+                %>
+                <c:if test="<%= msg1 != null %>">
+                	<script>
+                	alert('<%= msg1 %>');
+                	</script>
+                </c:if>
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
@@ -42,171 +65,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <% for(Post post : postModel.findAllInAdmin()) {%>
                       <tr>
-                        <td>1</td>
-                        <td>Bán gấp căn hộ Topaz City, Quận 8, DT: 74m2 , giá : 1 tỷ 590</td>
-                        <td>5</td>
-                        <td>09/11/2023</td>
-                        <td>3 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can17.jpg" target="_blank"><img src="../assets/images/50canho/can17.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
+                        <td><%= post.getId() %></td>
+                        <td><%= post.getSubject() %></td>
+                        <td><%= post.getAccountid() + " - " + accountDetailsModel.findAccountByAccountID(post.getAccountid()).getName() %></td>
+                        <td><%= simpleDateFormat.format(post.getPostdate()) %></td>
+                        <td><%= post.getPrice() %> tỷ</td>
+                        <td><%= post.getAddress() %></td>
+                        <td><a href="${pageContext.request.contextPath }/assets/user/images/150canho/<%= post.getAvatar() %>" target="_blank"><img src="${pageContext.request.contextPath }/assets/user/images/150canho/<%= post.getAvatar() %>" height="100" width="90" alt=""></a></td>
+                        <td data-id="<%= post.getId() %>">Xem chi tiết</td>
+                        <td><a onclick="return confirm('Đăng bài?')" href="${pageContext.request.contextPath }/admin/postapartment?action=updatePost&id=<%= post.getId() %>"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="${pageContext.request.contextPath }/admin/postapartment?action=deletePost&id=<%= post.getId() %>"><i class="fa-solid fa-trash"></i></a></td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Cần bán căn hộ Chung Cư Sky Garden 1,Phú Mỹ Hưng, Quận 7</td>
-                        <td>15</td>
-                        <td>31/10/2023</td>
-                        <td>2,5 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can18.jpg" target="_blank"><img src="../assets/images/50canho/can18.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Bán căn hộ 2 PN chung cư Phạm Viết Chánh Q.Bình Thạnh</td>
-                        <td>10</td>
-                        <td>28/10/2023</td>
-                        <td>2,2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can19.jpg" target="_blank"><img src="../assets/images/50canho/can19.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Bán căn hộ 2PN 2WC Cityland Gò Vấp. View nội khu, N.Thất đầy đủ.</td>
-                        <td>19</td>
-                        <td>30/09/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can20.jpg" target="_blank"><img src="../assets/images/50canho/can20.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Bán chung cư Lucky Dragon - 359 Đỗ Xuân Hợp - Q9 - 80m2 - 3.5 tỷ</td>
-                        <td>11</td>
-                        <td>05/09/2023</td>
-                        <td>1,05 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can21.jpg" target="_blank"><img src="../assets/images/50canho/can21.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>Căn hộ 2PN Thủ Thiêm Dragon Q2 , 74m2 , 1 tỷ 780 triệu , có sổ hồng</td>
-                        <td>12</td>
-                        <td>06/08/2023</td>
-                        <td>4,2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can22.jpg" target="_blank"><img src="../assets/images/50canho/can22.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>7</td>
-                        <td>Bán gấp KingDom 2pn, giá còn thương lượng, trung tâm Quận 10</td>
-                        <td>8</td>
-                        <td>01/06/2023</td>
-                        <td>1,6 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can23.jpg" target="_blank"><img src="../assets/images/50canho/can23.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>Căn hộ mới xây gần Sân Bay 59m2 giá 800 triệu, sổ riêng</td>
-                        <td>7</td>
-                        <td>12/05/2023</td>
-                        <td>1,25 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can24.jpg" target="_blank"><img src="../assets/images/50canho/can24.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>9</td>
-                        <td>Bán gấp giá tốt 2pn2wc 4ty900 - KingDom101 Quận 10</td>
-                        <td>3</td>
-                        <td>28/03/2023</td>
-                        <td>2,55 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can25.jpg" target="_blank"><img src="../assets/images/50canho/can25.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>10</td>
-                        <td>Bán gấp căn 2PN Diamond Alnata Plus dự án Celadon City</td>
-                        <td>1</td>
-                        <td>28/03/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can26.jpg" target="_blank"><img src="../assets/images/50canho/can26.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>11</td>
-                        <td>Bán gấp căn 2PN 85m2 Diamond Alnata chốt nhanh 4 tỷ bao thuế</td>
-                        <td>2</td>
-                        <td>28/03/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can27.jpg" target="_blank"><img src="../assets/images/50canho/can27.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>12</td>
-                        <td>Bán chung cư Cityland Park Hill, 18 đường Phan Văn Trị, 83m2, 2PN</td>
-                        <td>2</td>
-                        <td>28/03/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can28.jpg" target="_blank"><img src="../assets/images/50canho/can28.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>13</td>
-                        <td>Bán căn hộ Saigonres Plaza, 72m2, 2 phòng ngủ</td>
-                        <td>2</td>
-                        <td>28/03/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can29.jpg" target="_blank"><img src="../assets/images/50canho/can29.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>14</td>
-                        <td>Bán gấp căn hộ cc Cửu Long, mặt tiền Phạm Văn Đồng, đủ nội thất</td>
-                        <td>2</td>
-                        <td>28/03/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can30.jpg" target="_blank"><img src="../assets/images/50canho/can30.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>15</td>
-                        <td>Bán căn hộ CitiEsto, Quận 2, tiện ích đầy đủ, dễ di chuyển giá chuẩn</td>
-                        <td>2</td>
-                        <td>28/03/2023</td>
-                        <td>2 tỷ</td>
-                        <td>Chung cư an bình, dĩ an, bình dương</td>
-                        <td><a href="../assets/images/50canho/can31.jpg" target="_blank"><img src="../assets/images/50canho/can31.jpg" height="100" width="90" alt=""></a></td>
-                        <td><a href="postdetails.html">Xem chi tiết</a></td>
-                        <td><a onclick="return confirm('Đăng bài?')" href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp; <a onclick="return confirm('Xóa bài?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
-                      </tr>
+                    <% } %>
+                     </tbody>
 
                      
                       
@@ -225,7 +97,145 @@
           </div>
           <!-- /.row -->
         </div>
+        <script>
+        	$('#example2 tbody tr td').click(function () {
+        		
+        		var s = '';
+				var postID = $(this).attr('data-id');
+				$.ajax({
+					type: 'GET',
+					url: '${pageContext.request.contextPath}/admin/postapartment',
+					data: {
+						action: 'dialogDetails',
+						postID: postID
+					},
+					success: function (data) {
+						var post = data.post;
+						var postImages = data.postImages;
+						$('#postName').html(post.subject);
+						$('#postPrice').html(post.price);
+						$('#postDeposit').html(post.deposit);
+						$('#postArea').html(post.area);
+						var parsedDate = moment(post.postdate, "MMM DD, YYYY");
+					    var formattedDate = parsedDate.format("DD/MM/YYYY");
+						$('#postPostDate').html(formattedDate);
+						$('#postBedroom').html(post.bedroom);
+						$('#postBathroom').html(post.bathroom);
+						$('#imgMain').attr('src', '${pageContext.request.contextPath}/assets/user/images/150canho/' + post.avatar);
+						for (var i = 0; i < postImages.length; i++) {
+							s+= '<img class="imgSub" src="${pageContext.request.contextPath}/assets/user/images/150canho/' + postImages[i].name + '" style="margin-left: 37px; cursor: pointer;"  height="80px" width="120px" alt="Product Image">';
+						}
+						
+						$('#postImages').html(s);
+						 $('.imgSub').on('click', function(){
+							 var src = $(this).attr('src');
+		                        $('#imgMain').attr('src', src);
+		                    });
+						$("#dialog-message" ).dialog({
+						      modal: true,
+						      width: 1300,
+						      height: 800,
+						      buttons: {
+						        Ok: function() {
+						          $( this ).dialog( "close" );
+						        }
+						      }
+						    });
+					}
+					
+				});
+				
+			});
+        </script>
         <!-- /.container-fluid -->
       </section>
+      <div id="dialog-message" style="display: none;" title="Chi tiết bài đăng">
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              
+              <div class="col-sm-6">
+               <a style="color: black;" href="postapartment.html"> <i style="font-size: 20px; margin-bottom: 10px;" class="fa-solid fa-arrow-right fa-rotate-180" ></i></a>
+                <br>
+               <h1>Chi tiết bài đăng</h1>
+              </div>
+              
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+    
+        <!-- Main content -->
+        <section class="content">
+    
+          <!-- Default box -->
+          <div class="card card-solid">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <h3 class="d-inline-block d-sm-none">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT</h3>
+                  <div class="col-12">
+                    <img id="imgMain" height="200" width="450" src="../assets/images/50canho/can8.jpg" class="product-image" alt="Product Image">
+                  </div>
+                  <div class="col-12 product-image-thumbs" id="postImages">
+                  	
+                  </div>
+                 
+                </div>
+                <div style="font-size: larger;" class="col-12 col-sm-6">
+                  <h3 class="my-3" style="font-weight: bold;"  id="postName">CĂN HỘ CAO CẤP 2PN FULL NỘI THẤT	</h3>
+                  <p>Kết cấu: 2 phòng ngủ,1 phòng tắm, 1 khu vực đa năng Thiết kế tiện nghi, nội thất cao cấp sang trọng Nội thất đầy đủ, Thang máy, hầm xe bảo vệ 24/7 Ở từ 2-4 người, cho nuôi thú cưng</p>
+    
+                  <hr>
+                  <h3 style="font-weight: bold;">Thông tin căn hộ</h3>
+                  <div data-toggle="buttons" style="margin-left: 20px;">
+                    <div>
+                      <i class="fa-solid fa-bed" style="color: #e57010;" ></i> &nbsp; Số phòng ngủ : <span id="postBedroom">2</span>
+                    </div >
+                    <div  style="margin-top: 20px;">
+                      <i class="fa-solid fa-bath" style="color: #e57010;"></i> &nbsp; Số phòng tắm : <span id="postBathroom">2</span>
+                    </div>
+                    <div  style="margin-top: 20px;">
+                      <i class="fa-solid fa-arrows-up-down-left-right" style="color: #e57010;"></i> &nbsp; Diện tích : <span id="postArea">69.5m2</span>
+                    </div >
+                    <div  style="margin-top: 20px;">
+                      <i class="fa-solid fa-calendar-days" style="color: #e57010;"></i> &nbsp; Ngày đăng : <span id="postPostDate">28/03/2003</span>
+                    </div>
+                    <div  style="margin-top: 20px;">
+                      <i class="fa-solid fa-location-dot" style="color: #e57010;"></i> &nbsp; Địa chỉ : <span id="postAddress">Chung cư An Bình</span>
+                    </div>
+                    <div  style="margin-top: 20px;">
+                      <i class="fa-solid fa-hand-holding-dollar" style="color: #e57010;"></i> &nbsp; Đặt cọc : <span id="postDeposit">20.000.000</span> triệu
+                    </div>
+                   
+                  </div>
+    
+                  
+              
+                  <div class="py-2 px-3 mt-4" style="background-color: #e57010;" >
+                    <h2 style="color: white;"  class="mb-0">
+                      <span id="postPrice"></span> <span> tỷ</span>
+                    </h2>
+                   
+                   
+                  </div>
+    
+  
+    
+  
+    
+                </div>
+              </div>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+    
+        </section>
+        <!-- /.content -->
+     
+</div>
       <!-- /.content -->
     </div>

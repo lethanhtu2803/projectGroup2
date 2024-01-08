@@ -58,12 +58,11 @@
   	String feedbackNoti = "";
   	HttpSession session2 = request.getSession();
   	FeedbackModel feedbackModel = new FeedbackModel();
-  	
   	feedbackNoti = session2.getAttribute("feedbacks").toString();
-  	  	
-  	
   	int feedbackNumber =  Integer.parseInt(feedbackNoti);
   	
+  	String contactNoti = session2.getAttribute("contacts").toString();
+  	int contactNumber = Integer.parseInt(contactNoti);
   	
   	//session2.removeAttribute("feedbacks");
   %>
@@ -77,7 +76,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link"><span id="feedbackNumber"><%= feedbackNumber %></span> <span id="feedbackNoti"></span></a>
+        <a href="#" class="nav-link">Dashboard</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -88,9 +87,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
+       
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
@@ -108,112 +105,34 @@
         </div>
       </li>
 
-	<script>
-		
-		function notification() {
-			
-			var oldFeedback = $('#feedbackNumber').html();
-			if(window.location.href == 'http://localhost:8080/projectGroup2/admin/feedback'){
-				var test = 'aaa';
-			}
-					$.ajax({
-						type: 'GET',
-						url: '${pageContext.request.contextPath}/notification',
-						data: {
-							test : test,
-							oldFeedback : oldFeedback
-						},
-						success: function(data) {
-							if(window.location.href == 'http://localhost:8080/projectGroup2/admin/feedback'){
-								$('#feedbackNoti').html(0);
-								$('#feedbackNumber').html(data);
-							} else {
-								$('#feedbackNoti').html(data - oldFeedback);
-							}
-						}
-						});
-				
-				
-				
-		}
-		setInterval(notification, 1000000);
-		
-		
-		
-		
-		
-		
-	</script>
+	
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+        <a class="nav-link" data-toggle="dropdown" href="#" id="getContact">
+          <i style="font-size: 30px;" class="far  fa-comments"></i>
+          <span style="font-size: 15px;" class="badge badge-danger navbar-badge" id="numberContact">0</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" >
+        	<div id="resultContact">
+        		
+        	</div>
+        
+        	<div class="dropdown-divider"></div>
+          <a href="${pageContext.request.contextPath}/admin/contact" class="dropdown-item dropdown-footer">Xem tất cả</a>
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <i style="font-size: 30px;" class="far fa-bell"></i>
+          <span style="font-size: 15px;" class="badge badge-warning navbar-badge" id="totalNotiNumber">0</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header" id="totalNoti">0 thông báo mới</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+            <i  class="fas fa-envelope mr-2"></i> <input type="hidden" id="contactNumber" value="<%= contactNumber %>"></span> <span style="color: red;" id="newNumberContact"></span> <span style="color: red;"> liên hệ mới</span>
+            <span  class="float-right text-muted text-sm">3 mins</span> 
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
@@ -221,25 +140,18 @@
             <span class="float-right text-muted text-sm">12 hours</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> aaaaa
-            <span class="float-right text-muted text-sm">2 days</span>
+          <a href="${pageContext.request.contextPath }/admin/feedback" class="dropdown-item">
+            <i class="fa-solid fa-comment mr-2"></i><input type="hidden" id="feedbackNumber" value="<%= feedbackNumber  %>"><span style="color:red;" id="feedbackNoti"></span><span style="color:red;"> đánh giá mới</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link" href="${pageContext.request.contextPath }/login?action=logout"> <i style="font-size: 20px;" class="fa-solid fa-right-from-bracket"></i></a>
+     </li>
     </ul>
+   
   </nav>
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
@@ -254,7 +166,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="${pageContext.request.contextPath}/admin/account" class="brand-link">
         <img src="${pageContext.request.contextPath}/assets/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
           class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">$Apartment</span>
@@ -268,7 +180,7 @@
             <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Admin $Apartment</a>
+            <a href="${pageContext.request.contextPath}/admin/account" class="d-block">Admin $Apartment</a>
           </div>
         </div>
 
@@ -371,7 +283,17 @@
                 </p>
               </a>
             </li>
+			
+			 <li class="nav-item">
+              <a href="${pageContext.request.contextPath }/admin/contact" class="nav-link ${activeContact }">
+               <i class="fa-solid fa-circle-info"></i> &nbsp;
+                <p>
+                  Liên hệ
+                
 
+                </p>
+              </a>
+            </li>
 
           </ul>
         </nav>
@@ -385,7 +307,7 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
        
-      <strong>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn <a href="https://adminlte.io">$Apartment</a></strong>
+      <strong>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn <a href="${pageContext.request.contextPath}/admin/account">$Apartment</a></strong>
        
      </footer>
 
@@ -461,5 +383,115 @@
     });
   </script>
 </body>
-
+<script>
+		
+	function getAllNoti() {
+		var newNumberContact = $('#numberContact').html();
+		var newNumberFeedback = $('#feedbackNoti').html();
+		$('#totalNoti').html((parseInt(newNumberContact) + parseInt(newNumberFeedback)) + ' thông báo mới');
+		$('#totalNotiNumber').html((parseInt(newNumberContact) + parseInt(newNumberFeedback)));
+		
+	}
+	setInterval(getAllNoti, 10000);
+		function notificationFeedback() {
+			
+			var oldFeedback = $('#feedbackNumber').val();
+			if(window.location.href == 'http://localhost:8080/projectGroup2/admin/feedback'){
+				var test = 'aaa';
+			}
+					$.ajax({
+						type: 'GET',
+						url: '${pageContext.request.contextPath}/notification',
+						data: {
+							test : test,
+							oldFeedback : oldFeedback
+						},
+						success: function(data) {
+							if(window.location.href == 'http://localhost:8080/projectGroup2/admin/feedback'){
+								$('#feedbackNoti').html(0);
+							} else {
+								if((data - oldFeedback) < 0){
+									$('#feedbackNoti').html(0);
+								} else {
+									$('#feedbackNoti').html(data - oldFeedback);
+								}
+								
+							}
+						}
+						});
+				
+				
+				
+		}
+		setInterval(notificationFeedback, 10000);
+		
+						function notificationContact() {
+									var oldContact = $('#contactNumber').val();
+									if(window.location.href == 'http://localhost:8080/projectGroup2/admin/contact'){
+										var test = 'aaa';
+									}
+											$.ajax({
+												type: 'GET',
+												url: '${pageContext.request.contextPath}/admin/contact',
+												data: {
+													test : test,
+													action: 'checkContact',
+													oldContact : oldContact
+												},
+												success: function(data) {
+													if(window.location.href == 'http://localhost:8080/projectGroup2/admin/contact'){
+														$('#newNumberContact').html(0);
+													} else {
+														$('#newNumberContact').html(data - oldContact);
+														if((data - oldContact) < 0){
+															$('#numberContact').html(0);
+														} else {
+															$('#numberContact').html(data - oldContact);			
+														}
+														
+													}
+														
+													}
+												});
+										
+								}
+						setInterval(notificationContact, 10000);
+		
+		$(document).ready(function() {
+			
+			$('#getContact').click(function () {
+				
+				var s = '';
+				$.ajax({
+					type: 'GET',
+					url: '${pageContext.request.contextPath}/admin/contact',
+					data: {
+						action : 'getContact'
+					},
+					success: function(data) {
+						for (var i = 0; i < data.length; i++) {
+							s+= '<a href="${pageContext.request.contextPath}/admin/contact" class="dropdown-item">';
+							s+= '<div class="media">';
+							s+= '<img src="${pageContext.request.contextPath}/assets/user/images/Unknown_person.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">';
+							s+= '<div class="media-body">';
+							s+= ' <h3 class="dropdown-item-title">';
+							s+= '<span style="font-weight: bold;">' + data[i].name + '</span>';
+							s+= '<span  class="float-right bold-text text-sm text-'+ (data[i].status == true ? 'success' : 'danger') + '"><i class="fas fa-star"></i></span>';
+							s+= '</h3>';
+							s+= ' <p class="text-sm">'+ data[i].subject + '</p>';
+							s+= '<p class="text-sm text-muted"><i class="fa-solid fa-circle-info"></i></i> ' + data[i].description.substring(0, 20) + '</p>';
+							s+= ' </div>';
+							s+= '</div>';
+							s+= '</a>';
+						}
+						$('#resultContact').html(s);
+						
+					}
+				
+					});
+			});
+		});
+		
+		
+	</script>
 </html>

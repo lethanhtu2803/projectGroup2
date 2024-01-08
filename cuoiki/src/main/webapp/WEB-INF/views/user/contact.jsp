@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -40,13 +41,19 @@
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="name">Họ tên</label>
+                  <span style="color: red;">* </span><label for="name">Họ tên</label>
                   <input type="name" name="name" id="name" placeholder="Vui lòng nhập họ tên" autocomplete="on" required>
+                </fieldset>
+              </div>
+               <div class="col-lg-12">
+                <fieldset>
+                  <span style="color: red;">* </span><label for="email">Số điện thoại</label>
+                  <input type="text" name="phoneNumber" id="phoneNumber" pattern="(\(\+[0-9]{2}\)|0)([0-9]{9,10})" type="tel" placeholder="Nhập số điện thoại của bạn" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="email">Địa chỉ email</label>
+                  <span style="color: red;">* </span><label for="email">Địa chỉ email</label>
                   <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Vui lòng nhập email" required="">
                 </fieldset>
               </div>
@@ -70,14 +77,14 @@
                 <%
                 	HttpSession session1 = request.getSession();
                 	String success = (String) session1.getAttribute("success");
-                	String failed = (String) session1.getAttribute("failed");
-                	String success1 = success;
-                	String failed1 = failed;
+                	String success1 = success;               	
                 	session1.removeAttribute("success");
-                	session1.removeAttribute("failed");
                 %>
-                <p class="text-success text-center fs-3"><%= success1 != null ? success1 : "" %></p>
-                <p class="text-success text-danger fs-3"><%= failed1 != null ? failed1 : "" %></p>
+              <c:if test="<%= success1 != null %>">
+              	<script>
+              		alert('<%= success1 %>');
+              	</script>
+              </c:if>
               </div>
             </div>
           </form>

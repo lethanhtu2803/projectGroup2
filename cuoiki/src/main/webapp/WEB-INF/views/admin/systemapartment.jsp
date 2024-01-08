@@ -1,138 +1,166 @@
+<%@page import="com.demo.entities.Systemapartment"%>
+<%@page import="com.demo.models.BranchModel"%>
+<%@page import="com.demo.models.SystemApartmentModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
-<div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<div class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1 class="m-0">Quản lý căn hộ hệ thống</h1>
-				</div>
-				<!-- /.col -->
-
-			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /.container-fluid -->
-	</div>
-	<!-- /.content-header -->
-
-	<!-- Main content -->
-	<section class="content">
-		<div class="container-fluid">
-			<!-- Small boxes (Stat box) -->
-			<div class="row d-flex justify-content-center">
-				<div class="col-lg-2 col-6">
-					<!-- small box -->
-					<button class="btn btn-primary w-100" style="height: 50px;">Quận
-						1</button>
-				</div>
-				<div class="col-lg-2 col-6">
-					<!-- small box -->
-					<button class="btn btn-primary w-100" style="height: 50px;">Quận
-						2</button>
-				</div>
-				<div class="col-lg-2 col-6">
-					<!-- small box -->
-					<button class="btn btn-primary w-100" style="height: 50px;">Quận
-						3</button>
-				</div>
-				<div class="col-lg-2 col-6">
-					<!-- small box -->
-					<button class="btn btn-primary w-100" style="height: 50px;">Quận
-						4</button>
-				</div>
-				<div class="col-lg-2 col-6">
-					<!-- small box -->
-					<button class="btn btn-primary w-100" style="height: 50px;">Quận
-						5</button>
-				</div>
-
-				<!-- ./col -->
-			</div>
-			<!-- /.row -->
-			<div class="row d-flex justify-content-center mt-5">
-				<div id="apartment" class="col-6" style="padding-left: 48px;">
-					<script>
-            var div = document.getElementById("apartment");
-            var obj1 = {
-                floor : 3,
-                room : 2
-            }
-            var obj2 = {
-                floor : 4,
-                room : 5
-            }
-            var obj3 = {
-                floor : 2,
-                room : 4
-            }
-            var array = [];
-            array.push(obj1);
-            array.push(obj2);
-            array.push(obj3);
-            function checkStatus(floor, room){
-                var status = true;
-                for(var i = 0; i < array.length; i++){
-                    if(array[i].floor == floor && array[i].room == room){
-                        status = false;
-                    }
-            }
-            return status;
-            }
-            for(var i = 0; i < 5; i++){
-                for(var j = 0; j < 5; j++){
-                  div.innerHTML += '<button class="btn btn-primary" style="width: 140px;height:100px;font-size: 24px;color:black ;background-color: ' + (checkStatus((i+1),(j+1)) == false ? 'red' : 'white') + ';"> ' + (i+1) + '0' + (j+1) + '</button>';
-                }
-                div.innerHTML += '<br>';
+    pageEncoding="UTF-8" isELIgnored="false"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%
+ 	SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+ 	BranchModel branchModel = new BranchModel();
+ 	
+ %>
+     <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Danh sách căn hộ hệ thống</h1>
+            </div>
             
-               
-            }
-        </script>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
 
-				</div>
-				<div class="card card-primary col-4">
-					<div class="card-header">
-						<h3 class="card-title">Thông tin căn hộ của hệ thống</h3>
-					</div>
-					<!-- /.card-header -->
-					<div class="card-body">
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                
+                <!-- /.card-header -->
+                <script>
+					$(document).ready(function() {
+						$('#subject').keyup(function() {
+							var subject = $(this).val();
+							$.ajax({
+								type: 'GET',
+								dataType: 'json',
+								contentType: 'application/json; charset=utf-8',
+								url: '${pageContext.request.contextPath}/admin/systemapartment',
+								data: {
+									subject: subject,
+									action: "searchBySubject"
+								},
+								success: function (systemapartment) {
+									var s = '';
+									for(var i = 0;i < systemapartment.length;i++) {
+										if(systemapartment[i].branchid == 5) {
+											branchName = '88 Hoàng Hoa Thám';
+										} else if(systemapartment[i].branchid == 4) {
+											branchName = '11 Võ Văn Ngân';
+										} else if(systemapartment[i].branchid == 3) {
+											branchName = '35 Hoàng Diệu';
+										} else if(systemapartment[i].branchid == 2) {
+											branchName = '456 Hoàng Văn Thụ';
+										} else if(systemapartment[i].branchid == 1) {
+											branchName = '123 Nguyễn Văn Cừ';
+										}
+										s+='<tr>';
+										s+='<td>'+ systemapartment[i].id +'</td>';
+										s+='<td>'+ systemapartment[i].subject +'</td>';
+										s+='<td>'+ branchName +'</td>';
+										s+='<td>'+ systemapartment[i].floorid + '0' + systemapartment[i].roomid + '</td>';										
+										s+='<td>'+ systemapartment[i].bedroom +'</td>';
+										s+='<td>'+ systemapartment[i].bathroom +'</td>';
+										s+='<td>'+ systemapartment[i].price +'</td>';
+										s+='<td>'+ systemapartment[i].deposit +'</td>';
+										s+='<td>'+ systemapartment[i].area +'</td>';
+										s+='<td>'+ systemapartment[i].description +'</td>';
+										s+='<td><a href="${pageContext.request.contextPath}/assets/user/images/150canho/'+ systemapartment[i].avatar +'" target="_blank"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ systemapartment[i].avatar +'" height="100" width="90" alt=""></a></td>';
+										s+=' <td><a onclick="return confirm(`Xóa căn hộ?`)" href="#"><i class="fa-solid fa-trash"></i></a></td>';										
+										s+='</tr>';
+									}
 
-						<strong style="font-size: 20px;"><i
-							class="fa-solid fa-location-dot"></i> &nbsp;CHI NHÁNH QUẬN 1</strong>
+									$('#example2 tbody').html(s);
+								}
+							})
+						});
+					});
+                </script>
+                <div class="card-body">
+                	<script>
+								$(document).ready(function() {
+									$('#buttonReload').click(function() {
+										location.reload();
+									});
+								});
+							
+							
+							</script>
+						
+				<%
+                	HttpSession session2 = request.getSession();
+                	String msg = (String) session2.getAttribute("msg");
+                	String msg1 = msg;
+                	session2.removeAttribute("msg");
+                %>
+                <c:if test="<%= msg1 != null %>">
+                	<script>
+                	alert('<%= msg1 %>');
+                	</script>
+                </c:if>
+								<button id="buttonReload" class="btn" ><i class="fa-solid fa-rotate"></i></button>
+                  <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th style="vertical-align: top;">
+                          Mã căn hộ
+                        </th>
+                        <th style="vertical-align: top;">
+                          Tiêu đề
+                          <br>
+                          <input style="width: 140px;" type="text" name="subject" id="subject">
+                        </th>
+                        <th style="vertical-align: top;">Chi nhánh</th>
+                        <th style="vertical-align: top;">Số phòng</th>
+                        <th style="vertical-align: top;">Phòng ngủ</th>
+                        <th style="vertical-align: top;">Phòng tắm</th>
+                        <th style="vertical-align: top;">Giá</th>
+                        <th style="vertical-align: top;">Đặt cọc</th>
+                        <th style="vertical-align: top;">Diện tích</th>
+                        <th style="vertical-align: top;">Mô tả</th>
+                        <th style="vertical-align: top;">Ảnh căn hộ</th>
+                        <th style="vertical-align: top;">Quản lý</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                   <% for(Systemapartment systemapartment : systemApartmentModel.findAllInAdmin()) {%>
+                    <tr>
+                        <td><%= systemapartment.getId() %></td>
+                        <td><%= systemapartment.getSubject() %></td>
+                        <td><%= branchModel.findBranchByID(systemapartment.getBranchid()).getAddress() %></td>
+                        <td><%= systemapartment.getFloorid() + "0" + systemapartment.getRoomid() %></td>
+                        <td><%= systemapartment.getBedroom() %></td>
+                        <td><%= systemapartment.getBathroom()%></td>
+                        <td><%= systemapartment.getPrice() %> tỷ</td>
+                        <td><%= systemapartment.getDeposit()%> triệu</td>
+                        <td><%= systemapartment.getArea() %></td>
+                        <td><%= systemapartment.getDescription() %></td>
+                        <td><a href="${pageContext.request.contextPath}/assets/user/images/150canho/<%= systemapartment.getAvatar() %>" target="_blank"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/<%= systemapartment.getAvatar() %>" height="100" width="90" alt=""></a></td>
+                        <td><a onclick="return confirm('Bạn có chắc muốn xóa căn hộ hệ thống ra khỏi danh sách?')" href="${pageContext.request.contextPath }/admin/systemapartment?action=deleteSystem&id=<%= systemapartment.getId() %>"><i class="fa-solid fa-trash"></i></a></td>
+                      </tr>
+                    
+                      <% } %>
+                      
+                     </tbody>
+                      
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
 
-						<p class="text-muted mt-3">123 Nguyễn Văn Cừ quận 1</p>
 
-						<strong><i class="fa-solid fa-building"></i> &nbsp;Tổng
-							số căn hộ</strong>
-
-						<p class="text-muted">25 căn hộ</p>
-
-						<hr>
-						<strong><i class="fa-solid fa-house-circle-check"></i>
-							&nbsp;Đã bán</strong>
-
-						<p class="text-muted">3 căn hộ</p>
-
-						<hr>
-
-						<strong><i class="fa-solid fa-house"></i> &nbsp;Còn trống</strong>
-
-						<p class="text-muted">22 căn hộ</p>
-
-						<hr>
-
-						<strong><i class="fa-solid fa-money-bill"></i> &nbsp;Giá</strong>
-
-						<p class="text-muted">2,8 tỷ 1 căn</p>
-					</div>
-					<!-- /.card-body -->
-				</div>
-				<!-- /.card -->
-			</div>
-
-		</div>
-		<!-- /.container-fluid -->
-	</section>
-	<!-- /.content -->
-</div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>

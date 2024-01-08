@@ -72,13 +72,13 @@ public class HomeServlet extends HttpServlet {
 			feedback.setDescription(new String(message.getBytes("ISO-8859-1"), "UTF-8"));
 			feedback.setSubject(new String(subject.getBytes("ISO-8859-1"), "UTF-8"));
 			if(feedBackModel.submitFeedback(feedback)) {
-				request.getSession().setAttribute("success","Cảm ơn đã đóng góp ý kiến cho hệ thống.Kính chúc quý khách một ngày tốt lành");
+				request.getSession().setAttribute("msg","Cảm ơn đã đóng góp ý kiến cho hệ thống.Kính chúc quý khách một ngày tốt lành");
 				response.sendRedirect("home#form-submit");
 			} else {
-				request.getSession().setAttribute("failed","Bình luận không thành công");
+				request.getSession().setAttribute("msg","Bình luận không thành công");
 			}
 		} else {
-			request.getSession().setAttribute("failed","Bạn cần đăng nhập tài khoản để thực hiện chức năng này");
+			request.getSession().setAttribute("msg","Bạn cần đăng nhập tài khoản để thực hiện chức năng này");
 			response.sendRedirect("home#form-submit");
 		}
 	}

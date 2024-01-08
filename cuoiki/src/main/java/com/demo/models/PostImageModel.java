@@ -58,7 +58,26 @@ public class PostImageModel {
 		}
 		return status;
 	}
-	
+	public boolean delete(int id) {
+		boolean status = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+			.prepareStatement("DELETE FROM postImage where postid = ?");
+
+			preparedStatement.setInt(1, id);
+			
+			status = preparedStatement.executeUpdate() > 0;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			status = false;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return status;
+	}
 	public static void main(String[] args) {
 		PostImageModel imageModel = new PostImageModel();
 		System.out.println(imageModel.findPostImageByPostID(1));

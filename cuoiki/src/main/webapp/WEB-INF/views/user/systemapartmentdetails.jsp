@@ -64,7 +64,8 @@
             </div>
           </div>
           <div class="main-content">
-            <span class="category">Đã đăng vào ngày <f:formatDate value="${system.created }"
+     	
+           <span class="category">Đã đăng vào ngày <f:formatDate value="${system.created }"
 													pattern="dd/MM/yyyy" var="created" /> ${created }</span>
             <h4><%= systemapartment.getSubject() %></h4>
             <h5 style="margin-bottom: -25px;">Giá: <%= systemapartment.getPrice()%> tỷ</h5>

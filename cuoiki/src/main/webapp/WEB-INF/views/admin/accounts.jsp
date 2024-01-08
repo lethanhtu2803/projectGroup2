@@ -208,6 +208,19 @@
             
                 <!-- /.card-header -->
                 <div class="card-body">
+                	<script>
+								$(document).ready(function() {
+									$('#buttonReload').click(function() {
+										location.reload();
+									});
+								});
+							
+							
+							</script>
+
+						<!-- /.card-header -->
+						
+								<button id="buttonReload" class="btn" ><i class="fa-solid fa-rotate"></i></button>
                   <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>

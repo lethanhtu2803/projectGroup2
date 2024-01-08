@@ -51,7 +51,7 @@
 										s+='<td>'+ userapartment[i].area +'</td>';
 										s+='<td>'+ userapartment[i].description +'</td>';
 										s+='<td><a href="${pageContext.request.contextPath}/assets/user/images/150canho/'+ userapartment[i].avatar +'" target="_blank"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ userapartment[i].avatar +'" height="100" width="90" alt=""></a></td>';
-										s+=' <td><a onclick="return confirm(`Xóa căn hộ?`)" href="#"><i class="fa-solid fa-trash"></i></a></td>';
+										s+=' <td><a onclick="return confirm(`Bạn có chắc muốn xóa căn hộ người dùng ra khỏi hệ thống?`)" href="${pageContext.request.contextPath }/admin/userapartment?action=deleteApart&id='+ userapartment[i].id +'"><i class="fa-solid fa-trash"></i></a></td>';
 										s+='</tr>';
 									}
 
@@ -62,6 +62,28 @@
 					});
                 </script>
                 <div class="card-body">
+                	<script>
+								$(document).ready(function() {
+									$('#buttonReload').click(function() {
+										location.reload();
+									});
+								});
+							
+							
+							</script>
+				<%
+                	HttpSession session2 = request.getSession();
+                	String msg = (String) session2.getAttribute("msg");
+                	String msg1 = msg;
+                	session2.removeAttribute("msg");
+                %>
+                <c:if test="<%= msg1 != null %>">
+                	<script>
+                	alert('<%= msg1 %>');
+                	</script>
+                </c:if>
+						
+								<button id="buttonReload" class="btn" ><i class="fa-solid fa-rotate"></i></button>
                   <table style="text-align: center;" id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
@@ -83,6 +105,7 @@
                         <th style="vertical-align: top;">Diện tích</th>
                         <th style="vertical-align: top;">Mô tả</th>
                         <th style="vertical-align: top;">Ảnh căn hộ</th>
+                        <th>&nbsp;</th>
                         <th style="vertical-align: top;">Quản lý</th>
                        
                       </tr>
@@ -96,13 +119,14 @@
                         <td>${userapart.postdate }</td>
                         <td>${userapart.bedroom }</td>
                         <td>${userapart.bathroom }</td>
-                        <td>${userapart.price } tỷ</td>
-                        <td>${userapart.deposit } triệu</td>
+                        <td>${userapart.price } tỷ VND</td>
+                        <td>${userapart.deposit } triệu VND</td>
                         <td>${userapart.address }</td>
                         <td>${userapart.area }</td>
                         <td>${userapart.description }</td>
                         <td><a href="${pageContext.request.contextPath}/assets/user/images/150canho/${userapart.avatar }" target="_blank"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${userapart.avatar }" height="100" width="90" alt=""></a></td>
-                        <td><a onclick="return confirm('Xóa căn hộ?')" href="#"><i class="fa-solid fa-trash"></i></a></td>
+                        <td><a href="${pageContext.request.contextPath }/admin/postapartmentdetails?id=${userapart.id }">Xem chi tiết</a></td>
+                        <td><a onclick="return confirm('Bạn có chắc muốn xóa căn hộ người dùng ra khỏi hệ thống?')" href="${pageContext.request.contextPath }/admin/userapartment?action=deleteApart&id=${userapart.id }"><i class="fa-solid fa-trash"></i></a></td>
                       </tr>
                     </c:forEach>
                       

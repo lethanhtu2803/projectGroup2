@@ -44,7 +44,8 @@
             </div>
           </div>
           <div class="main-content">
-            <span class="category">Đã đăng vào ngày <f:formatDate value="${post.postdate }"
+          <a href="${pageContext.request.contextPath}/wishlist?action=wishlist&id=${post.id}"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a> <br>
+            <span class="category" style="margin-top: 8px;">Đã đăng vào ngày <f:formatDate value="${post.postdate }"
 													pattern="dd/MM/yyyy" var="postdate" /> ${postdate }</span>
             <h4>${post.subject}</h4>
             <h5 style="margin-bottom: -25px;">Giá: ${post.price} tỷ</h5>

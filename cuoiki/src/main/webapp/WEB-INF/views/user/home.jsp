@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
   <div class="main-banner">
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
@@ -48,7 +49,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                Chúng tôi <strong>chuyên cung cấp và quản lý</strong> các căn hộ cao cấp trên địa bàn TP. Hồ Chí Minh.  <a href="https://www.google.com/search?q=d%E1%BB%8Bch+v%E1%BB%A5+cung+c%E1%BA%A5p+c%C4%83n+h%E1%BB%99+cao+c%E1%BA%A5p+%24apartment&sca_esv=572560862&sxsrf=AM9HkKmk90Hi3B9aicOq5yYVtfbItVKEgw%3A1697036834837&ei=IromZYnRMqul2roPyYWksAc&oq=d%E1%BB%8Bch+v%E1%BB%A5+cung+c%E1%BA%A5p+c%C4%83n+h%E1%BB%99+cao+c%E1%BA%A5p+%24ap&gs_lp=Egxnd3Mtd2l6LXNlcnAiLmThu4tjaCB24bulIGN1bmcgY-G6pXAgY8SDbiBo4buZIGNhbyBj4bqlcCAkYXAqAggAMgcQIRigARgKSPBCUIEKWOEycBR4AZABC5gBngGgAd8pqgEFMjYuMje4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIHECMYigUYJ8ICBBAjGCfCAgsQABiABBixAxiDAcICDRAAGIoFGLEDGIMBGArCAgUQABiABMICBxAAGIoFGEPCAggQABiABBixA8ICDRAAGIoFGLEDGIMBGEPCAgQQABgDwgIHEC4YigUYQ8ICEBAAGIAEGLEDGIMBGEYY_wHCAhwQABiABBixAxiDARhGGP8BGJcFGIwFGN0E2AEBwgIGEAAYFhgewgICECbCAggQABgWGB4YD8ICChAAGBYYHhgPGArCAgUQIRigAcICBBAhGBXCAgoQIRgWGB4YDxgdwgIIECEYFhgeGB3iAwQYACBBiAYBkAYIugYGCAEQARgT&sclient=gws-wiz-serp" target="_blank">Phân phối và quản lý hơn 100 căn hộ thuộc hệ thống $Apartment, </a>bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của $Apartment.</div>
+                Chúng tôi <strong>chuyên cung cấp và quản lý</strong> các căn hộ cao cấp trên địa bàn TP. Hồ Chí Minh.  <span style="color: blue;">Phân phối và quản lý hơn 100 căn hộ thuộc hệ thống $Apartment, </span>bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của $Apartment.</div>
               </div>
             </div>
             <div class="accordion-item">
@@ -209,7 +210,7 @@
                       <p>Phân phối hơn 100 căn hộ/chung cư cao cấp trên địa bàn thành phố Hồ Chí Minh, bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của $Apartment
                       <br><br>Chúng tôi có 5 hệ thống/chi nhánh $Apartment trên địa bàn thành phố Hồ Chí Minh và nhiều căn hộ/ chung cư cao cấp khác từ các người môi giới.</p>
                       <div class="icon-button">
-                        <a href="contact.html"><i class="fa fa-calendar"></i>Liên hệ</a>
+                        <a href="${pageContext.request.contextPath }/contact"><i class="fa fa-calendar"></i>Liên hệ</a>
                       </div>
                     </div>
                   </div>
@@ -234,7 +235,7 @@
                       <h4>Mô tả chi tiết</h4>
                       <p>Mỗi hệ thống/chi nhánh $Apartment sẽ có 5 tầng, 1 tầng sẽ có 5 phòng với đầy đủ tiện nghi khép kín(siêu thị, hồ bơi, phòng gym, nhà thuốc, cafe, ..)<br><br>Các căn hộ/chung cư trong 1 hệ thống tất cả đều chung 1 thiết kế và full nội thất, thang máy, sảnh lễ tân, hầm xe, bảo vệ 24/7, ở từ 2-4 người, cho nuôi pet. Liên hệ để biết thêm thông tin.</p>
                       <div class="icon-button">
-                        <a href="systemproperty.html"><i class="fa fa-calendar"></i> Xem thêm chi tiết</a>
+                        <a href="${pageContext.request.contextPath }/systemapartment"><i class="fa fa-calendar"></i> Xem thêm chi tiết</a>
                       </div>
                     </div>
                   </div>
@@ -255,7 +256,7 @@
                       <h4>Dịch vụ kí gửi/môi giới căn hộ/chung cư</h4>
                       <p>Chúng tôi cung cấp và tư vấn giải pháp quản lý – marketing căn hộ dịch vụ và phòng cao cấp cho thuê trên địa bàn TP HCM. <br><br>Cung cấp cho chúng tôi đầy đủ thông tin về dự án của quý khách, chuyên viên của chúng tôi sẽ tổng hợp tất cả các thông tin của quý khách từ đó xây dựng kế hoạch marketing, quảng cáo và chăm sóc HOÀN TOÀN MIỄN PHÍ căn hộ của quý khách trong vòng 24h kể từ khi nhận được yêu cầu ký gửi.</p>
                       <div class="icon-button">
-                        <a href="postaparment.html"><i class="fa fa-calendar"></i> Ký gửi ngay!</a>
+                        <a href="${pageContext.request.contextPath }/postapartment"><i class="fa fa-calendar"></i> Ký gửi ngay!</a>
                       </div>
                     </div>
                   </div>
@@ -290,7 +291,8 @@
               <li>Phòng ngủ: <span>${post.bedroom}</span></li>
               <li>Phòng tắm: <span>${post.bathroom}</span></li>
               <li>Diện tích: <span>${post.area} m2</span></li>
-              <li>Ngày đăng: <span>${post.postdate}</span></li>
+              <li>Ngày đăng: <span><f:formatDate value="${post.postdate }"
+													pattern="dd-MM-yyyy" var="postdate" /> ${postdate }</span></li>
               <li>Địa chỉ: <span>${post.address}</span></li>
             </ul>
             <div class="main-button">
@@ -373,17 +375,17 @@
                   <button type="submit" id="form-submit" class="orange-button">Gửi</button>
                 </fieldset>
                 <br>
-                <%
+                 <%
                 	HttpSession session1 = request.getSession();
-                	String success = (String) session1.getAttribute("success");
-                	String failed = (String) session1.getAttribute("failed");
-                	String success1 = success;
-                	String failed1 = failed;
-                	session1.removeAttribute("success");
-                	session1.removeAttribute("failed");
+                	String success = (String) session1.getAttribute("msg");
+                	String success1 = success;               	
+                	session1.removeAttribute("msg");
                 %>
-                <p class="text-success text-center fs-3"><%= success1 != null ? success1 : "" %></p>
-                <p class="text-success text-danger fs-3"><%= failed1 != null ? failed1 : "" %></p>
+              <c:if test="<%= success1 != null %>">
+              	<script>
+              		alert('<%= success1 %>');
+              	</script>
+              </c:if>
               </div>
             </div>
           </form>

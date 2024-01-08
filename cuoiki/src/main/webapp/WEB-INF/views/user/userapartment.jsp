@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="index.html">Trang chủ</a> / Căn hộ khác</span>
+          <span class="breadcrumb"><a href="${pageContext.request.contextPath }/home">Trang chủ</a> / Căn hộ khác</span>
           <h3>Căn hộ khác</h3>
         </div>
       </div>
@@ -714,6 +715,14 @@
 			
 		});
 		
+		$(document).ready(function() {
+			$('#buttonReload').click(function() {
+				location.reload();
+			});
+		});
+	
+	
+
 	</script>
   <div class="section properties">
     <div class="container" id="toHeader" >
@@ -775,8 +784,11 @@
        
        		<label for="customRange2" class="form-label text-secondary fs-5 mx-4" style="position: relative;top: -35px;left: 90px;">Diện tích</label>
 			<input id="rangeArea" class="range" type="range" min="0" max="100" value="0" step="1" onmousemove="rangevalue1.value=value" style="width: 300px;margin-left:-10px;"/>
-			<output id="rangevalue1" style="margin-top: 6px;margin-left: 2px "></output>
+			<output id="rangevalue1" style="margin-top: 21px;margin-left: 2px; "></output>
+			
+			<button id="buttonReload" class="btn" style="margin-left: 8px;border: none; "><i class="fa-solid fa-rotate"></i></button>
       </div>
+    
       <div class="row properties-box" id="result">
       
         <c:forEach var="post" items="${posts }">
@@ -791,7 +803,8 @@
                      <li>Phòng ngủ: <span>${post.bedroom}</span></li>
               <li>Phòng tắm: <span>${post.bathroom}</span></li>
               <li>Diện tích: <span>${post.area} m2</span></li>
-              <li>Ngày đăng: <span>${post.postdate}</span></li>
+              <li>Ngày đăng: <span><f:formatDate value="${post.postdate }"
+													pattern="dd-MM-yyyy" var="postdate" /> ${postdate }</span></li>
               <li>Địa chỉ: <span>${post.address}</span></li>
                   </ul>
                   <div class="main-button">

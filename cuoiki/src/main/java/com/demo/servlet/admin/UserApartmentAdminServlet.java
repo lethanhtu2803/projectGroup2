@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.demo.models.AccountPartialModel;
+import com.demo.models.PostImageModel;
 import com.demo.models.PostModel;
 import com.google.gson.Gson;
 @WebServlet({"/admin/userapartment"})
@@ -36,6 +37,8 @@ public class UserApartmentAdminServlet extends HttpServlet {
 			doGet_Index(request, response);
 		} else if(action.equalsIgnoreCase("searchBySubject")) {
 			doGet_SearchBySubject(request, response);
+		} else if(action.equalsIgnoreCase("deleteApart")) {
+			doGet_DeleteApart(request, response);
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,6 +57,22 @@ public class UserApartmentAdminServlet extends HttpServlet {
 		PostModel postModel = new PostModel();
 		Gson gson = new Gson();
 		writer.print(gson.toJson(postModel.findPostBySubject(subject)));
+	}
+	
+	protected void doGet_DeleteApart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PostModel postModel = new PostModel();
+		PostImageModel postImageModel = new PostImageModel();
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		if(postImageModel.delete(id)) {
+			if(postModel.delete(id)) {
+				request.getSession().setAttribute("msg", "Đã xóa căn hộ người dùng thành công");
+				response.sendRedirect(request.getContextPath() + "/admin/postapartment");
+			} else {
+				request.getSession().setAttribute("msg", "Xóa căn hộ người dùng không thành công");
+				response.sendRedirect(request.getContextPath() + "/admin/postapartment");
+			}
+		}
 	}
 
 	/**

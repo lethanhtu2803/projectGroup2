@@ -14,12 +14,33 @@
       </section>
   	<script>
   		$(document).ready(function () {
+  			$('#check').click(function () {
+				var branchID = $('#inputBranch').val();
+				var floorID = $('#inputFloor').val();
+				var roomID = $('#inputRoom').val();
+				$.ajax({
+						type: 'GET',
+						url: '${pageContext.request.contextPath}/admin/newcontract',
+						data: {
+							action: 'checkExists',
+							branchID: branchID,
+							floorID: floorID,
+							roomID: roomID
+						},
+						success: function (data) {
+							if(data == false){
+								$('#submit').prop('disabled', 'true');
+								alert('Phòng này đã được bán');
+							} else {
+								alert('Còn phòng');
+							}
+						}
+				});
+			});
 			$('#autocomplete').autocomplete({
 				source: '${pageContext.request.contextPath}/autocomplete',
 				 select: function( event, ui ) {
 				        $( "#autocomplete" ).val( ui.item.id + ' - ' +  ui.item.name);
-				        
-				 
 				        return false;
 				      }
 					
@@ -58,7 +79,7 @@
                 </div>
                 <div class="form-group">
                   <label for="inputStatus">Chi nhánh</label>
-                  <select id="inputStatus" class="form-control custom-select" name="branch">
+                  <select id="inputBranch" class="form-control custom-select" name="branch">
                     <option disabled selected>Quận</option>
                     <option value=1>Quận 1</option>
                     <option value=2>Quận 2</option>
@@ -69,7 +90,7 @@
                 </div>
                 <div class="form-group">
                   <label for="inputStatus">Tầng</label>
-                  <select id="inputStatus" class="form-control custom-select" name="floor">
+                  <select id="inputFloor" class="form-control custom-select" name="floor">
                     <option disabled selected>Tầng</option>
                     <option value=1>Tầng 1</option>
                     <option value=2>Tầng 2</option>
@@ -80,7 +101,7 @@
                 </div>
                 <div class="form-group">
                   <label for="inputStatus">Phòng</label>
-                  <select id="inputStatus" class="form-control custom-select" name="room">
+                  <select id="inputRoom" class="form-control custom-select" name="room">
                     <option disabled selected>Tên phòng</option>
                     <option value=1>Phòng 1</option>
                     <option value=2>Phòng 2</option>
@@ -88,6 +109,9 @@
                     <option value=4>Phòng 4</option>
                     <option value=5>Phòng 5</option>
                   </select>
+                </div>
+                <div class="form-group">
+                   <input type="button" id="check" value="Kiểm tra phòng" class="btn btn-success">
                 </div>
                 <div class="form-group">
                   <label for="inputDescription">Mô tả</label>
@@ -104,7 +128,7 @@
         <div class="row">
           <div class="col-12">
             <a href="${pageContext.request.contextPath }/admin/newcontract" class="btn btn-secondary">Hủy</a>
-            <input type="submit" value="Thêm mới" class="btn btn-success float-right">
+            <input type="submit"  id="submit"  value="Thêm mới" class="btn btn-success float-right">
           </div>
         </div>
         </form>

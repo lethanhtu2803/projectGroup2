@@ -2,6 +2,7 @@ package com.demo.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,24 @@ public class SystemApartmentImageModel {
 		}
 		
 		return images;
+	}
+	
+	public boolean delete(int id) {
+		boolean status = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("DELETE FROM systemapartmentimage where systemapartmentid = ?");
+			preparedStatement.setInt(1, id);
+			status =  preparedStatement.executeUpdate() > 0;
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return status;
 	}
 	public static void main(String[] args) {
 		SystemApartmentImageModel imageModel = new SystemApartmentImageModel();

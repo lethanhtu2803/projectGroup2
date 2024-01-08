@@ -10,12 +10,9 @@
       			int id = account.getId();
       			request.getAttribute("postaccount");
             	HttpSession session2 = request.getSession();
-            	String msg = (String) session2.getAttribute("msgPost");
+            	String msg = (String) session2.getAttribute("msg");
             	String msg1 = msg;
-            	String error = (String) session2.getAttribute("errorPost");
-            	String error1 = error;
             	session2.removeAttribute("msgPost");
-            	session2.removeAttribute("errorPost");
             	
             %>
             <%
@@ -23,15 +20,15 @@
             		
             %>
             <script>
-				alert("Thêm bài đăng thành công");
+				alert("<%=msg%>");
             </script>
             <%} %>
              <%
-            	if(error1 != null) {
+            	if(msg1 != null) {
             		
             %>
             <script>
-				alert("Thêm bài không thành công");
+            alert("<%=msg%>");
             </script>
             <%} %>
   <div class="page-heading header-text">

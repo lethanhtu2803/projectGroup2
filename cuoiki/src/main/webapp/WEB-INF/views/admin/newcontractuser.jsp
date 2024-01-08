@@ -62,7 +62,7 @@
                   <label style="margin-top: 5px; cursor: pointer;" for="inputAvatar" class="custom-upload-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Tải lên</label>
                   
                   <label style="margin-top: 5px; cursor: pointer; margin-left: 5px;" class="custom-upload-btn" id="capture-btn"><i class="fa-solid fa-camera"></i> &nbsp; Chụp ảnh</label>
-                  <div id="camera-container">
+                  <div id="camera-container" style="height: 1px; width: 1px;">
     					<video id="camera-feed" autoplay playsinline></video>
     					
 					</div>
@@ -74,14 +74,25 @@
                   
                 <script>
 		                document.addEventListener("DOMContentLoaded", function () {
+		                	 
 		                    Webcam.attach("#camera-feed");
+		                    
 		                    document.getElementById("capture-btn").addEventListener("click", function () {
+		                    	
 		                        Webcam.snap(function (data_uri) {
 		                            document.getElementById("camera-container").style.display = "none";
 		                            document.getElementById("avatar").src = data_uri;
 		                            document.getElementById("avatar").style.display = "block";
 		                        });
 		                    });
+		                });
+		                Webcam.on("error", function (err) {
+		                    if (err.name === "NotFoundError") {
+		                        return;
+		                    } else {
+		                        // Xử lý các loại lỗi khác nếu cần
+		                        alert('Thiết bị của bạn không hỗ trợ Webcam!');
+		                    }
 		                });
            	 </script>
 
