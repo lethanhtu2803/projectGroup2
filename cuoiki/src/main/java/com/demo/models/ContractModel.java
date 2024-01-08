@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.demo.entities.ConnectDB;
 import com.demo.entities.Contract;
+import com.demo.entities.Systemapartment;
 
 public class ContractModel {
 	public List<Contract> findAll() {
@@ -88,9 +89,21 @@ public class ContractModel {
 		}
 		return status;
 	}
+	public boolean checkExists(List<Contract> contracts, int branchID, int floorID, int roomID) {
+		SystemApartmentModel systemApartmentModel = new SystemApartmentModel();
+		for (Contract contract : contracts) {
+			if(systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getBranchid() == branchID 
+					&& systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getFloorid() == floorID
+					  && systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getRoomid() == roomID) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	
 	public static void main(String[] args) {
 		ContractModel contractModel = new ContractModel();
-		System.out.println(contractModel.findAll());
+		System.out.println(contractModel.checkExists(contractModel.findAll(), 4, 2, 2));
 	}
 }

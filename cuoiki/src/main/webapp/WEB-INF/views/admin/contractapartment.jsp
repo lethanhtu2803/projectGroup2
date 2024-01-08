@@ -70,7 +70,7 @@
                       		branchModel.findBranchByID(systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getBranchid()).getName() + " Phòng " + 
                       		systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getFloorid() + "0" + systemApartmentModel.findSystemApartmentByID(contract.getSystemapartmentid()).getRoomid()
                       %></td>
-                      <td><%= simpleDateFormat.format(new Date()) %></td>
+                      <td><%= simpleDateFormat.format(contract.getCreated()) %></td>
                       <td><%= contract.getOwnerid() + " - " + ownerModel.findById(contract.getOwnerid()).getName() %></td>
                       <td><%= contract.isStatus() ? "Có hiệu lực" : "Không có hiệu lực"%></td>
                       <td><a href="${pageContext.request.contextPath}/admin/contractdetails?id=<%= contract.getId() %>">Xem chi tiết</a></td>

@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,15 +87,16 @@ https://templatemo.com/tm-591-villa-agency
         <div class="col-lg-8 col-md-8">
           <ul class="info">
             <li><i class="fa fa-envelope"></i> apart@gmail.com</li>
-            <li><i class="fa fa-map"></i> 35/6 Đường D5, Phường 25 + ${sessionScope.accountdetails.name!=null ? sessionScope.accountdetails.name : "Chào bạn mới, vui lòng cập nhật tài khoản" }</li>
+            <li><i class="fa fa-map"></i> 35/6 Đường D5, Phường 25 </li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
           <ul class="social-links">
-            <li><a href="https://www.facebook.com/profile.php?id=61553268513632" target="_blank"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+           <c:if test="${sessionScope.account != null }">
+           		 <li><img style="border-radius: 25%;" src="${pageContext.request.contextPath}/assets/user/images/${sessionScope.accountdetails.avatar != null ? sessionScope.accountdetails.avatar : "Unknown_person.jpg"}" height="50" width="50" alt=""></li>
+            <li>${sessionScope.accountdetails.name!=null ? sessionScope.accountdetails.name : "Chào bạn mới, vui lòng cập nhật tài khoản" }</li>
+           </c:if>
+            
           </ul>
         </div>
       </div>

@@ -17,7 +17,18 @@
 		</div>
 		<!-- /.container-fluid -->
 	</section>
-
+	<%
+		HttpSession session2 = request.getSession();
+		String msg = (String) session2.getAttribute("msg");
+		String msg1 = msg;
+		session2.removeAttribute("msg");
+	
+	%>
+<c:if test="<%= msg1 != null%>">
+	<script>
+		alert(' <%= msg1%>');
+	</script>
+</c:if>
 	<!-- Main content -->
 	<section class="content">
 		<div class="container-fluid">
@@ -44,23 +55,32 @@
 								<thead>
 									<tr>
 										<th style="width: 50px; vertical-align: top;">STT</th>
-										<th style="vertical-align: top;">Mã tài khoản</th>
 										<th style="vertical-align: top;">Tiêu đề</th>
-										<th style="vertical-align: top;">Mô tả</th>
-										<th style="vertical-align: top;">Ngày đánh giá</th>
-
+										<th style="vertical-align: top;">Nội dung</th>
+										<th style="vertical-align: top;">Họ và tên</th>
+										<th style="vertical-align: top;">Số điện thoại</th>
+										<th style="vertical-align: top;">Email</th>
+										<th style="vertical-align: top;">Ngày liên hệ</th>
+										<th style="vertical-align: top;">Trạng thái</th>
+										<th style="vertical-align: top;">Hành động</th>
 									</tr>
 								</thead>
 								<tbody>
 								
-									<c:forEach var="feedback" items="${feedbacks }">
+									<c:forEach var="contact" items="${contacts }">
 										<tr>
-											<td>${feedback.id }</td>
-											<td>${feedback.accountid }</td>
-											<td>${feedback.subject }</td>
-											<td>${feedback.description }</td>
-											<td><f:formatDate value="${feedback.created }"
+											<td>${contact.id }</td>
+											<td>${contact.subject }</td>
+											<td>${contact.description }</td>
+											<td>${contact.name }</td>
+											<td>${contact.phone }</td>
+											<td>${contact.email }</td>
+											<td><f:formatDate value="${contact.created }"
 													pattern="dd/MM/yyyy" var="created" /> ${created }</td>
+											<td>${contact.status ? "Đã giải quyết " : "Chưa giải quyết"}</td>
+											<td><a onclick="return confirm('Xác nhận đã giải quyết?')" href="${pageContext.request.contextPath }/admin/contact?action=updateContact&id=${contact.id }"><i class="fa-solid fa-pen-to-square"></i></i></a> &nbsp;
+											 <a  href="mailto:${contact.email }"><i class="fa-solid fa-envelope"></i></a> &nbsp;
+											 <a onclick="return confirm('Xóa bài?')" href="${pageContext.request.contextPath }/admin/contact?action=deleteContact&id=${contact.id }"><i class="fa-solid fa-trash"></i></a></td>
 										</tr>
 									</c:forEach>
 									

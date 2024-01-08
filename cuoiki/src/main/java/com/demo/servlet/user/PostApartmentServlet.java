@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.demo.entities.Account;
+import com.demo.entities.Accountdetails;
 import com.demo.entities.Post;
 import com.demo.entities.PostImage;
 import com.demo.helpers.UploadFileHelper;
@@ -49,9 +50,13 @@ public class PostApartmentServlet extends HttpServlet {
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Account account = (Account) request.getSession().getAttribute("account");
+		Accountdetails accountdetails = (Accountdetails) request.getSession().getAttribute("accountdetails");
 		if(account == null) {
-			request.getSession().setAttribute("errorAccount", "Chưa đăng nhập tài khoản");
+			request.getSession().setAttribute("msg", "Bạn chưa đăng nhập tài khoản để thực hiện đăng tin");
 			response.sendRedirect("login");
+		} else if(accountdetails == null) {
+			request.getSession().setAttribute("msg", "Bạn cần cập nhật tài khoản để thực hiện đăng tin");
+			response.sendRedirect("account");
 		} else {
 			request.setAttribute("p", "../user/postapartment.jsp");
 			request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
@@ -110,10 +115,10 @@ public class PostApartmentServlet extends HttpServlet {
 						System.out.println("Them anh khong thanh cong");
 					}
 				}
-				request.getSession().setAttribute("msgPost", "thêm post thành công");
+				request.getSession().setAttribute("msg", "thêm bài đăng thành công");
 				response.sendRedirect("mypost");
 			} else {
-				request.getSession().setAttribute("errorPost", "thêm post không thành công");
+				request.getSession().setAttribute("msg", "thêm bài đăng không thành công");
 				response.sendRedirect("postapartment");
 			}
 		} 

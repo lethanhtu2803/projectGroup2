@@ -1,5 +1,4 @@
 <%@page import="com.demo.entities.Systemapartment"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.demo.models.SystemApartmentModel"%>
 <%@page import="com.demo.models.BranchModel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -815,7 +814,11 @@ $(document).ready(function(){
 		});
 	});
 	
-	
+	$(document).ready(function() {
+		$('#buttonReload').click(function() {
+			location.reload();
+		});
+	});
 });
 </script>
   <div class="section properties">
@@ -858,9 +861,9 @@ $(document).ready(function(){
         </div>
        <label for="customRange2" class="form-label text-secondary fs-5 mx-4" style="position: relative;top: -35px;left: 90px;">Diện tích</label>
 	   <input id="rangeArea" class="range" type="range" min="0" max="100" value="0" step="1" onmousemove="rangevalue1.value=value" style="width: 300px;margin-left:-10px;"/>
-	   <output id="rangevalue1" style="margin-top: 6px;margin-left: 2px "></output>
-  
-       
+	   <output id="rangevalue1" style="margin-top: 21px;margin-left: 2px; "></output>
+			
+			<button id="buttonReload" class="btn" style="margin-left: 8px;border: none; "><i class="fa-solid fa-rotate"></i></button>
       </div>
       <div class="row properties-box" id="result">
 			<% for(Systemapartment system : systemapartment.findAll()){ %>

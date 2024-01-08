@@ -4,12 +4,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="index.html">Trang chủ</a></span>
+          <span class="breadcrumb"><a href="${pageContext.request.contextPath }/home">Trang chủ</a></span>
           <h3>Ký gửi căn hộ</h3>
         </div>
       </div>
     </div>
   </div>
+ 
   <!-- ***** Header Area End ***** -->
   <div class="featured section">
     <div class="container" style="margin-top: -50px;">
@@ -81,7 +82,8 @@
           <div class="card mb-4 mb-xl-0">
             <div class="card-header">Ảnh căn hộ</div>
             <div class="card-body text-center">
-              <div class="small font-italic text-muted mb-4"><span id="msg">File hình không quá 5MB</span></div>
+              <div class="small font-italic text-muted mb-2"><span id="msg">File hình không quá 5MB</span></div>
+              <div class="small font-italic text-muted mb-4"><span id="msg">Chỉ được phép tối đa 4 ảnh</span></div>
                 <!-- Profile picture image-->
                 <div id="pictures" style="max-height: 300px; overflow: auto ;">
                     

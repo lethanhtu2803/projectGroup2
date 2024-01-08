@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="index.html">Trang chủ/ Căn hộ yêu thích</a></span>
+          <span class="breadcrumb"><a href="${pageContext.request.contextPath}/home">Trang chủ/ Căn hộ yêu thích</a></span>
           <h3> Căn nhà yêu thích của bạn</h3>
         </div>
       </div>
