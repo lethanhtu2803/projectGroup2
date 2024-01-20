@@ -69,7 +69,7 @@
 										s+='<td>'+ systemapartment[i].area +'</td>';
 										s+='<td>'+ systemapartment[i].description +'</td>';
 										s+='<td><a href="${pageContext.request.contextPath}/assets/user/images/150canho/'+ systemapartment[i].avatar +'" target="_blank"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/'+ systemapartment[i].avatar +'" height="100" width="90" alt=""></a></td>';
-										s+=' <td><a onclick="return confirm(`Xóa căn hộ?`)" href="#"><i class="fa-solid fa-trash"></i></a></td>';										
+										s+=' <td><a onclick="return confirm(`Xóa căn hộ?`)" href="${pageContext.request.contextPath }/admin/systemapartment?action=deleteSystem&id='+ systemapartment[i].id +'"><i class="fa-solid fa-trash"></i></a></td>';										
 										s+='</tr>';
 									}
 

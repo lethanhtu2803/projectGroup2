@@ -16,7 +16,7 @@ public class OwnerModel {
 		List<Owner> result = new ArrayList<Owner>();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
-					.prepareStatement("SELECT * FROM owner");
+					.prepareStatement("SELECT * FROM owner order by id DESC");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				Owner owner = new Owner();
@@ -80,7 +80,7 @@ public class OwnerModel {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				owner = new Owner();
-				owner.setId(resultSet.getInt(id));
+				owner.setId(resultSet.getInt("id"));
 				owner.setName(resultSet.getString("name"));
 				owner.setBirthday(new Date(resultSet.getDate("birthday").getTime()));
 				owner.setPhone(resultSet.getString("phone"));
@@ -99,9 +99,58 @@ public class OwnerModel {
 		
 		return owner;
 	}
+	public boolean newOwner(Owner owner) {
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+					.prepareStatement("insert into owner(name, birthday, phone, address, identifynumber, created, avatar) "
+							+ "values(?, ?, ?, ?, ?, ?, ?)");
+			preparedStatement.setString(1, owner.getName());
+			preparedStatement.setDate(2, new Date(owner.getBirthday().getTime()));
+			preparedStatement.setString(3, owner.getPhone());
+			preparedStatement.setString(4, owner.getAddress());
+			preparedStatement.setString(5, owner.getIdentifynumber());
+			preparedStatement.setDate(6, new Date(owner.getCreated().getTime()));
+			preparedStatement.setString(7, owner.getAvatar());
+			return preparedStatement.executeUpdate() > 0;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			ConnectDB.disconnect();
+		}
+	}
 	
+	public boolean delete(int id) {
+		boolean status = true;
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+			.prepareStatement("DELETE FROM owner where id = ?");
+
+			preparedStatement.setInt(1, id);
+			
+			status = preparedStatement.executeUpdate() > 0;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			status = false;
+			// TODO: handle exception
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return status;
+	}
 	
 	public static void main(String[] args) {
-		System.out.println(new OwnerModel().findByKeyword("Lê Thanh Tú"));;
+		Owner owner = new Owner();
+		owner.setAddress("aaaa");
+		owner.setAvatar("aaa");
+		owner.setBirthday(new java.util.Date());
+		owner.setCreated(new java.util.Date());
+		owner.setIdentifynumber("aaaa");
+		owner.setPhone("aaaa");
+		owner.setName("aaa");
+		System.out.println(new OwnerModel().newOwner(owner));
 	}
 }

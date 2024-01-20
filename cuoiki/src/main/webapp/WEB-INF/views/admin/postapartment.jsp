@@ -116,6 +116,7 @@
 						$('#postPrice').html(post.price);
 						$('#postDeposit').html(post.deposit);
 						$('#postArea').html(post.area);
+						$('#postAddress').html(post.address);
 						var parsedDate = moment(post.postdate, "MMM DD, YYYY");
 					    var formattedDate = parsedDate.format("DD/MM/YYYY");
 						$('#postPostDate').html(formattedDate);

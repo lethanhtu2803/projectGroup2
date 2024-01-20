@@ -870,7 +870,7 @@ $(document).ready(function(){
         	  <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6">
                 <div class="item">
                   <a href="${pageContext.request.contextPath}/systemapartmentdetails?id=<%= system.getId() %>"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/<%=system.getAvatar() %>" alt=""></a>
-                  <a href="${pageContext.request.contextPath}/wishlist"><span class="category"><i class="fa-solid fa-heart-circle-plus" style="color:#f35525;font-size: 20px;"></i></span></a>
+                  <span class="category"><i class="fa-solid fa-building" style="color:#f35525;font-size: 20px;"></i></span></a>
                   
                   <h6><%= system.getPrice() %> tỷ VNĐ</h6>
                   <h4><a href="${pageContext.request.contextPath}/systemapartmentdetails?id=<%= system.getId() %>"><%= system.getSubject() %></a></h4>

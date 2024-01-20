@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <title>$Apartment</title>
+  <title>Apartment</title>
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/assets/user/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -111,7 +111,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="${pageContext.request.contextPath }/home" class="logo">
-                        <h1>$Apartment</h1>
+                        <h1>Apartment</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -146,7 +146,7 @@ https://templatemo.com/tm-591-villa-agency
       <div style="margin-left: 250px;" class="col-lg-8">
         <p>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn
         
-        <a rel="nofollow" href="${pageContext.request.contextPath }/home" target="_blank">$Apartment</a></p>
+        <a rel="nofollow" href="${pageContext.request.contextPath }/home" target="_blank">Apartment</a></p>
       </div>
     </div>
   </footer>

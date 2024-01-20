@@ -66,9 +66,11 @@ public class ChangePasswordServlet extends HttpServlet {
 		account.setPassword(BCrypt.hashpw(newPass, BCrypt.gensalt()));
 		AccountModel accountModel = new AccountModel();
 		if(accountModel.update(account)) {
+			request.getSession().setAttribute("msg", "Đã đổi mật khẩu thành công. Xin vui lòng đăng nhập lại tài khoản");
 			response.sendRedirect("login");
 		} else {
-			System.out.println(1);
+			request.getSession().setAttribute("msg", "Đã đổi mật khẩu thành công. Xin vui lòng đăng nhập lại tài khoản");
+			response.sendRedirect("login");
 		}
 	}
 

@@ -10,11 +10,15 @@
     	BranchModel branchModel = new BranchModel();
     	HttpSession session1 = request.getSession();
     	int id = Integer.parseInt(request.getParameter("id"));
-    	String msg = "";
+    	/* String msg = "";
     	if(session1.getAttribute("msg") != null){
     		msg = session1.getAttribute("msg").toString();
         	session1.removeAttribute("msg");
-    	} 
+    	}  */
+    	
+    	String msg = (String) session1.getAttribute("msg");
+    	String msg1 = msg;
+    	session1.removeAttribute("msg");
     	
     	Systemapartment systemapartment = systemApartmentModel.findSystemApartmentByID(id);
     %>
@@ -254,7 +258,8 @@
             </div>
             <div class="card-body pt-0 mt-3">
               <div class="row">
-            	  <span style="color: green; font-size: large;"><%= msg == null ? "" : msg %></span>
+            	  <%-- <span style="color: green; font-size: large;"><%= msg == null ? "" : msg %></span> --%>
+            	  <span style="color: green; font-size: large;"><%= msg1 == null ? "" : msg1%></span>
             	  <br>
                   <span>Để lại thông tin và chúng tôi sẽ liên hệ với bạn ngay.</span>
                   <br>

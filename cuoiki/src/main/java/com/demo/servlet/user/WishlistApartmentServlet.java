@@ -48,6 +48,7 @@ public class WishlistApartmentServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		List<Post> posts = (List<Post>) request.getSession().getAttribute("posts");
 		posts.remove(id);
+		request.getSession().setAttribute("msg", "Đã xóa căn hộ ra khỏi danh sách yêu thích");
 		request.getSession().setAttribute("posts", posts);
 		response.sendRedirect("wishlist");
 	}

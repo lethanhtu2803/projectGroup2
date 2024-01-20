@@ -27,7 +27,8 @@
 	
 	<c:if test="<%= content1 != null %>">
 
-		<h3>Xác thực không thành công!</h3>
+		<h3><%= content1 %></h3>
+		<a href="${pageContext.request.contextPath }/login">Quay trở lại</a>
 	</c:if>
 	
 	

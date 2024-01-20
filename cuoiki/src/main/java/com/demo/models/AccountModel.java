@@ -192,7 +192,7 @@ public class AccountModel {
 	
 	public static void main(String[] args) {
 		AccountModel accountModel = new AccountModel();
-		Account account = accountModel.findAccountByEmail("phucthanh2104@gmail.com");
+		Account account = accountModel.findAccountByUsername("Hoàng Tú");
 		
 		
 		System.out.println(account);

@@ -197,12 +197,12 @@
                %>
                <%if(msg1 != null) { %>
                 		<script>
-                		  alert("Đã chặn thành công");
+                		  alert('<%= msg1 %>');
                 		</script>
                 <% }%>
               <%if(msgUnblock1 != null) { %>
                 		<script>
-                		  alert("Đã gỡ chặn thành công");
+                		  alert('<%= msgUnblock1 %>');
                 		</script>
                 <% }%>
             
@@ -260,7 +260,7 @@
                     <tbody>
                     <c:forEach var="account" items="${accounts}">
                       <tr>
-                        <td>${account.id }</td>
+                        <td>${account.id } - ${account.role == 1 ? "Người dùng" : "Admin" }</td>
                         <td>${account.username }</td>
                         <td>${account.name }</td>
                         <td><f:formatDate value="${account.birthday }"
@@ -289,7 +289,14 @@
                        		<c:if test="${account.status == false }">
                        			<a href="${pageContext.request.contextPath }/admin/account?action=unblockUser&id=${account.id}" onclick="return confirm('bạn có chắc chắn muốn bỏ chặn')">Bỏ chặn</a> | 
                        		</c:if>
-                       		<a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a>
+                       	
+                       		<a  href="#" onclick="return confirm('bạn có chắc chắn muốn xóa')">Xóa</a> |
+                       		<c:if test="${account.role == 1}">
+                       			<a onclick="return confirm('Chuyển tài khoản thành admin?')" href="${pageContext.request.contextPath }/admin/account?action=setAdmin&id=${account.id}">Cấp admin</a>
+                       		</c:if>
+                       		<c:if test="${account.role != 1}">
+                       			<a onclick="return confirm('Chuyển tài khoản thành người dùng?')" href="${pageContext.request.contextPath }/admin/account?action=unAdmin&id=${account.id}">Gỡ admin</a>
+                       		</c:if>
                        </td>
                       
                         

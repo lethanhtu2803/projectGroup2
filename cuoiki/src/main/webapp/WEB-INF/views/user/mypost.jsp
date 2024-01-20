@@ -12,7 +12,7 @@
             	HttpSession session2 = request.getSession();
             	String msg = (String) session2.getAttribute("msg");
             	String msg1 = msg;
-            	session2.removeAttribute("msgPost");
+            	session2.removeAttribute("msg");
             	
             %>
             <%
@@ -23,14 +23,7 @@
 				alert("<%=msg%>");
             </script>
             <%} %>
-             <%
-            	if(msg1 != null) {
-            		
-            %>
-            <script>
-            alert("<%=msg%>");
-            </script>
-            <%} %>
+        
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
@@ -74,7 +67,7 @@
                 <c:if test="<%= post.isStatus() == true%>">
                 	<td><a href="${pageContext.request.contextPath }/userapartmentdetails?id=<%= post.getId() %>">Xem chi tiết</a></td>
                 </c:if>
-                <td><i class="fa-solid fa-trash text-danger"></i></td>
+                <td><a onclick="return confirm('Xóa bài viết đã đăng?');" href="${pageContext.request.contextPath }/userapartment?action=deletePost&id=<%= post.getId() %>"><i class="fa-solid fa-trash text-danger"></i></a></td>
               </tr>
             <%} %>
             </tbody>

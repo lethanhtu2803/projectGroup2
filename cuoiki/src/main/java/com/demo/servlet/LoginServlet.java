@@ -59,8 +59,9 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String securityCode = request.getParameter("securityCode");
 		AccountModel accountModel = new AccountModel();
-		Account account = accountModel.findAccountByUsername(username);
-		if(account.getUsername().equals(username) && account.getSecurityCode().equalsIgnoreCase(securityCode)) {
+		Account account = accountModel.findAccountByUsername(new String(username.getBytes("ISO-8859-1"), "UTF-8"));
+		System.out.println(account);
+		if(account.getUsername().equalsIgnoreCase(new String(username.getBytes("ISO-8859-1"), "UTF-8")) && account.getSecurityCode().equalsIgnoreCase(securityCode)) {
 			account.setVerify(true);
 			if(accountModel.update(account)) {
 				response.sendRedirect("login");
@@ -114,21 +115,21 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		AccountModel accountModel = new AccountModel();
 		AccountDetailsModel accountDetailsModel = new AccountDetailsModel();
-		Account account = accountModel.findAccountByUsername(username);
+		Account account = accountModel.findAccountByUsername(new String(username.getBytes("ISO-8859-1"), "UTF-8"));
 		FeedbackModel feedbackModel = new FeedbackModel();
 		ContactModel contactModel = new ContactModel();
-		if(accountModel.login(username, password)) {
+		if(accountModel.login(new String(username.getBytes("ISO-8859-1"), "UTF-8"), password)) {
 			if(account.getRole() == 0) {
 				request.getSession().setAttribute("accountAdmin", account);
 				request.getSession().removeAttribute("accountdetails");
 				request.getSession().removeAttribute("account");
 				request.getSession().setAttribute("feedbacks", feedbackModel.findAll().size());
 				request.getSession().setAttribute("contacts", contactModel.findAll().size());
-				response.sendRedirect("admin/account");
+				response.sendRedirect("admin/dashboard");
 			} else if(account.getRole() == 1) {
 				request.getSession().setAttribute("accountdetails", 
-						accountDetailsModel.findAccountByAccountID(accountModel.findAccountByUsername(username).getId()));
-				request.getSession().setAttribute("account", accountModel.findAccountByUsername(username));
+						accountDetailsModel.findAccountByAccountID(accountModel.findAccountByUsername(new String(username.getBytes("ISO-8859-1"), "UTF-8")).getId()));
+				request.getSession().setAttribute("account", accountModel.findAccountByUsername(new String(username.getBytes("ISO-8859-1"), "UTF-8")));
 				
 				request.getSession().removeAttribute("accountAdmin");
 				response.sendRedirect("account");
@@ -147,7 +148,7 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String securityCode = RandomStringHelper.generateRandomString(6);
 		Account account = new Account();
-		account.setUsername(username);
+		account.setUsername(new String(username.getBytes("ISO-8859-1"), "UTF-8") );
 		account.setEmail(email);
 		account.setCreated(new Date());
 		account.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
@@ -157,11 +158,13 @@ public class LoginServlet extends HttpServlet {
 		account.setSecurityCode(securityCode);
 		AccountModel accountModel = new AccountModel();
 		if(accountModel.register(account)) {
-			String content = "Xin chào, đây là email từ $Apartment! Vui lòng nhấp vào <a href='http://localhost:8080/projectGroup2/login?action=verify&username=" + username + "&email=" + email +"&securityCode=" + securityCode + "'>Liên kết</a> để xác nhận tài khoản của bạn.";
+			request.getSession().setAttribute("msg", "Đã đăng kí tài khoản thành công. Xin vui lòng đăng nhập tài khoản");
+			String content = "Xin chào, đây là email từ $Apartment! Vui lòng nhấp vào <a href='http://localhost:8080/projectGroup2/login?action=verify&username=" + new String(username.getBytes("ISO-8859-1"), "UTF-8") + "&email=" + email +"&securityCode=" + securityCode + "'>Liên kết</a> để xác nhận tài khoản của bạn.";
 			MailHelper.MailHelper(email, "Xác nhận tài khoản - $Apartment", content);
 			response.sendRedirect("login?action=message");
 		} else {
-			System.out.println("false");
+			request.getSession().setAttribute("msg", "Đăng kí không thành công do đã tồn tại người dùng.");
+			response.sendRedirect("login");
 		}
 		
 	

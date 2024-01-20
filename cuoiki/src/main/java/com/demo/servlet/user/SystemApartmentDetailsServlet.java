@@ -71,10 +71,10 @@ public class SystemApartmentDetailsServlet extends HttpServlet {
 		ContactModel contactModel = new ContactModel();
 		Contact contact = new Contact();
 		contact.setCreated(new Date());
-		contact.setDescription(description);
+		contact.setDescription(new String(description.getBytes("ISO-8859-1"), "UTF-8"));
 		contact.setEmail(email);
 		contact.setPhone(phone);
-		contact.setName(name);
+		contact.setName(new String(name.getBytes("ISO-8859-1"), "UTF-8"));
 		contact.setSubject("Liên hệ về căn hộ: " + systemApartmentModel.findSystemApartmentByID(id).getSubject());
 		contact.setStatus(false);
 		if(contactModel.create(contact)) {
