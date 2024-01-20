@@ -295,7 +295,7 @@ div.t3,div.t4{mso-line-height-alt:60px !important;line-height:60px !important;di
 																	<td class="t47" style="width: 480px;">
 																		<!--<![endif]--> <!--[if mso]><td class="t47" style="width:480px;"><![endif]-->
 																		<p class="t53"
-																			style="margin: 0; Margin: 0; font-family: BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif, 'Albert Sans'; line-height: 21px; font-weight: 400; font-style: normal; font-size: 16px; text-decoration: none; text-transform: none; letter-spacing: -0.64px; direction: ltr; color: #333333; text-align: left; mso-line-height-rule: exactly; mso-text-raise: 2px;">Xác thực không thành công!</p>
+																			style="margin: 0; Margin: 0; font-family: BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif, 'Albert Sans'; line-height: 21px; font-weight: 400; font-style: normal; font-size: 16px; text-decoration: none; text-transform: none; letter-spacing: -0.64px; direction: ltr; color: #333333; text-align: left; mso-line-height-rule: exactly; mso-text-raise: 2px;"><%= content1 %></p>
 																	</td>
 																</c:if>
 															</tr>
@@ -311,6 +311,7 @@ div.t3,div.t4{mso-line-height-alt:60px !important;line-height:60px !important;di
 														<table class="t34" role="presentation" cellpadding="0"
 															cellspacing="0" align="left">
 															<tr>
+															<c:if test="<%=content1 == null%>">
 																<!--[if !mso]><!-->
 																<td class="t35"
 																	style="background-color: #000000; overflow: hidden; width: 105px; text-align: center; line-height: 34px; mso-line-height-rule: exactly; mso-text-raise: 6px; border-radius: 40px 40px 40px 40px;">
@@ -320,6 +321,18 @@ div.t3,div.t4{mso-line-height-alt:60px !important;line-height:60px !important;di
 																	style="display: block; margin: 0; Margin: 0; font-family: BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif, 'Inter Tight'; line-height: 34px; font-weight: 900; font-style: normal; font-size: 13px; text-decoration: none; text-transform: uppercase; direction: ltr; color: #FFFFFF; text-align: center; mso-line-height-rule: exactly; mso-text-raise: 6px;">Đến
 																		email</a>
 																</td>
+															</c:if>	
+															<c:if test="<%=content1 != null%>">
+																<!--[if !mso]><!-->
+																<td class="t35"
+																	style="background-color: #000000; overflow: hidden; width: 105px; text-align: center; line-height: 34px; mso-line-height-rule: exactly; mso-text-raise: 6px; border-radius: 40px 40px 40px 40px;">
+																	<!--<![endif]--> <!--[if mso]><td class="t35" style="background-color:#000000;overflow:hidden;width:105px;text-align:center;line-height:34px;mso-line-height-rule:exactly;mso-text-raise:6px;border-radius:40px 40px 40px 40px;"><![endif]-->
+																	<a href="${pageContext.request.contextPath }/login"
+																	class="t41"
+																	style="display: block; margin: 0; Margin: 0; font-family: BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif, 'Inter Tight'; line-height: 34px; font-weight: 900; font-style: normal; font-size: 13px; text-decoration: none; text-transform: uppercase; direction: ltr; color: #FFFFFF; text-align: center; mso-line-height-rule: exactly; mso-text-raise: 6px;">
+																		Quay trở lại</a>
+																</td>
+															</c:if>	
 															</tr>
 														</table>
 													</td>

@@ -32,12 +32,12 @@
                         <input class="form-control" name="subject" id="inputUsername" type="text" placeholder="Nhập tiêu đề" required>
                     </div>
                     <div class="mb-3">
-                      <label class="small mb-1" for="inputUsername">Giá</label>
-                      <input class="form-control" id="inputUsername" name="price" type="text" placeholder="Nhập giá" required>
+                      <label class="small mb-1" for="inputUsername">Giá (tỷ đồng)</label>
+                      <input class="form-control" id="inputUsername" step="0.1" name="price" type="number" placeholder="Nhập giá" required>
                   </div>
                   <div class="mb-3">
-                      <label class="small mb-1" for="inputUsername">Đặt cọc</label>
-                      <input class="form-control" id="inputUsername" name="deposit" type="text" placeholder="Nhập giá" required>
+                      <label class="small mb-1" for="inputUsername">Đặt cọc (triệu đồng)</label>
+                      <input class="form-control" id="inputUsername" step="0.1" name="deposit" type="number" placeholder="Nhập giá" required>
                   </div>
                   <div class="row gx-3 mb-3">
                     <!-- Form Group (phone number)-->
@@ -59,8 +59,8 @@
                   </div>
                   <!-- Form Group (birthday)-->
                   <div class="col-md-6">
-                    <label class="small mb-1" for="inputPhone">Diện tích</label>
-                    <input class="form-control" name="area" id="inputPhone" type="text" placeholder="Nhập diện tích căn hộ" required>
+                    <label class="small mb-1" for="inputPhone">Diện tích (mét vuông)</label>
+                    <input class="form-control" name="area" id="inputPhone" min="1" step="0.1" type="number" placeholder="Nhập diện tích căn hộ" required>
                 </div>
               </div>
               

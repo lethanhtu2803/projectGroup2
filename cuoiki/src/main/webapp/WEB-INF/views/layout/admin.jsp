@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
  
   
-  
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/admin/dist/css/admin.css">
   <script>
   $( function() {
     $( "#datepicker" ).datepicker({
@@ -76,11 +76,9 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Dashboard</a>
+        <a href="${pageContext.request.contextPath }/admin/dashboard" class="nav-link">Trang chủ</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+     
     </ul>
 
     <!-- Right navbar links -->
@@ -132,19 +130,16 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i  class="fas fa-envelope mr-2"></i> <input type="hidden" id="contactNumber" value="<%= contactNumber %>"></span> <span style="color: red;" id="newNumberContact"></span> <span style="color: red;"> liên hệ mới</span>
-            <span  class="float-right text-muted text-sm">3 mins</span> 
+         
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
+         
           <div class="dropdown-divider"></div>
           <a href="${pageContext.request.contextPath }/admin/feedback" class="dropdown-item">
             <i class="fa-solid fa-comment mr-2"></i><input type="hidden" id="feedbackNumber" value="<%= feedbackNumber  %>"><span style="color:red;" id="feedbackNoti"></span><span style="color:red;"> đánh giá mới</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+         
         </div>
       </li>
      <li class="nav-item dropdown">
@@ -164,12 +159,12 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #5D45C1;">
       <!-- Brand Logo -->
-      <a href="${pageContext.request.contextPath}/admin/account" class="brand-link">
+      <a href="${pageContext.request.contextPath}/admin/dashboard" class="brand-link">
         <img src="${pageContext.request.contextPath}/assets/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-          class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">$Apartment</span>
+          class="brand-image img-circle elevation-3" style="opacity: .8;">
+        <span class="brand-text font-weight-light" style="color: #F4F6F9">Apartment</span>
       </a>
 
       <!-- Sidebar -->
@@ -177,10 +172,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="${pageContext.request.contextPath}/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="${pageContext.request.contextPath}/assets/user/images/thanhtu.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="${pageContext.request.contextPath}/admin/account" class="d-block">Admin $Apartment</a>
+            <a href="${pageContext.request.contextPath}/admin/dashboard" class="d-block">Admin Apartment</a>
           </div>
         </div>
 
@@ -211,7 +206,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item active">
-                  <a href="${pageContext.request.contextPath }/admin/account" class="nav-link">
+                  <a href="${pageContext.request.contextPath }/admin/account" class="nav-link ${activeAccount }">
                     <i class="fa-solid fa-user"></i> &nbsp;
                     <p>Tài khoản</p>
 
@@ -252,8 +247,14 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item ">
                   <a href="${pageContext.request.contextPath }/admin/newcontractuser" class="nav-link ${activeContractUser }">
-                    <i class="fa-solid fa-user-plus"></i></i> &nbsp;
+                    <i class="fa-solid fa-user-plus"></i>&nbsp;
                     <p>Chủ sở hữu mới</p>
+                  </a>
+                </li>
+                 <li class="nav-item ">
+                  <a href="${pageContext.request.contextPath }/admin/owners" class="nav-link ${activeOwners }">
+                    <i class="fa-solid fa-users"></i> &nbsp;
+                    <p>Danh sách chủ sở hữu</p>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -307,7 +308,7 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
        
-      <strong>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn <a href="${pageContext.request.contextPath}/admin/account">$Apartment</a></strong>
+      <strong>Hệ thống cung cấp căn hộ cao cấp và kí gửi căn hộ của bạn <a href="${pageContext.request.contextPath}/admin/dashboard">Apartment</a></strong>
        
      </footer>
 

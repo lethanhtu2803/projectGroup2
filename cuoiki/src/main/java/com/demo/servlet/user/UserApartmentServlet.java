@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.demo.entities.Account;
 import com.demo.entities.Post;
 import com.demo.models.AccountModel;
+import com.demo.models.PostImageModel;
 import com.demo.models.PostModel;
 import com.google.gson.Gson;
 @WebServlet("/userapartment")
@@ -49,6 +50,8 @@ public class UserApartmentServlet extends HttpServlet {
 			doGet_SearchByBedroom(request, response);
 		} else if(action.equalsIgnoreCase("searchByArea")) {
 			doGet_SearchByArea(request, response);
+		} else if(action.equalsIgnoreCase("deletePost")) {
+			doGet_DeletePost(request, response);
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,6 +61,19 @@ public class UserApartmentServlet extends HttpServlet {
 		request.setAttribute("p", "../user/userapartment.jsp");
 	
 		request.getRequestDispatcher("/WEB-INF/views/layout/user.jsp").forward(request, response);
+	}
+	protected void doGet_DeletePost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PostModel postModel = new PostModel();
+		PostImageModel postImageModel = new PostImageModel();
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		if(postImageModel.delete(id)) {
+			if(postModel.delete(id)) {
+				response.sendRedirect(request.getContextPath() + "/mypost");
+			} else {
+				response.sendRedirect(request.getContextPath() + "/mypost");
+			}
+		}
 	}
 	protected void doGet_SearchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=utf-8");

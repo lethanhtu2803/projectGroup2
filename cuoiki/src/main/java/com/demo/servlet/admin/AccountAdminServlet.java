@@ -47,6 +47,10 @@ public class AccountAdminServlet extends HttpServlet {
 			doGet_BlockUser(request, response);
 		} else if(action.equalsIgnoreCase("unblockUser")) {
 			doGet_UnblockUser(request, response);
+		} else if(action.equalsIgnoreCase("setAdmin")) {
+			doGet_SetAdmin(request, response);
+		} else if(action.equalsIgnoreCase("unAdmin")) {
+			doGet_UnAdmin(request, response);
 		}
 	}
 	protected void doGet_Index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,6 +62,40 @@ public class AccountAdminServlet extends HttpServlet {
 		
 
 		request.getRequestDispatcher("/WEB-INF/views/layout/admin.jsp").forward(request, response);
+	}
+	protected void doGet_SetAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		AccountModel accountModel = new AccountModel();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Account account = accountModel.findAccountByAccountID(id);
+		account.setRole(0);
+		if(accountModel.update(account)) {
+			request.getSession().setAttribute("msg", "Đã cấp admin thành công");
+			response.sendRedirect(request.getContextPath() + "/admin/account");
+			
+		} else {
+			System.out.println(1);
+			response.sendRedirect(request.getContextPath() + "/admin/account");
+		}
+
+		
+	}
+protected void doGet_UnAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		AccountModel accountModel = new AccountModel();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Account account = accountModel.findAccountByAccountID(id);
+		account.setRole(1);
+		if(accountModel.update(account)) {
+			request.getSession().setAttribute("msg", "Đã gỡ admin thành công");
+			response.sendRedirect(request.getContextPath() + "/admin/account");
+			
+		} else {
+			System.out.println(1);
+			response.sendRedirect(request.getContextPath() + "/admin/account");
+		}
+
+		
 	}
 	
 	protected void doGet_SearchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

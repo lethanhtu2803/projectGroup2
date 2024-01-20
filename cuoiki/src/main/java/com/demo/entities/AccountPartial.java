@@ -14,11 +14,21 @@ public class AccountPartial {
 	private String avatar;
 	private boolean status;
 	private boolean verify;
+	private int role;
 	public AccountPartial() {
 		super();
 	}
+	
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
 	public AccountPartial(int id, String username, String name, Date birthday, String email, String phoneNumber,
-			String address, Date created, String avatar, boolean status, boolean verify) {
+			String address, Date created, String avatar, boolean status, boolean verify, int role) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -31,7 +41,9 @@ public class AccountPartial {
 		this.avatar = avatar;
 		this.status = status;
 		this.verify = verify;
+		this.role = role;
 	}
+
 	public int getId() {
 		return id;
 	}

@@ -7,7 +7,7 @@
       <div class="item item-1">
         <div class="header-text">
           <span class="category"><em>CĂN HỘ CỦA CHÚNG TÔI</em></span>
-          <h2>$APARTMENT!<br>Cung cấp những căn hộ cao cấp nhất!</h2>
+          <h2>ApaRTMENT!<br>Cung cấp những căn hộ cao cấp nhất!</h2>
         </div>
       </div>
       <div class="item item-2">
@@ -37,7 +37,7 @@
         </div>
         <div class="col-lg-5">
           <div class="section-heading">
-            <h6>| Về $Apartment</h6>
+            <h6>| Về Apartment</h6>
             <h2>Dịch vụ cung cấp căn hộ tốt nhất</h2>
           </div>
           <div class="accordion" id="accordionExample">
@@ -49,7 +49,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                Chúng tôi <strong>chuyên cung cấp và quản lý</strong> các căn hộ cao cấp trên địa bàn TP. Hồ Chí Minh.  <span style="color: blue;">Phân phối và quản lý hơn 100 căn hộ thuộc hệ thống $Apartment, </span>bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của $Apartment.</div>
+                Chúng tôi <strong>chuyên cung cấp và quản lý</strong> các căn hộ cao cấp trên địa bàn TP. Hồ Chí Minh.  <span style="color: blue;">Phân phối và quản lý hơn 100 căn hộ thuộc hệ thống Apartment, </span>bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của Apartment.</div>
               </div>
             </div>
             <div class="accordion-item">
@@ -206,9 +206,9 @@
                       <img src="${pageContext.request.contextPath}/assets/user/images/ban-do-tphcm.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>$Apartment - Hệ thống cung cấp căn hộ/chung cư cao cấp</h4>
-                      <p>Phân phối hơn 100 căn hộ/chung cư cao cấp trên địa bàn thành phố Hồ Chí Minh, bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của $Apartment
-                      <br><br>Chúng tôi có 5 hệ thống/chi nhánh $Apartment trên địa bàn thành phố Hồ Chí Minh và nhiều căn hộ/ chung cư cao cấp khác từ các người môi giới.</p>
+                      <h4>Apartment - Hệ thống cung cấp căn hộ/chung cư cao cấp</h4>
+                      <p>Phân phối hơn 100 căn hộ/chung cư cao cấp trên địa bàn thành phố Hồ Chí Minh, bước đệm đầu tiên trong tầm nhìn chiến lược vươn tầm quốc tế của Apartment
+                      <br><br>Chúng tôi có 5 hệ thống/chi nhánh Apartment trên địa bàn thành phố Hồ Chí Minh và nhiều căn hộ/ chung cư cao cấp khác từ các người môi giới.</p>
                       <div class="icon-button">
                         <a href="${pageContext.request.contextPath }/contact"><i class="fa fa-calendar"></i>Liên hệ</a>
                       </div>
@@ -233,7 +233,7 @@
                     </div>
                     <div class="col-lg-3">
                       <h4>Mô tả chi tiết</h4>
-                      <p>Mỗi hệ thống/chi nhánh $Apartment sẽ có 5 tầng, 1 tầng sẽ có 5 phòng với đầy đủ tiện nghi khép kín(siêu thị, hồ bơi, phòng gym, nhà thuốc, cafe, ..)<br><br>Các căn hộ/chung cư trong 1 hệ thống tất cả đều chung 1 thiết kế và full nội thất, thang máy, sảnh lễ tân, hầm xe, bảo vệ 24/7, ở từ 2-4 người, cho nuôi pet. Liên hệ để biết thêm thông tin.</p>
+                      <p>Mỗi hệ thống/chi nhánh Apartment sẽ có 5 tầng, 1 tầng sẽ có 5 phòng với đầy đủ tiện nghi khép kín(siêu thị, hồ bơi, phòng gym, nhà thuốc, cafe, ..)<br><br>Các căn hộ/chung cư trong 1 hệ thống tất cả đều chung 1 thiết kế và full nội thất, thang máy, sảnh lễ tân, hầm xe, bảo vệ 24/7, ở từ 2-4 người, cho nuôi pet. Liên hệ để biết thêm thông tin.</p>
                       <div class="icon-button">
                         <a href="${pageContext.request.contextPath }/systemapartment"><i class="fa fa-calendar"></i> Xem thêm chi tiết</a>
                       </div>
@@ -283,10 +283,10 @@
       <c:forEach var="post" items="${posts }">
        <div class="col-lg-4 col-md-6">
           <div class="item">
-             <a href="${pageContext.request.contextPath}/userapartmentdetails"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
+             <a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}"><img src="${pageContext.request.contextPath}/assets/user/images/150canho/${post.avatar}" alt=""></a>
             <span class="category">Căn hộ</span>
             <h6>3 tỷ VNĐ</h6>
-             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails">${post.subject}</a></h4>
+             <h4><a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}">${post.subject}</a></h4>
             <ul>
               <li>Phòng ngủ: <span>${post.bedroom}</span></li>
               <li>Phòng tắm: <span>${post.bathroom}</span></li>
@@ -296,7 +296,7 @@
               <li>Địa chỉ: <span>${post.address}</span></li>
             </ul>
             <div class="main-button">
-              <a href="${pageContext.request.contextPath}/userapartmentdetails">Chi tiết</a>
+              <a href="${pageContext.request.contextPath}/userapartmentdetails?id=${post.id}">Chi tiết</a>
             </div>
           </div>
         </div> 

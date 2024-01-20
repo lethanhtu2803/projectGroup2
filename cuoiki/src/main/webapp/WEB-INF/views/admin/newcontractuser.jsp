@@ -30,35 +30,31 @@
                 </div>
               </div>
               <div class="card-body">
-                <form action="newcontractuser.html">
+                <form action="${pageContext.request.contextPath }/admin/newcontractuser?action=newOwner" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="inputName">Họ và tên</label>
-                  <input type="text" id="inputName" class="form-control">
+                  <input type="text" id="inputName" class="form-control" name="name">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Ngày sinh</label>
-                  <input type="text" id="datepicker" class="form-control">
+                  <input type="text" id="datepicker" class="form-control" name="birthday">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Số điện thoại</label>
-                  <input type="text" id="inputName" class="form-control">
+                  <input type="text" id="inputName" class="form-control" name="phone">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Địa chỉ</label>
-                  <input type="text" id="inputName" class="form-control">
+                  <input type="text" id="inputName" class="form-control" name="address">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Số CCCD</label>
-                  <input type="text" id="inputName" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="inputName">Ngày tạo</label>
-                  <input type="text" id="datepicker1" class="form-control">
+                  <input type="text" id="inputName" class="form-control" name="identifyNumber">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Ảnh đại diện</label>
                   <br>
-                  <input style="margin-left: 100px; display: none;"  type="file" required accept="image/*" id="inputAvatar" multiple>
+                  <input style="margin-left: 100px; display: none;"  type="file" required accept="image/*" id="inputAvatar" name="file">
                   <label style="margin-top: 5px; cursor: pointer;" for="inputAvatar" class="custom-upload-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Tải lên</label>
                   
                   <label style="margin-top: 5px; cursor: pointer; margin-left: 5px;" class="custom-upload-btn" id="capture-btn"><i class="fa-solid fa-camera"></i> &nbsp; Chụp ảnh</label>
